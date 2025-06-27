@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital del Móvil - Centro de Estudios y Estrategias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .header .description {
+            font-size: 1.1em;
+            color: #a0aec0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .estudios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .estudio-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #4299e1;
+            cursor: pointer;
+        }
+
+        .estudio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-left-color: #2b6cb0;
+        }
+
+        .estudio-card.principal {
+            border-left-color: #48bb78;
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1), rgba(255, 255, 255, 0.95));
+        }
+
+        .estudio-card.principal:hover {
+            border-left-color: #38a169;
+        }
+
+        .estudio-card.coming-soon {
+            border-left-color: #ed8936;
+            opacity: 0.7;
+            cursor: default;
+        }
+
+        .estudio-card.coming-soon:hover {
+            transform: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: #4299e1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .card-icon.principal {
+            background: #48bb78;
+        }
+
+        .card-icon.coming-soon {
+            background: #ed8936;
+        }
+
+        .card-title {
+            font-size: 1.4em;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .card-status {
+            background: #48bb78;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-left: auto;
+        }
+
+        .card-status.coming-soon {
+            background: #ed8936;
+        }
+
+        .card-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .card-features li {
+            color: #718096;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .card-features.coming-soon li::before {
+            content: "⏳";
+        }
+
+        .card-button {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-button:hover {
+            background: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        .card-button.principal {
+            background: #48bb78;
+        }
+
+        .card-button.principal:hover {
+            background: #38a169;
+        }
+
+        .card-button.coming-soon {
+            background: #a0aec0;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #4299e1;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .update-badge {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .estudios-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Hospital del Móvil</h1>
+            <div class="subtitle">Centro de Estudios y Estrategias Digitales</div>
+            <div class="description">
+                Análisis, estrategias y herramientas para el crecimiento del negocio de reparación de dispositivos móviles en Zona Rosa, CDMX
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h3 style="text-align: center; margin-bottom: 25px; color: #2d3748;">📊 Resumen Ejecutivo</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Nichos Identificados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+300%</div>
+                    <div class="stat-label">ROI Proyectado</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Competidores Analizados</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="estudios-grid">
+            <!-- Dashboard Principal -->
+            <div class="estudio-card principal" onclick="window.open('dashboard-estrategia.html', '_blank')">
+                <div class="card-header">
+                    <div class="card-icon principal">📊</div>
+                    <div>
+                        <div class="card-title">Dashboard Estratégico Interactivo</div>
+                        <span class="card-status">Disponible</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Estrategia digital completa con análisis por nichos, calculadora ROI, calendario estacional y plan de implementación detallado.
+                </div>
+                <ul class="card-features">
+                    <li>6 nichos específicos con estrategias personalizadas</li>
+                    <li>Calculadora ROI interactiva en tiempo real</li>
+                    <li>Calendario estacional con picos de venta</li>
+                    <li>Plan de contenido por red social y nicho</li>
+                    <li>Promociones sin descuentos por segmento</li>
+                    <li>KPIs y métricas de seguimiento</li>
+                </ul>
+                <a href="dashboard-estrategia.html" class="card-button principal" target="_blank">
+                    🚀 Acceder al Dashboard
+                </a>
+            </div>
+
+            <!-- Análisis Competencia -->
+            <div class="estudio-card coming-soon">
+                <div class="card-header">
+                    <div class="card-icon coming-soon">🔍</div>
+                    <div>
+                        <div class="card-title">Análisis Competencia Detallado</div>
+                        <span class="card-status coming-soon">Próximamente</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Investigación profunda de 7 competidores directos con análisis FODA, estrategias digitales, precios y oportunidades de mercado.
+                </div>
+                <ul class="card-features coming-soon">
+                    <li>Perfiles detallados de competidores</li>
+                    <li>Análisis FODA interactivo</li>
+                    <li>Monitor de precios competitivos</li>
+                    <li>Análisis de reputación online</li>
+                    <li>Oportunidades de diferenciación</li>
+                    <li>Benchmarking de servicios</li>
+                </ul>
+                <a href="#" class="card-button coming-soon">
+                    ⏳ En Desarrollo
+                </a>
+            </div>
+
+            <!-- Estudio de Mercado -->
+            <div class="estudio-card coming-soon">
+                <div class="card-header">
+                    <div class="card-icon coming-soon">📈</div>
+                    <div>
+                        <div class="card-title">Estudio de Mercado Zona Rosa</div>
+                        <span class="card-status coming-soon">Planificado</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Análisis del mercado local, demografía, patrones de consumo y proyecciones de crecimiento para dispositivos móviles en Zona Rosa.
+                </div>
+                <ul class="card-features coming-soon">
+                    <li>Demografía detallada Zona Rosa</li>
+                    <li>Análisis de tráfico peatonal</li>
+                    <li>Estacionalidad de demanda</li>
+                    <li>Perfil socioeconómico clientes</li>
+                    <li>Proyecciones de mercado 5 años</li>
+                    <li>Oportunidades de expansión</li>
+                </ul>
+                <a href="#" class="card-button coming-soon">
+                    📋 En Planificación
+                </a>
+            </div>
+
+            <!-- Plan de Implementación -->
+            <div class="estudio-card coming-soon">
+                <div class="card-header">
+                    <div class="card-icon coming-soon">🛠️</div>
+                    <div>
+                        <div class="card-title">Plan de Implementación Detallado</div>
+                        <span class="card-status coming-soon">Q2 2025</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Guía paso a paso para implementar todas las estrategias digitales con cronograma, presupuesto y métricas de éxito.
+                </div>
+                <ul class="card-features coming-soon">
+                    <li>Cronograma semanal 6 meses</li>
+                    <li>Presupuesto detallado por actividad</li>
+                    <li>Checklist de implementación</li>
+                    <li>Templates y recursos descargables</li>
+                    <li>Sistema de seguimiento y ajustes</li>
+                    <li>Escenarios de contingencia</li>
+                </ul>
+                <a href="#" class="card-button coming-soon">
+                    🗓️ Q2 2025
+                </a>
+            </div>
+
+            <!-- Herramientas Digitales -->
+            <div class="estudio-card coming-soon">
+                <div class="card-header">
+                    <div class="card-icon coming-soon">⚡</div>
+                    <div>
+                        <div class="card-title">Herramientas Digitales</div>
+                        <span class="card-status coming-soon">En Diseño</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Suite de herramientas interactivas: generador de contenido, calculadora de precios, templates de redes sociales y más.
+                </div>
+                <ul class="card-features coming-soon">
+                    <li>Generador de posts automático</li>
+                    <li>Calculadora de precios inteligente</li>
+                    <li>Templates por red social</li>
+                    <li>Planificador de contenido</li>
+                    <li>Tracker de métricas en vivo</li>
+                    <li>Automatización de reportes</li>
+                </ul>
+                <a href="#" class="card-button coming-soon">
+                    🔧 En Diseño
+                </a>
+            </div>
+
+            <!-- Análisis de ROI -->
+            <div class="estudio-card coming-soon">
+                <div class="card-header">
+                    <div class="card-icon coming-soon">💰</div>
+                    <div>
+                        <div class="card-title">Simulador Financiero Avanzado</div>
+                        <span class="card-status coming-soon">Beta</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Simulador financiero con múltiples escenarios, proyecciones detalladas y análisis de sensibilidad para optimizar inversiones.
+                </div>
+                <ul class="card-features coming-soon">
+                    <li>Simulaciones Monte Carlo</li>
+                    <li>Análisis de sensibilidad</li>
+                    <li>Comparación de escenarios</li>
+                    <li>Proyecciones 3-5 años</li>
+                    <li>Optimización de presupuesto</li>
+                    <li>Análisis de riesgo financiero</li>
+                </ul>
+                <a href="#" class="card-button coming-soon">
+                    🧪 Versión Beta
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <strong>🏥 Hospital del Móvil - Centro de Estudios Estratégicos</strong><br>
+                Zona Rosa, Ciudad de México | 10+ años de experiencia<br>
+                <span style="color: #4a5568;">Última actualización: Junio 2025</span>
+                <span class="update-badge">Dashboard Activo</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para tracking de clics en estudios
+        document.querySelectorAll('.estudio-card:not(.coming-soon)').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'A') {
+                    const link = this.querySelector('a');
+                    if (link) {
+                        window.open(link.href, '_blank');
+                    }
+                }
+            });
+        });
+
+        // Función para mostrar mensaje en estudios no disponibles
+        document.querySelectorAll('.estudio-card.coming-soon').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.card-title').textContent;
+                alert(`📋 ${title}\n\nEste estudio está en desarrollo. Te notificaremos cuando esté disponible.\n\nPor ahora, puedes usar el Dashboard Estratégico Interactivo que ya está completo y funcional.`);
+            });
+        });
+
+        // Animación de números en las estadísticas
+        function animateNumbers() {
+            document.querySelectorAll('.stat-number').forEach(element => {
+                const finalNumber = element.textContent;
+                const isPercentage = finalNumber.includes('%');
+                const isPlus = finalNumber.includes('+');
+                const cleanNumber = parseInt(finalNumber.replace(/[^\d]/g, ''));
+                
+                let current = 0;
+                const increment = cleanNumber / 30;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= cleanNumber) {
+                        element.textContent = finalNumber;
+                        clearInterval(timer);
+                    } else {
+                        let display = Math.floor(current);
+                        if (isPlus) display = '+' + display;
+                        if (isPercentage) display += '%';
+                        element.textContent = display;
+                    }
+                }, 50);
+            });
+        }
+
+        // Inicializar animaciones cuando la página carga
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(animateNumbers, 500);
+        });
+    </script>
+</body>
+</html>
