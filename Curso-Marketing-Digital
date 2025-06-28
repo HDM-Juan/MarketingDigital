@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Marketing Digital - Hospital del Móvil</title>
+    <style>
+        :root {
+            --primary-red: #B91C3C;
+            --primary-red-light: #DC2626;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray-medium: #E5E7EB;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+            --success-green: #15803D;
+            --warning-orange: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--gray-light) 0%, var(--gray-medium) 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .course-navigation {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .course-tab {
+            padding: 12px 20px;
+            background: var(--gray-medium);
+            color: var(--text-dark);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .course-tab:hover, .course-tab.active {
+            background: var(--primary-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lesson-content {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .lesson-content.hidden {
+            display: none;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .lesson-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .lesson-info h2 {
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+
+        .lesson-duration {
+            color: var(--text-gray);
+            font-size: 0.9em;
+        }
+
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .concept-card {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .concept-card h3 {
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, rgba(185, 28, 60, 0.05), var(--white));
+            border: 1px solid var(--primary-red);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example-box h4 {
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+
+        .exercise-box {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--success-green);
+        }
+
+        .exercise-box h4 {
+            color: var(--success-green);
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: #FEF3C7;
+            border-left: 4px solid var(--warning-orange);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tip-box {
+            background: #F0FDF4;
+            border-left: 4px solid var(--success-green);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .platform-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .platform-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .platform-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .nicho-comparison {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--gray-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: var(--gray-light);
+            border-radius: 5px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 15px;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .lesson-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .nav-button {
+            background: var(--primary-red);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: var(--primary-red-light);
+            transform: translateY(-2px);
+        }
+
+        .nav-button:disabled {
+            background: var(--gray-medium);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .course-tabs {
+                flex-direction: column;
+            }
+            
+            .lesson-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <div class="logo-placeholder">🏥</div>
+                Curso Marketing Digital
+            </h1>
+            <div style="font-size: 1.3em; color: var(--text-gray); margin-bottom: 20px;">
+                Hospital del Móvil - Capacitación Administrativa
+            </div>
+            <div style="color: var(--text-gray);">
+                Aprende a dominar las redes sociales y plataformas digitales para impulsar nuestro negocio
+            </div>
+        </div>
+
+        <div class="course-navigation">
+            <h3 style="margin-bottom: 20px; color: var(--primary-red);">📚 Contenido del Curso</h3>
+            <div class="course-tabs">
+                <button class="course-tab active" onclick="showLesson('intro')">🎯 Introducción</button>
+                <button class="course-tab" onclick="showLesson('redes-nichos')">📱 Redes y Nichos</button>
+                <button class="course-tab" onclick="showLesson('facebook')">📘 Facebook</button>
+                <button class="course-tab" onclick="showLesson('instagram')">📸 Instagram</button>
+                <button class="course-tab" onclick="showLesson('tiktok')">🎵 TikTok</button>
+                <button class="course-tab" onclick="showLesson('whatsapp')">💬 WhatsApp Business</button>
+                <button class="course-tab" onclick="showLesson('meta-suite')">🎛️ Meta Business Suite</button>
+                <button class="course-tab" onclick="showLesson('google-analytics')">📊 Google Analytics</button>
+                <button class="course-tab" onclick="showLesson('google-ads')">🎯 Google Ads</button>
+                <button class="course-tab" onclick="showLesson('conversiones')">🔄 Conversiones</button>
+                <button class="course-tab" onclick="showLesson('metricas')">📈 Métricas</button>
+                <button class="course-tab" onclick="showLesson('campanas')">🚀 Campañas</button>
+                <button class="course-tab" onclick="showLesson('optimizacion')">⚡ Optimización</button>
+                <button class="course-tab" onclick="showLesson('plantillas')">🎨 Plantillas</button>
+                <button class="course-tab" onclick="showLesson('practica')">🎮 Práctica</button>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 1: INTRODUCCIÓN -->
+        <div id="intro" class="lesson-content">
+            <div class="lesson-header">
+                <div class="lesson-icon">🎯</div>
+                <div class="lesson-info">
+                    <h2>Lección 1: Introducción al Marketing Digital</h2>
+                    <div class="lesson-duration">⏱️ 8 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>💡 ¿Por qué necesitamos marketing digital?</h4>
+                <p>Imagina que Hospital del Móvil es como un restaurante increíble pero escondido en un callejón. Tenemos el mejor servicio, pero nadie lo sabe. El marketing digital es como poner letreros luminosos en las calles principales para que la gente nos encuentre.</p>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>🏆 Nuestros Objetivos</h3>
+                    <ul>
+                        <li>Que más gente sepa que existimos</li>
+                        <li>Mostrar por qué somos mejores que la competencia</li>
+                        <li>Convertir seguidores en clientes reales</li>
+                        <li>Fidelizar a nuestros clientes actuales</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>📱 Nuestras Plataformas</h3>
+                    <ul>
+                        <li><strong>Facebook:</strong> Para informar y educar</li>
+                        <li><strong>Instagram:</strong> Para mostrar nuestro trabajo</li>
+                        <li><strong>TikTok:</strong> Para llegar a jóvenes</li>
+                        <li><strong>WhatsApp:</strong> Para atender clientes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Consejo clave:</strong> Cada red social es como un canal de TV diferente. Facebook es como el noticiero, Instagram como una revista de moda, TikTok como MTV, y WhatsApp como el teléfono de casa.
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 1: Reconocimiento</h4>
+                <p><strong>Tarea:</strong> Abre cada red social en tu teléfono y observa:</p>
+                <ul>
+                    <li>¿Qué tipo de contenido ves en cada una?</li>
+                    <li>¿Cómo se comporta la gente en cada red?</li>
+                    <li>¿Qué empresas locales sigues y por qué?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 2: REDES Y NICHOS -->
+        <div id="redes-nichos" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📱</div>
+                <div class="lesson-info">
+                    <h2>Lección 2: Redes Sociales y Nuestros Nichos</h2>
+                    <div class="lesson-duration">⏱️ 10 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🎯 Nuestros 6 Nichos Principales</h4>
+                <p>Como un sastre que hace trajes diferentes para cada ocasión, nosotros creamos contenido específico para cada tipo de cliente.</p>
+            </div>
+
+            <div class="platform-showcase">
+                <div class="platform-card">
+                    <div class="platform-icon">🚗</div>
+                    <h3>Repartidores</h3>
+                    <p><strong>Facebook:</strong> Tips de cuidado<br>
+                    <strong>Instagram:</strong> Reparaciones rápidas<br>
+                    <strong>TikTok:</strong> Trucos preventivos<br>
+                    <strong>WhatsApp:</strong> Servicio express</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">👩‍👧‍👦</div>
+                    <h3>Madres Trabajadoras</h3>
+                    <p><strong>Facebook:</strong> Consejos familiares<br>
+                    <strong>Instagram:</strong> Casos antes/después<br>
+                    <strong>TikTok:</strong> Soluciones rápidas<br>
+                    <strong>WhatsApp:</strong> Atención personalizada</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">🏃‍♂️</div>
+                    <h3>Deportistas/Aventureros</h3>
+                    <p><strong>Facebook:</strong> Protección extrema<br>
+                    <strong>Instagram:</strong> Fundas resistentes<br>
+                    <strong>TikTok:</strong> Tests de resistencia<br>
+                    <strong>WhatsApp:</strong> Asesoría técnica</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">💼</div>
+                    <h3>Ejecutivos Zona Rosa</h3>
+                    <p><strong>Facebook:</strong> Servicios premium<br>
+                    <strong>Instagram:</strong> Profesionalismo<br>
+                    <strong>TikTok:</strong> Menos relevante<br>
+                    <strong>WhatsApp:</strong> Servicio VIP</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">🏨</div>
+                    <h3>Turistas</h3>
+                    <p><strong>Facebook:</strong> Ubicación/horarios<br>
+                    <strong>Instagram:</strong> Servicio rápido<br>
+                    <strong>TikTok:</strong> Emergencias divertidas<br>
+                    <strong>WhatsApp:</strong> Soporte inmediato</p>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-icon">🏠</div>
+                    <h3>Vecinos de la Zona</h3>
+                    <p><strong>Facebook:</strong> Comunidad local<br>
+                    <strong>Instagram:</strong> Vida del barrio<br>
+                    <strong>TikTok:</strong> Tendencias locales<br>
+                    <strong>WhatsApp:</strong> Servicio de confianza</p>
+                </div>
+            </div>
+
+            <div class="nicho-comparison">
+                <h3 style="color: var(--primary-red); margin-bottom: 15px;">📊 Comparación por Canal</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--gray-light);">
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Canal</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Mejor Para</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Tipo de Contenido</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Frecuencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Facebook</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Madres, Ejecutivos, Vecinos</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Educativo, Informativo</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">3-4 veces/semana</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Instagram</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Todos los nichos</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Visual, Antes/Después</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Diario</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>TikTok</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Repartidores, Deportistas</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Entretenido, Viral</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">4-5 veces/semana</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>WhatsApp</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Atención personalizada</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Servicio, Promociones</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">24/7 respuesta</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 2: Identificación de Nichos</h4>
+                <p><strong>Tarea:</strong> Durante una semana, identifica qué nicho representa cada cliente que llega:</p>
+                <ul class="checklist">
+                    <li>Anota el tipo de cliente en una libreta</li>
+                    <li>Observa qué problemas tiene cada grupo</li>
+                    <li>Piensa qué contenido les serviría más</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 3: FACEBOOK -->
+        <div id="facebook" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📘</div>
+                <div class="lesson-info">
+                    <h2>Lección 3: Facebook - La Red de Información</h2>
+                    <div class="lesson-duration">⏱️ 9 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📺 Facebook es como el noticiero de barrio</h4>
+                <p>La gente va a Facebook para informarse, leer noticias, conocer sobre negocios locales y tomar decisiones importantes. Es donde los adultos buscan información confiable.</p>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>👥 Audiencia Principal</h3>
+                    <ul>
+                        <li>Madres de familia (25-45 años)</li>
+                        <li>Ejecutivos (30-50 años)</li>
+                        <li>Vecinos de la zona (25-55 años)</li>
+                        <li>Gente que busca información antes de comprar</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>📝 Tipo de Contenido</h3>
+                    <ul>
+                        <li><strong>Educativo:</strong> "¿Por qué se rompe la pantalla?"</li>
+                        <li><strong>Testimoniales:</strong> Historias de clientes</li>
+                        <li><strong>Promociones:</strong> Ofertas especiales</li>
+                        <li><strong>Horarios/Ubicación:</strong> Información práctica</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>✏️ Ejemplos de Posts Exitosos para Facebook</h4>
+                <div style="margin: 15px 0;">
+                    <strong>Para Madres Trabajadoras:</strong><br>
+                    "👩‍👧‍👦 ¿Tu hijo rompió la pantalla del iPad? No te preocupes, en Hospital del Móvil lo reparamos mientras trabajas. ¡30 minutos y como nuevo! #MadresTransquilas #ReparacionesRapidas"
+                </div>
+                <div style="margin: 15px 0;">
+                    <strong>Para Ejecutivos:</strong><br>
+                    "💼 ¿Pantalla rota en día de junta importante? Servicio express para profesionales en Zona Rosa. Diagnóstico gratis y reparación inmediata. Tu imagen profesional no puede esperar."
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Consejos para Facebook:</strong>
+                <ul>
+                    <li>Usa títulos que hagan preguntas: "¿Sabías que...?"</li>
+                    <li>Incluye ubicación: "En Zona Rosa"</li>
+                    <li>Agrega horarios de atención</li>
+                    <li>Usa hashtags locales: #ZonaRosa #CDMX</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Errores que debemos evitar:</strong>
+                <ul>
+                    <li>Posts muy largos (máximo 2 párrafos)</li>
+                    <li>Muchas promociones seguidas</li>
+                    <li>Fotos borrosas o mal iluminadas</li>
+                    <li>No responder comentarios</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 3: Crear tu primer post de Facebook</h4>
+                <p><strong>Práctica:</strong> Escribe un post para madres trabajadoras sobre cuidado preventivo del celular:</p>
+                <textarea style="width: 100%; height: 100px; padding: 10px; border: 1px solid var(--gray-medium); border-radius: 5px;" placeholder="Escribe aquí tu post..."></textarea>
+                <div style="margin-top: 10px;">
+                    <strong>Debe incluir:</strong> Emoji, pregunta, beneficio, llamada a la acción, hashtag
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 4: INSTAGRAM -->
+        <div id="instagram" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📸</div>
+                <div class="lesson-info">
+                    <h2>Lección 4: Instagram - La Vitrina Visual</h2>
+                    <div class="lesson-duration">⏱️ 10 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🖼️ Instagram es como el escaparate de una tienda</h4>
+                <p>La gente entra con los ojos. Si ven algo bonito, se detienen. Si no les gusta lo que ven en 3 segundos, se van. Todo debe verse profesional y atractivo.</p>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>📱 Formatos de Instagram</h3>
+                    <ul>
+                        <li><strong>Feed Posts:</strong> Fotos cuadradas principales</li>
+                        <li><strong>Stories:</strong> Videos/fotos de 24h</li>
+                        <li><strong>Reels:</strong> Videos cortos (15-30 seg)</li>
+                        <li><strong>IGTV:</strong> Videos largos (hasta 60 min)</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🎯 Qué Funciona Mejor</h3>
+                    <ul>
+                        <li><strong>Antes/Después:</strong> Pantallas rotas → reparadas</li>
+                        <li><strong>Proceso:</strong> Cómo reparamos paso a paso</li>
+                        <li><strong>Testimoniales:</strong> Clientes contentos</li>
+                        <li><strong>Behind the scenes:</strong> El día a día</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📸 Ejemplos Visuales por Nicho</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Repartidores:</strong><br>
+                        📱➡️✨ "Celular de trabajo como nuevo en 20 min"<br>
+                        <em>Foto: Pantalla rota vs reparada</em>
+                    </div>
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Madres:</strong><br>
+                        👩‍👧‍👦📱 "iPad de los niños salvado otra vez"<br>
+                        <em>Video: Proceso de reparación rápida</em>
+                    </div>
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Deportistas:</strong><br>
+                        💪📱 "Resistió el CrossFit pero no la caída"<br>
+                        <em>Foto: Celular con case deportivo reparado</em>
+                    </div>
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Ejecutivos:</strong><br>
+                        💼📱 "Listo para la junta de las 3pm"<br>
+                        <em>Foto: iPhone reparado, elegante, profesional</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Consejos para Instagram:</strong>
+                <ul>
+                    <li><strong>Colores:</strong> Usa siempre nuestros colores (rojo corporativo + blanco)</li>
+                    <li><strong>Iluminación:</strong> Fotos siempre con buena luz natural</li>
+                    <li><strong>Hashtags:</strong> Usa entre 5-10 hashtags relevantes</li>
+                    <li><strong>Stories:</strong> Comparte el día a día, más informal</li>
+                    <li><strong>Timing:</strong> Publica entre 12-2pm y 6-8pm</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 4: Planificar contenido visual</h4>
+                <p><strong>Tarea:</strong> Toma 5 fotos durante el día de trabajo:</p>
+                <ul class="checklist">
+                    <li>1 foto antes/después de una reparación</li>
+                    <li>1 foto del proceso de diagnóstico</li>
+                    <li>1 foto del taller ordenado y limpio</li>
+                    <li>1 foto de un cliente contento</li>
+                    <li>1 foto de herramientas organizadas</li>
+                </ul>
+                <p><strong>Evaluación:</strong> ¿Se ven profesionales? ¿Transmiten confianza?</p>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 5: TIKTOK -->
+        <div id="tiktok" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">🎵</div>
+                <div class="lesson-info">
+                    <h2>Lección 5: TikTok - El Entretenimiento que Vende</h2>
+                    <div class="lesson-duration">⏱️ 8 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🎪 TikTok es como un show de entretenimiento</h4>
+                <p>La gente viene a divertirse, no a comprar. PERO si los entretienes mientras les enseñas algo útil, después van a recordarte cuando necesiten el servicio.</p>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>🎯 Audiencia TikTok</h3>
+                    <ul>
+                        <li>Repartidores jóvenes (18-35 años)</li>
+                        <li>Deportistas/aventureros (20-40 años)</li>
+                        <li>Gente que busca tips rápidos</li>
+                        <li>Usuarios de iPhone y Samsung</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>🎬 Tipos de Videos</h3>
+                    <ul>
+                        <li><strong>Educativos rápidos:</strong> "3 formas de NO romper tu pantalla"</li>
+                        <li><strong>Antes/después:</strong> Transformaciones impresionantes</li>
+                        <li><strong>Mitos vs realidad:</strong> "¿El arroz realmente funciona?"</li>
+                        <li><strong>Trends adaptados:</strong> Tendencias + reparaciones</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🎬 Guión para Video TikTok - "Mito del Arroz"</h4>
+                <div style="background: var(--gray-light); padding: 15px; margin: 10px 0; border-radius: 8px;">
+                    <strong>Segundos 0-3:</strong> Hook visual<br>
+                    📱💧 "¿Se te mojó el celular? NO hagas esto..."<br><br>
+                    
+                    <strong>Segundos 4-10:</strong> Problema común<br>
+                    🍚 [Muestra celular en arroz] "Todo mundo dice que el arroz lo salva, PERO..."<br><br>
+                    
+                    <strong>Segundos 11-20:</strong> Solución real<br>
+                    ✅ "Lo que SÍ funciona: apágalo YA, sácale la batería si puedes, y ven inmediatamente"<br><br>
+                    
+                    <strong>Segundos 21-25:</strong> Call to action<br>
+                    🏥 "En Hospital del Móvil salvamos celulares mojados. Zona Rosa, 10 años de experiencia"
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Fórmula del éxito en TikTok:</strong>
+                <ol>
+                    <li><strong>Hook (0-3 seg):</strong> Pregunta impactante o visual llamativo</li>
+                    <li><strong>Problema (4-10 seg):</strong> Situación que todos conocen</li>
+                    <li><strong>Solución (11-20 seg):</strong> Tu conocimiento experto</li>
+                    <li><strong>Call to action (21-25 seg):</strong> Dónde encontrarte</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ NO hagas en TikTok:</strong>
+                <ul>
+                    <li>Videos largos y aburridos</li>
+                    <li>Solo promocionar servicios</li>
+                    <li>Copiar trends sin adaptarlos</li>
+                    <li>Mala calidad de audio</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 5: Crear tu primer TikTok</h4>
+                <p><strong>Reto:</strong> Graba un video de 15 segundos sobre "Qué NO hacer cuando se te cae el celular"</p>
+                <div style="background: var(--gray-light); padding: 15px; margin: 10px 0; border-radius: 8px;">
+                    <strong>Checklist antes de grabar:</strong>
+                    <ul class="checklist">
+                        <li>¿Tengo buena luz?</li>
+                        <li>¿Se escucha bien mi voz?</li>
+                        <li>¿El hook es interesante?</li>
+                        <li>¿Enseño algo útil?</li>
+                        <li>¿Menciono Hospital del Móvil al final?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 6: WHATSAPP BUSINESS -->
+        <div id="whatsapp" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">💬</div>
+                <div class="lesson-info">
+                    <h2>Lección 6: WhatsApp Business - Tu Mejor Vendedor</h2>
+                    <div class="lesson-duration">⏱️ 10 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📞 WhatsApp es como tu mejor empleado de ventas</h4>
+                <p>Está disponible 24/7, nunca se cansa, siempre es amable, y puede atender a varios clientes al mismo tiempo. Además, la gente prefiere WhatsApp que las llamadas.</p>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>🛠️ Funciones Principales</h3>
+                    <ul>
+                        <li><strong>Respuestas automáticas:</strong> Primera impresión</li>
+                        <li><strong>Catálogo:</strong> Mostrar servicios y precios</li>
+                        <li><strong>Mensajes rápidos:</strong> Respuestas predefinidas</li>
+                        <li><strong>Etiquetas:</strong> Organizar conversaciones</li>
+                        <li><strong>Broadcast:</strong> Enviar a muchos clientes</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>📋 Configuración Básica</h3>
+                    <ul>
+                        <li><strong>Perfil de negocio:</strong> Logo + info completa</li>
+                        <li><strong>Horarios:</strong> Cuándo respondemos</li>
+                        <li><strong>Ubicación:</strong> Zona Rosa, CDMX</li>
+                        <li><strong>Descripción:</strong> "Reparación de celulares, 10+ años"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>💬 Mensajes Automáticos por Nicho</h4>
+                <div style="margin: 15px 0;">
+                    <strong>Mensaje general (Primera vez):</strong><br>
+                    "¡Hola! 👋 Gracias por contactar Hospital del Móvil 🏥📱<br><br>
+                    🔧 Reparamos tu celular en Zona Rosa<br>
+                    ⚡ Diagnóstico GRATIS<br>
+                    📍 A 2 cuadras del Ángel de la Independencia<br><br>
+                    ¿En qué podemos ayudarte hoy?"
+                </div>
+                
+                <div style="margin: 15px 0;">
+                    <strong>Para repartidores (detectar por horario/urgencia):</strong><br>
+                    "¡Hola! Veo que necesitas reparación urgente 🚗📱<br><br>
+                    ⚡ SERVICIO EXPRESS para repartidores<br>
+                    ⏰ 20-30 minutos promedio<br>
+                    💰 Descuento del 10% con credencial<br><br>
+                    ¿Qué le pasó a tu equipo de trabajo?"
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Mejores prácticas WhatsApp:</strong>
+                <ul>
+                    <li><strong>Responde rápido:</strong> Máximo 15 minutos en horario laboral</li>
+                    <li><strong>Usa emojis:</strong> Pero no exageres (máximo 3 por mensaje)</li>
+                    <li><strong>Sé personal:</strong> Usa el nombre del cliente</li>
+                    <li><strong>Confirma todo:</strong> Citas, precios, tiempos</li>
+                    <li><strong>Seguimiento:</strong> "¿Cómo quedó tu reparación?"</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 6: Configurar respuestas automáticas</h4>
+                <p><strong>Tarea:</strong> Crear 3 mensajes automáticos:</p>
+                <ol>
+                    <li><strong>Bienvenida general</strong> (fuera de horario)</li>
+                    <li><strong>Mensaje ocupado</strong> (cuando estés atendiendo)</li>
+                    <li><strong>Seguimiento</strong> (24h después de la reparación)</li>
+                </ol>
+                <textarea style="width: 100%; height: 80px; padding: 10px; border: 1px solid var(--gray-medium); border-radius: 5px; margin: 5px 0;" placeholder="Mensaje de bienvenida..."></textarea>
+                <textarea style="width: 100%; height: 80px; padding: 10px; border: 1px solid var(--gray-medium); border-radius: 5px; margin: 5px 0;" placeholder="Mensaje cuando estás ocupado..."></textarea>
+                <textarea style="width: 100%; height: 80px; padding: 10px; border: 1px solid var(--gray-medium); border-radius: 5px; margin: 5px 0;" placeholder="Mensaje de seguimiento..."></textarea>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 7: META BUSINESS SUITE -->
+        <div id="meta-suite" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">🎛️</div>
+                <div class="lesson-info">
+                    <h2>Lección 7: Meta Business Suite - Tu Centro de Control</h2>
+                    <div class="lesson-duration">⏱️ 10 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🎛️ Meta Business Suite es como el tablero de un avión</h4>
+                <p>Desde aquí controlas Facebook, Instagram y WhatsApp al mismo tiempo. Ves todas las métricas, programas posts, respondes mensajes y manejas anuncios. Todo en un solo lugar.</p>
+            </div>
+
+            <div class="progress-indicator">
+                <div class="progress-step">
+                    <div class="step-number">1</div>
+                    <span>Configurar Cuenta</span>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">2</div>
+                    <span>Conectar Páginas</span>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">3</div>
+                    <span>Programar Contenido</span>
+                </div>
+                <div class="progress-step">
+                    <div class="step-number">4</div>
+                    <span>Monitorear Métricas</span>
+                </div>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>📊 Panel Principal</h3>
+                    <ul>
+                        <li><strong>Inicio:</strong> Resumen de todas las cuentas</li>
+                        <li><strong>Mensajes:</strong> Facebook + Instagram juntos</li>
+                        <li><strong>Publicaciones:</strong> Programar y gestionar</li>
+                        <li><strong>Estadísticas:</strong> Rendimiento general</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>⚡ Funciones Clave</h3>
+                    <ul>
+                        <li><strong>Programación:</strong> Posts automáticos</li>
+                        <li><strong>Respuestas:</strong> Mensajes unificados</li>
+                        <li><strong>Anuncios:</strong> Crear campañas</li>
+                        <li><strong>Insights:</strong> Análisis de audiencia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📅 Ejemplo de Programación Semanal</h4>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <thead>
+                        <tr style="background: var(--gray-light);">
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Día</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Facebook</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Instagram</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Lunes</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Tip de cuidado</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Antes/después</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">1:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Miércoles</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Testimonio cliente</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Video proceso</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">7:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Viernes</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Promoción fin de semana</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Behind the scenes</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">12:00 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Conceptos básicos Meta Business:</strong>
+                <ul>
+                    <li><strong>Alcance:</strong> Cuántas personas vieron tu post</li>
+                    <li><strong>Interacciones:</strong> Likes, comentarios, shares</li>
+                    <li><strong>Impresiones:</strong> Cuántas veces se mostró tu post</li>
+                    <li><strong>CTR:</strong> % de gente que hizo clic en tu enlace</li>
+                    <li><strong>Engagement:</strong> Qué tan activa está tu audiencia</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 7: Navegar Meta Business Suite</h4>
+                <p><strong>Exploración guiada:</strong></p>
+                <ul class="checklist">
+                    <li>Entra a business.facebook.com</li>
+                    <li>Explora cada sección del menú principal</li>
+                    <li>Programa un post para mañana</li>
+                    <li>Revisa las estadísticas de la semana pasada</li>
+                    <li>Busca la sección de mensajes unificados</li>
+                </ul>
+                <p><strong>Pregunta:</strong> ¿Cuál es la métrica más importante que ves?</p>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 8: GOOGLE ANALYTICS -->
+        <div id="google-analytics" class="lesson-content hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📊</div>
+                <div class="lesson-info">
+                    <h2>Lección 8: Google Analytics - El Detective Digital</h2>
+                    <div class="lesson-duration">⏱️ 9 minutos</div>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>🔍 Google Analytics es como un detective privado</h4>
+                <p>Te dice exactamente quién visita tu sitio web, de dónde vienen, qué buscan, cuánto tiempo se quedan, y si al final se convierten en clientes. Es como tener una cámara secreta en tu negocio.</p>
+            </div>
+
+            <div class="lesson-grid">
+                <div class="concept-card">
+                    <h3>👥 ¿Quién te visita?</h3>
+                    <ul>
+                        <li><strong>Demografía:</strong> Edad, género, ubicación</li>
+                        <li><strong>Intereses:</strong> Qué les gusta</li>
+                        <li><strong>Tecnología:</strong> Android vs iPhone</li>
+                        <li><strong>Comportamiento:</strong> Nuevos vs recurrentes</li>
+                    </ul>
+                </div>
+
+                <div class="concept-card">
+                    <h3>📍 ¿De dónde vienen?</h3>
+                    <ul>
+                        <li><strong>Búsqueda orgánica:</strong> Google gratis</li>
+                        <li><strong>Redes sociales:</strong> Facebook, Instagram, TikTok</li>
+                        <li><strong>Directo:</strong> Escriben tu URL</li>
+                        <li><strong>Referencias:</strong> Otros sitios web</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h4>📈 Métricas Clave para Hospital del Móvil</h4>
+                <div style="background: var(--gray-light); padding: 15px; margin: 10px 0; border-radius: 8px;">
+                    <strong>🎯 Métricas de Tráfico:</strong><br>
+                    • <strong>Usuarios únicos:</strong> Cuánta gente nueva nos conoce<br>
+                    • <strong>Sesiones:</strong> Cuántas veces nos visitan<br>
+                    • <strong>Páginas por sesión:</strong> Qué tanto exploran<br>
+                    • <strong>Tiempo en sitio:</strong> Si les interesa lo que ven<br><br>
+                    
+                    <strong>📱 Métricas de Comportamiento:</strong><br>
+                    • <strong>Páginas más visitadas:</strong> Qué servicios interesan más<br>
+                    • <strong>Tasa de rebote:</strong> Si se van inmediatamente<br>
+                    • <strong>Dispositivos:</strong> Móvil vs desktop<br>
+                    • <strong>Ubicación:</strong> Si vienen de Zona Rosa/CDMX
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Interpretación práctica:</strong>
+                <ul>
+                    <li><strong>Mucho tráfico de "cambio de pantalla":</strong> Enfócate en ese servicio</li>
+                    <li><strong>Visitantes de Polanco/Condesa:</strong> Amplía tu área de influencia</li>
+                    <li><strong>Picos en enero:</strong> Confirma tu estacionalidad</li>
+                    <li><strong>Alto rebote en precios:</strong> Tal vez están muy altos</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Errores comunes al interpretar Analytics:</strong>
+                <ul>
+                    <li>Obsesionarse con visitas sin ver conversiones</li>
+                    <li>No filtrar el tráfico interno (empleados)</li>
+                    <li>Comparar días diferentes (lunes vs sábado)</li>
+                    <li>No considerar eventos externos (días festivos)</li>
+                </ul>
+            </div>
+
+            <div class="exercise-box">
+                <h4>🎮 Ejercicio 8: Interpretar datos básicos</h4>
+                <p><strong>Caso práctico:</strong> Imagina estos datos de la semana pasada:</p>
+                <div style="background: var(--gray-light); padding: 15px; margin: 10px 0; border-radius: 8px;">
+                    • 450 visitantes únicos<br>
+                    • 70% desde móviles<br>
+                    • 40% viene de Instagram<br>
+                    • Página más vista: "Cambio de pantalla iPhone"<br>
+                    • Tiempo promedio: 2 minutos<br>
+                    • 80% son de CDMX
+                </div>
+                <p><strong>Pregunta:</strong> ¿Qué 3 decisiones tomarías basado en estos datos?</p>
+                <textarea style="width: 100%; height: 100px; padding: 10px; border: 1px solid var(--gray-medium); border-radius: 5px;" placeholder="Escribe tus conclusiones..."></textarea>
+            </div>
+        </div>
+
+        <!-- Navegación entre lecciones -->
+        <div class="lesson-navigation">
+            <button class="nav-button" id="prevBtn" onclick="previousLesson()" disabled>⬅️ Anterior</button>
+            <button class="nav-button" id="nextBtn" onclick="nextLesson()">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <script>
+        let currentLesson = 0;
+        const lessons = ['intro', 'redes-nichos', 'facebook', 'instagram', 'tiktok', 'whatsapp', 'meta-suite', 'google-analytics', 'google-ads', 'conversiones', 'metricas', 'campanas', 'optimizacion', 'plantillas', 'practica'];
+
+        function showLesson(lessonId) {
+            // Ocultar todas las lecciones
+            document.querySelectorAll('.lesson-content').forEach(lesson => {
+                lesson.classList.add('hidden');
+            });
+            
+            // Mostrar la lección seleccionada
+            document.getElementById(lessonId).classList.remove('hidden');
+            
+            // Actualizar tabs activos
+            document.querySelectorAll('.course-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Actualizar índice de lección actual
+            currentLesson = lessons.indexOf(lessonId);
+            updateNavigationButtons();
+        }
+
+        function nextLesson() {
+            if (currentLesson < lessons.length - 1) {
+                currentLesson++;
+                showLessonByIndex(currentLesson);
+            }
+        }
+
+        function previousLesson() {
+            if (currentLesson > 0) {
+                currentLesson--;
+                showLessonByIndex(currentLesson);
+            }
+        }
+
+        function showLessonByIndex(index) {
+            const lessonId = lessons[index];
+            
+            // Ocultar todas las lecciones
+            document.querySelectorAll('.lesson-content').forEach(lesson => {
+                lesson.classList.add('hidden');
+            });
+            
+            // Mostrar la lección seleccionada
+            document.getElementById(lessonId).classList.remove('hidden');
+            
+            // Actualizar tabs activos
+            document.querySelectorAll('.course-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activar el tab correspondiente
+            const tabs = document.querySelectorAll('.course-tab');
+            tabs[index].classList.add('active');
+            
+            updateNavigationButtons();
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentLesson === 0;
+            nextBtn.disabled = currentLesson === lessons.length - 1;
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavigationButtons();
+        });
+    </script>
+</body>
+</html>
