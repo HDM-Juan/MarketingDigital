@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -406,6 +405,31 @@
                 </a>
             </div>
 
+            <!-- Suite de Herramientas Digitales -->
+            <div class="estudio-card principal" onclick="window.open('herramientas-digitales.html', '_blank')">
+                <div class="card-header">
+                    <div class="card-icon principal">⚡</div>
+                    <div>
+                        <div class="card-title">Suite de Herramientas Digitales</div>
+                        <span class="card-status">Disponible</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Centro de comando completo con IA, automatización, analytics y gestión multiplataforma para dominar el marketing digital.
+                </div>
+                <ul class="card-features">
+                    <li>Meta Business Suite + TikTok + Google Ads integrados</li>
+                    <li>IA avanzada: Claude 4, Gemini 2.5, Apollo AI</li>
+                    <li>Análisis automático de mensajes y tendencias</li>
+                    <li>Templates Canva Teams personalizados</li>
+                    <li>Workflow automatizado completo</li>
+                    <li>ROI tracking en tiempo real</li>
+                </ul>
+                <a href="herramientas-digitales.html" class="card-button principal" target="_blank">
+                    🚀 Acceder a Herramientas
+                </a>
+            </div>
+
             <!-- Análisis Competencia -->
             <div class="estudio-card coming-soon">
                 <div class="card-header">
@@ -481,31 +505,6 @@
                 </a>
             </div>
 
-            <!-- Herramientas Digitales -->
-            <div class="estudio-card coming-soon">
-                <div class="card-header">
-                    <div class="card-icon coming-soon">⚡</div>
-                    <div>
-                        <div class="card-title">Herramientas Digitales</div>
-                        <span class="card-status coming-soon">En Diseño</span>
-                    </div>
-                </div>
-                <div class="card-description">
-                    Suite de herramientas interactivas: generador de contenido, calculadora de precios, templates de redes sociales y más.
-                </div>
-                <ul class="card-features coming-soon">
-                    <li>Generador de posts automático</li>
-                    <li>Calculadora de precios inteligente</li>
-                    <li>Templates por red social</li>
-                    <li>Planificador de contenido</li>
-                    <li>Tracker de métricas en vivo</li>
-                    <li>Automatización de reportes</li>
-                </ul>
-                <a href="#" class="card-button coming-soon">
-                    🔧 En Diseño
-                </a>
-            </div>
-
             <!-- Análisis de ROI -->
             <div class="estudio-card coming-soon">
                 <div class="card-header">
@@ -537,7 +536,7 @@
                 <strong>🏥 Hospital del Móvil - Centro de Estudios Estratégicos</strong><br>
                 Zona Rosa, Ciudad de México | 10+ años de experiencia<br>
                 <span style="color: #4a5568;">Última actualización: Junio 2025</span>
-                <span class="update-badge">Dashboard Activo</span>
+                <span class="update-badge">5 Estudios Activos</span>
             </div>
         </div>
     </div>
@@ -559,7 +558,7 @@
         document.querySelectorAll('.estudio-card.coming-soon').forEach(card => {
             card.addEventListener('click', function() {
                 const title = this.querySelector('.card-title').textContent;
-                alert(`📋 ${title}\n\nEste estudio está en desarrollo. Te notificaremos cuando esté disponible.\n\nPor ahora, puedes usar el Dashboard Estratégico Interactivo que ya está completo y funcional.`);
+                alert(`📋 ${title}\n\nEste estudio está en desarrollo. Te notificaremos cuando esté disponible.\n\nPor ahora, puedes usar los 5 estudios disponibles que ya están completos y funcionales.`);
             });
         });
 
