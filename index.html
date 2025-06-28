@@ -292,7 +292,7 @@
                     <div class="stat-label">Años de Experiencia</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">6</div>
+                    <div class="stat-number">8</div>
                     <div class="stat-label">Estudios Disponibles</div>
                 </div>
                 <div class="stat-item">
@@ -457,28 +457,53 @@
                 </a>
             </div>
 
-            <!-- Análisis Competencia -->
-            <div class="estudio-card coming-soon">
+            <!-- Simulador Financiero Avanzado -->
+            <div class="estudio-card principal" onclick="window.open('Simuldor-Financiero.html', '_blank')">
                 <div class="card-header">
-                    <div class="card-icon coming-soon">🔍</div>
+                    <div class="card-icon principal">💰</div>
                     <div>
-                        <div class="card-title">Análisis Competencia Detallado</div>
-                        <span class="card-status coming-soon">Próximamente</span>
+                        <div class="card-title">Simulador Financiero Avanzado</div>
+                        <span class="card-status">Disponible</span>
                     </div>
                 </div>
                 <div class="card-description">
-                    Investigación profunda de 7 competidores directos con análisis FODA, estrategias digitales, precios y oportunidades de mercado.
+                    Simulador financiero completo con múltiples escenarios, proyecciones detalladas, análisis Monte Carlo y análisis de inversión para optimizar decisiones.
                 </div>
-                <ul class="card-features coming-soon">
-                    <li>Perfiles detallados de competidores</li>
-                    <li>Análisis FODA interactivo</li>
-                    <li>Monitor de precios competitivos</li>
-                    <li>Análisis de reputación online</li>
-                    <li>Oportunidades de diferenciación</li>
-                    <li>Benchmarking de servicios</li>
+                <ul class="card-features">
+                    <li>Proyecciones financieras basadas en datos históricos</li>
+                    <li>Análisis de escenarios (optimista, realista, pesimista)</li>
+                    <li>Simulaciones Monte Carlo con 10,000 iteraciones</li>
+                    <li>Análisis de sensibilidad en tiempo real</li>
+                    <li>Evaluación de inversiones con VPN y TIR</li>
+                    <li>Dashboard interactivo con métricas clave</li>
                 </ul>
-                <a href="#" class="card-button coming-soon">
-                    ⏳ En Desarrollo
+                <a href="Simuldor-Financiero.html" class="card-button principal" target="_blank">
+                    💡 Abrir Simulador
+                </a>
+            </div>
+
+            <!-- Análisis Competencia -->
+            <div class="estudio-card principal" onclick="window.open('FODA-Competencia.html', '_blank')">
+                <div class="card-header">
+                    <div class="card-icon principal">🔍</div>
+                    <div>
+                        <div class="card-title">Análisis Competencia Detallado</div>
+                        <span class="card-status">Disponible</span>
+                    </div>
+                </div>
+                <div class="card-description">
+                    Investigación profunda con análisis FODA estratégico, matriz de posicionamiento, ventajas competitivas sostenibles y recomendaciones priorizadas basadas en 10 años de datos.
+                </div>
+                <ul class="card-features">
+                    <li>Matriz de posicionamiento real vs. competencia</li>
+                    <li>Análisis FODA con amenazas y oportunidades claras</li>
+                    <li>Ventajas competitivas sostenibles identificadas</li>
+                    <li>Dashboard de métricas clave vs. sector</li>
+                    <li>Estrategias defensivas y ofensivas</li>
+                    <li>Plan de acción priorizado por impacto</li>
+                </ul>
+                <a href="FODA-Competencia.html" class="card-button principal" target="_blank">
+                    🔍 Ver Análisis Completo
                 </a>
             </div>
 
@@ -531,31 +556,6 @@
                     🗓️ Q2 2025
                 </a>
             </div>
-
-            <!-- Análisis de ROI -->
-            <div class="estudio-card coming-soon">
-                <div class="card-header">
-                    <div class="card-icon coming-soon">💰</div>
-                    <div>
-                        <div class="card-title">Simulador Financiero Avanzado</div>
-                        <span class="card-status coming-soon">Beta</span>
-                    </div>
-                </div>
-                <div class="card-description">
-                    Simulador financiero con múltiples escenarios, proyecciones detalladas y análisis de sensibilidad para optimizar inversiones.
-                </div>
-                <ul class="card-features coming-soon">
-                    <li>Simulaciones Monte Carlo</li>
-                    <li>Análisis de sensibilidad</li>
-                    <li>Comparación de escenarios</li>
-                    <li>Proyecciones 3-5 años</li>
-                    <li>Optimización de presupuesto</li>
-                    <li>Análisis de riesgo financiero</li>
-                </ul>
-                <a href="#" class="card-button coming-soon">
-                    🧪 Versión Beta
-                </a>
-            </div>
         </div>
 
         <div class="footer">
@@ -563,7 +563,7 @@
                 <strong>🏥 Hospital del Móvil - Centro de Estudios Estratégicos</strong><br>
                 Zona Rosa, Ciudad de México | 10+ años de experiencia<br>
                 <span style="color: #4a5568;">Última actualización: Junio 2025</span>
-                <span class="update-badge">6 Estudios Activos</span>
+                <span class="update-badge">8 Estudios Activos</span>
             </div>
         </div>
     </div>
@@ -585,7 +585,7 @@
         document.querySelectorAll('.estudio-card.coming-soon').forEach(card => {
             card.addEventListener('click', function() {
                 const title = this.querySelector('.card-title').textContent;
-                alert(`📋 ${title}\n\nEste estudio está en desarrollo. Te notificaremos cuando esté disponible.\n\nPor ahora, puedes usar los 5 estudios disponibles que ya están completos y funcionales.`);
+                alert(`📋 ${title}\n\nEste estudio está en desarrollo. Te notificaremos cuando esté disponible.\n\nPor ahora, puedes usar los 8 estudios disponibles que ya están completos y funcionales.`);
             });
         });
 
