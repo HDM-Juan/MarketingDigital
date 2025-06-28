@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudio de Mercado - Hospital del Móvil (Zona Rosa, CDMX)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    h1, h2, h3, h4, h5, h6 { margin: 1em 0 0.5em; color: #800020; } /* wine red for headings */
+    h1 { font-size: 2em; text-align: center; padding: 1em 0; background: #fff; margin: 0 0 1em; }
+    .tabs { max-width: 1200px; margin: 0 auto; }
+    .tab-nav { display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0 0 1em; background: #ececec; border-bottom: 4px solid #800020; }
+    .tab-nav li { flex: 1; text-align: center; padding: 1em; cursor: pointer; background: #ececec; border-right: 1px solid #ddd; }
+    .tab-nav li.active { background: #800020; color: #fff; font-weight: bold; }
+    .tab-content { display: none; padding: 1em; background: #fff; border-radius: 4px; margin-bottom: 2em; }
+    .tab-content.active { display: block; }
+    /* Responsive: stack tabs on small screens */
+    @media(max-width: 600px) {
+      .tab-nav li { font-size: 0.9em; padding: 0.5em; }
+    }
+    /* Styles for charts and figures */
+    .chart-container { max-width: 600px; margin: 1em auto; }
+    canvas { width: 100% !important; height: auto !important; } /* make charts responsive */
+    .figure-note { font-size: 0.9em; text-align: center; color: #555; margin-bottom: 1em; }
+    /* Styles for interactive calculator */
+    .calc-container { background: #f1f1f1; padding: 1em; border-radius: 5px; margin: 1em 0; }
+    .calc-container input { width: 100%; max-width: 150px; padding: 0.2em; margin: 0.2em 0; }
+    .calc-result { font-weight: bold; color: #800020; font-size: 1.2em; }
+    /* KPI counters */
+    .kpi { display: inline-block; margin: 0.5em 1em; text-align: center; }
+    .kpi .value { font-size: 2em; font-weight: bold; color: #800020; }
+    .kpi .label { display: block; font-size: 0.9em; color: #555; }
+  </style>
+</head>
+<body>
+
+<h1>Estudio de Mercado – Sector Reparación de Dispositivos Móviles (Zona Rosa, CDMX)</h1>
+
+<div class="tabs">
+  <!-- Tab navigation -->
+  <ul class="tab-nav">
+    <li class="active" onclick="openTab('tab1')">1. Análisis Demográfico</li>
+    <li onclick="openTab('tab2')">2. Sector Móvil en México</li>
+    <li onclick="openTab('tab3')">3. Estacionalidad y Comportamiento</li>
+    <li onclick="openTab('tab4')">4. Análisis de Ubicación</li>
+    <li onclick="openTab('tab5')">5. Proyecciones y Oportunidades</li>
+  </ul>
+
+  <!-- Tab 1: Análisis Demográfico Zona Rosa -->
+  <div id="tab1" class="tab-content active">
+    <h2>1. Análisis Demográfico de Zona Rosa</h2>
+    <p><strong>Perfil socioeconómico:</strong> La Zona Rosa, ubicada en la colonia Juárez (Alcaldía Cuauhtémoc), es principalmente una zona comercial y de entretenimiento con una población residente reducida (solo ~3,000 habitantes en sus 27 manzanas:contentReference[oaicite:0]{index=0}). Sin embargo, atrae a una gran cantidad de visitantes diarios de niveles socioeconómicos medios y altos. Un estudio basado en datos de Facebook revela que el 44% de las personas que transitan o visitan Zona Rosa pertenecen a un nivel de ingresos medio, 38% a medio-alto y 8% a nivel alto, mientras que solo 7% son de nivel medio-bajo y 2% bajo:contentReference[oaicite:1]{index=1}. En otras palabras, alrededor del 90% del público en la zona tiene un poder adquisitivo de medio a alto, lo cual sugiere una base de clientes con capacidad de gasto para servicios como reparaciones.</p>
+    <p><strong>Densidad poblacional y afluencia peatonal:</strong> Debido a su vocación comercial y turística, la afluencia peatonal en Zona Rosa es muy superior a su población residente. De hecho, se estima que 84% de las personas en la zona en un momento dado son visitantes transitorios (población “flotante”), frente a solo 9% residentes locales (y 7% trabajadores que laboran allí):contentReference[oaicite:2]{index=2}. Las principales arterias – Paseo de la Reforma, Avenida Chapultepec, Avenida Insurgentes y Eje 2 Poniente – concentran la mayor parte del tráfico peatonal:contentReference[oaicite:3]{index=3}. Puntos estratégicos como la Glorieta de Insurgentes (Metro/Metrobús), Metro Sevilla y Metro Cuauhtémoc son focos de alta concentración de personas:contentReference[oaicite:4]{index=4}. Asimismo, sitios cercanos como la Torre Mayor y el centro comercial Reforma 222 registran gran afluencia, contribuyendo al flujo de potenciales clientes en la zona:contentReference[oaicite:5]{index=5}.</p>
+    <p><strong>Poder adquisitivo y segmentos:</strong> La presencia predominante de visitantes de nivel medio y medio-alto indica un buen poder adquisitivo promedio en la zona. Muchos visitantes son profesionales que trabajan en corporativos cercanos o turistas nacionales e internacionales alojados en hoteles de Zona Rosa y Reforma. Estos segmentos suelen estar dispuestos a pagar por servicios de calidad y conveniencia. El segmento alto (8%) aunque minoritario, representa nichos de clientes que demandan servicio premium (por ejemplo, reparación de dispositivos de gama alta o urgencias inmediatas) y están dispuestos a pagar más por rapidez y garantía.</p>
+    <p><strong>Patrones de movilidad:</strong> Zona Rosa es altamente accesible. Muchas personas llegan en transporte público (estaciones de Metro y Metrobús en las inmediaciones) o caminando desde oficinas y atracciones cercanas. La zona también cuenta con vías importantes que facilitan el acceso vehicular (aunque el estacionamiento es limitado). Gran parte de la “población flotante” usa la zona de paso hacia otros destinos:contentReference[oaicite:6]{index=6}, lo que significa que existen horarios pico de tránsito peatonal. Los datos indican que los días laborales y fines de semana por la tarde-noche ven mayor movimiento. En particular, los viernes representan alrededor del 18% de las visitas semanales a la zona, seguidos de cerca por sábados (~17%) y curiosamente martes (~16%):contentReference[oaicite:7]{index=7}. Esto sugiere picos de actividad los fines de semana (por vida nocturna y turismo) y un día entre semana muy activo (posiblemente por eventos o afluencia de oficinistas el martes). Los horarios de mayor actividad comercial tienden a concentrarse en las tardes y primeras horas de la noche, cuando confluyen los empleados saliendo de oficinas y los visitantes de restaurantes, bares y tiendas. Durante la hora de comida (mediodía a 3pm) también hay un repunte gracias a trabajadores de la zona que aprovechan para hacer compras o gestiones (como reparar su teléfono) en ese lapso.</p>
+    <p><strong>Conclusión demográfica:</strong> Zona Rosa ofrece una base de clientes potenciales muy interesante para Hospital del Móvil: un flujo constante y denso de personas, mayormente de clase media y media-alta, con necesidades tecnológicas constantes. La combinación de oficinistas locales, turistas y residentes garantiza demanda tanto en horario laboral (dispositivos de trabajo que requieren mantenimiento) como en horario extendido y fines de semana (accidentes nocturnos, turistas con contratiempos tecnológicos). Aprovechar este perfil demográfico —alto tránsito peatonal y buen poder adquisitivo— será clave para maximizar las ventas en esta ubicación.</p>
+    <!-- Socioeconomic Pie Chart -->
+    <div class="chart-container">
+      <canvas id="chartSocio"></canvas>
+      <p class="figure-note">Figura: Distribución socioeconómica de visitantes en Zona Rosa:contentReference[oaicite:8]{index=8}</p>
+    </div>
+  </div>
+
+  <!-- Tab 2: Análisis del Sector Móvil en México -->
+  <div id="tab2" class="tab-content">
+    <h2>2. Análisis del Sector Móvil en México</h2>
+    <p><strong>Penetración de smartphones:</strong> México ha alcanzado una penetración casi universal de la telefonía móvil. Al tercer trimestre de 2024, el 95.7% de las 150.1 millones de líneas móviles activas del país eran de smartphones:contentReference[oaicite:9]{index=9}:contentReference[oaicite:10]{index=10}. Esto equivale a una disponibilidad masiva de dispositivos inteligentes, convirtiendo al smartphone en el principal medio de conexión para la población. En niveles socioeconómicos altos y medios la tenencia supera el 100% (muchas personas poseen más de un teléfono o línea), mientras que en los niveles más bajos (D/E) la penetración de telefonía móvil es alrededor de 92%:contentReference[oaicite:11]{index=11}. No obstante, existe brecha en el tipo de dispositivo: en segmentos D/E aproximadamente 68% de las líneas ya son smartphones:contentReference[oaicite:12]{index=12}, comparado con tasas cercanas o superiores al 90% en niveles medios y altos:contentReference[oaicite:13]{index=13}. Aún así, la tendencia de los últimos años apunta a una democratización: los teléfonos inteligentes se han vuelto asequibles a gran escala, permeando incluso la base de la pirámide social.</p>
+    <p><strong>Marcas líderes y participación de mercado:</strong> El ecosistema de fabricantes de smartphones en México ha cambiado considerablemente en el último lustro. Samsung sigue liderando en cuota de mercado, pero ha caído a su punto más bajo histórico con ~29.6% del parque de equipos para 3T-2024:contentReference[oaicite:14]{index=14}:contentReference[oaicite:15]{index=15}. Otras marcas han aprovechado este declive: Motorola se ubica ya con ~21.7% de participación:contentReference[oaicite:16]{index=16}, convirtiéndose en el segundo jugador gracias a su enfoque en gama media/alta. Apple también ha crecido, alcanzando ~16.8% del mercado impulsado en parte por mantener modelos anteriores a precios accesibles. Marcas chinas relativamente nuevas como Xiaomi (~7.0%) y OPPO (~7.3%) han escalado rápidamente, situándose en el Top 5:contentReference[oaicite:19]{index=19}. Otras marcas emergentes (vivo ~1.7%, HONOR ~2.8%) también ganan terreno:contentReference[oaicite:20]{index=20}:contentReference[oaicite:21]{index=21}. En conjunto, seis marcas (Motorola, Xiaomi, Apple, vivo, HONOR, OPPO) ganaron más de 31 puntos de cuota desde 2019, ocupando el espacio que dejaron Samsung, Huawei y LG:contentReference[oaicite:22]{index=22}. Esto refleja consumidores más informados que buscan la mejor relación costo-beneficio, optando por dispositivos de gama media con características avanzadas a precios moderados.</p>
+    <p><strong>Frecuencia de reemplazo de dispositivos:</strong> Los mexicanos solían renovar su smartphone aproximadamente cada 24 meses, pero este ciclo se ha alargado recientemente. Para 2024, el tiempo promedio de reemplazo es de ~25.7 meses:contentReference[oaicite:23]{index=23}, un aumento respecto a ~23.6 meses (~2 años) registrado en 2019:contentReference[oaicite:24]{index=24}. Varias razones explican esta extensión: por un lado, los dispositivos actuales (incluso de gama media) tienen mejor desempeño y duran más tiempo útiles; por otro, los consumidores hacen un mayor esfuerzo financiero para adquirir smartphones de mejores características, con un gasto promedio de $4,520 MXN en un nuevo equipo en 1T-2024:contentReference[oaicite:25]{index=25}. Al invertir en teléfonos más caros y duraderos, los usuarios buscan que les rindan por más tiempo antes de cambiarlos. Además, solo 28% de usuarios cambia de equipo por necesidad real (e.g. descompostura irreparable); el 72% lo hace por deseo de actualizarse o por ofertas del operador:contentReference[oaicite:26]{index=26}. Esto implica que muchos dispositivos son remplazados aún funcionando, quedando como equipos de segunda mano o de repuesto. De hecho, en 2019 unos 35 millones de mexicanos reemplazaron su smartphone, generando más de 11 millones de equipos seminuevos en circulación:contentReference[oaicite:27]{index=27}. Muchos se conservan (28.6%) o se heredan a familiares (29.7%) en vez de ser vendidos (solo ~15.6% los revende):contentReference[oaicite:28]{index=28}:contentReference[oaicite:29]{index=29}. Estas dinámicas indican un mercado maduro: los usuarios estiran la vida útil de sus dispositivos y la renovación es más paulatina.</p>
+    <p><strong>Gasto promedio en reparaciones:</strong> El costo de reparar un celular varía enormemente según la marca, modelo y tipo de daño. En México, puede ir desde reparaciones básicas de ~$500 MXN hasta casos extremos de $8,000 MXN:contentReference[oaicite:30]{index=30} (por ejemplo, cambiar la pantalla de un gama alta premium). En promedio, un técnico reporta tickets típicos entre $500 y $8,000 MXN por equipo:contentReference[oaicite:31]{index=31}. Las fallas más comunes son: pantallas rotas (posiblemente la mitad de los casos), equipos mojados, baterías deterioradas y puertos de carga dañados:contentReference[oaicite:32]{index=32}. Cada una tiene rangos de precio distintos: sustituir una pantalla puede costar desde ~$1,000 hasta $8,700 MXN en algunos iPhone:contentReference[oaicite:33]{index=33}; resolver un daño por agua alrededor de $550 MXN:contentReference[oaicite:34]{index=34}; cambiar una batería $550–$1,400; reparar un conector de carga $450–$1,200 MXN:contentReference[oaicite:35]{index=35}. Estos precios en Ciudad de México suelen ser ligeramente más altos (+$100 a $300) que en zonas con menor renta:contentReference[oaicite:36]{index=36}. Aún con este gasto, cabe destacar que reparar suele ser económicamente conveniente frente a reemplazar el dispositivo: según técnicos, arreglar un celular puede resultar ~35% más barato que comprar uno nuevo equivalente:contentReference[oaicite:37]{index=37}:contentReference[oaicite:38]{index=38}. Por ello, muchos consumidores comparan el costo de la refacción vs. el de un equipo nuevo antes de decidir.</p>
+    <p><strong>Tendencias de reparación vs. reemplazo:</strong> A medida que los smartphones se vuelven más asequibles (hoy casi 69% del mercado mexicano son equipos de gama media:contentReference[oaicite:39]{index=39}) y existe una amplia oferta de modelos, algunos usuarios optan por reemplazar en vez de reparar cuando enfrentan una avería costosa. El promedio de ticket de reparación ha tendido a bajar en los últimos años, en parte porque abundan modelos de gama media-baja donde el usuario no invertirá, por ejemplo, $3,000 MXN en reparar un teléfono que nuevo costó $5,000 MXN. No obstante, la creciente conciencia sobre la sustentabilidad y el valor residual de los dispositivos está fomentando la cultura de la reparación. Estudios indican que 61% de los mexicanos desearían smartphones más sencillos de reparar para no tener que cambiarlos con tanta frecuencia:contentReference[oaicite:40]{index=40}. Además, tras agotar garantía, muchos recurren a talleres independientes. El negocio de reparación sigue siendo rentable: el mercado global de reparación de smartphones se valora en decenas de miles de millones de dólares anuales, reflejando que siempre habrá demanda de arreglar dispositivos dañados. En México, mientras el ciclo de vida útil se extiende, podríamos ver un ligero aumento en servicios de mantenimiento (ej. reemplazo de baterías a los 2-3 años) y reparación de componentes en vez de sustitución completa del equipo. El equilibrio entre reparar o reemplazar seguirá dependiendo del costo relativo: por ejemplo, una reparación que cueste <30% del valor de un equipo probablemente será preferida, mientras que daños muy costosos (como placas lógicas en gama baja) pueden llevar al usuario a comprar nuevo. En resumen, aunque la tentación de estrenar modelo es alta, la reparación mantiene un espacio importante por razones económicas y ecológicas.</p>
+    <!-- Market Share Chart -->
+    <div class="chart-container">
+      <canvas id="chartMarca"></canvas>
+      <p class="figure-note">Figura: Participación de mercado de smartphones en México (3T 2024):contentReference[oaicite:41]{index=41}:contentReference[oaicite:42]{index=42}</p>
+    </div>
+  </div>
+
+  <!-- Tab 3: Estacionalidad y Comportamiento -->
+  <div id="tab3" class="tab-content">
+    <h2>3. Estacionalidad y Comportamiento del Consumidor</h2>
+    <p><strong>Picos de demanda estacional:</strong> El negocio de reparaciones de móviles presenta variaciones a lo largo del año ligadas a las actividades sociales y periodos vacacionales. Hospital del Móvil ha observado aumentos significativos en la demanda justo después de periodos de vacaciones y festivos. Por ejemplo, en enero (tras las fiestas decembrinas y vacaciones de fin de año) suele haber un repunte de clientes que buscan reparar dispositivos dañados durante las celebraciones. De igual forma, posterior a Semana Santa y Pascua (vacaciones de primavera) se incrementan las reparaciones, al igual que tras puentes festivos largos. Estos picos se explican porque en vacaciones la gente viaja, sale de la rutina y utiliza más sus dispositivos para fotos, navegación y entretenimiento – aumentando la probabilidad de accidentes (caídas, mojaduras, extravíos). De hecho, se estima que alrededor del 40% de las averías de smartphones ocurren durante los meses de verano (julio y agosto, temporada vacacional):contentReference[oaicite:43]{index=43}. Especialmente, actividades de playa y alberca, excursiones, fiestas y otros eventos veraniegos generan más incidentes con el móvil. Tras estas temporadas altas de accidentes, al regresar a la rutina muchos usuarios acuden al taller a arreglar sus equipos.</p>
+    <p><strong>Comportamiento post-vacaciones y fiestas:</strong> Durante los periodos festivos, algunas personas posponen reparaciones menores hasta que pasan las fiestas, mientras que otros sufren daños repentinos (por descuidos o percances típicos de celebraciones). En Navidad y Año Nuevo, por ejemplo, es común que entre los regalos recibidos haya smartphones nuevos, lo que puede disminuir las reparaciones en diciembre (ya que algunos optan por sustituir en vez de reparar un equipo viejo). Sin embargo, en enero la demanda retorna: quienes no recibieron un teléfono nuevo y dañaron el suyo en posadas o fiestas acuden al servicio. Asimismo, muchos aprovechan inicios de año para “poner al día” sus dispositivos (cambios de batería, limpieza de puertos, etc.). Después de Semana Santa, otro periodo de asueto en abril, se observa un fenómeno similar: aumenta la afluencia de clientes que tuvieron percances en balnearios, playas o viajes. Incluso luego de fines de semana largos (puentes), hay mini-oleadas de reparaciones. Este comportamiento post-vacacional es una constante que Hospital del Móvil puede anticipar y capitalizar (por ejemplo, preparando stock de refacciones comunes antes de estos repuntes).</p>
+    <p><strong>Impacto de lanzamientos de nuevos modelos:</strong> La introducción de smartphones de última generación (típicamente iPhone en septiembre, Samsung Galaxy S en el primer trimestre, etc.) también influye en el negocio de reparación. En los meses previos al lanzamiento de un modelo muy esperado, algunos usuarios deciden tolerar un teléfono dañado en espera de comprar el nuevo modelo en lugar de repararlo inmediatamente. Esto puede provocar ligeros bajones en reparaciones de gama alta justo antes de lanzamientos importantes. Sin embargo, tras el lanzamiento, hay efectos positivos: 1) baja el precio de modelos anteriores, haciendo que repararlos sea relativamente más rentable vs. comprar el nuevo flagship; 2) el mercado de segunda mano se activa – muchos venden su usado para comprar nuevo, y los compradores del usado a veces necesitan reparaciones menores o baterías nuevas para dejarlo a punto. Además, la salida de nuevos modelos eleva la conciencia de tener el teléfono en buen estado, por lo que algunos usuarios optan por reparar sus dispositivos para seguir usándolos un año más hasta que la nueva generación esté más probada o accesible. En síntesis, los lanzamientos pueden temporalmente desincentivar alguna reparación, pero también generan oportunidades (por ejemplo, promoción de “puesta a punto” de equipos cuando sale un nuevo modelo, para quienes deciden conservar el suyo).</p>
+    <p><strong>Patrones de accidentes comunes:</strong> Analizando las causas típicas de reparación, destacan ciertos patrones: <em>pantallas quebradas por caídas</em> (el accidente número uno, a cualquier hora y perfil de usuario), <em>daños por agua/humedad</em> (muy frecuentes en temporada de lluvias y verano: lluvia, caídas en piscinas, teléfonos mojados por descuido), <em>fallos de batería</em> (baterías que ya no retienen carga, especialmente en equipos con 2+ años de uso) y <em>puertos de carga dañados</em> (por desgaste o humedad). Por ejemplo, muchos equipos llegan con la pantalla estrellada tras caer durante salidas nocturnas o actividades deportivas. Usuarios con niños pequeños constituyen otro segmento de alto riesgo: es común que las mamás/papás trabajadoras traigan equipos golpeados o sumergidos accidentalmente por sus hijos (tablets mojadas, teléfonos arrojados al piso o al WC, etc.). Asimismo, trabajadores de oficios de riesgo o vida nocturna (personal de bares, músicos, deportistas) reportan más siniestros con sus móviles debido a su entorno. El clima también juega un rol: en CDMX, los meses de lluvia (junio a septiembre) aumentan los ingresos por equipos mojados; en calor extremo, baterías pueden hincharse o los dispositivos sobrecalentados fallan (a nivel global se atribuye ~10% de averías veraniegas al sobrecalentamiento):contentReference[oaicite:44]{index=44}. Inclusive, eventos astronómicos como cortes de energía prolongados o sismos pueden causar picos atípicos (gente que daña su teléfono en el caos de una emergencia). Entender estos patrones ayuda a Hospital del Móvil a anticipar inventario (p. ej., suficientes pantallas de modelos populares durante verano) y servicios (p. ej., promoción de “revisión de humedad” tras temporada de lluvias).</p>
+    <p><strong>Influencia del clima en reparaciones:</strong> Como se mencionó, el verano y temporada de lluvias conllevan los mayores retos para los dispositivos móviles. En verano, combinaciones de <em>calor + agua + arena</em> son letales: se estima que 7 de cada 10 fallas en verano tienen que ver con sobrecalentamiento, humedad o descuidos playeros:contentReference[oaicite:45]{index=45}. Muchos usuarios no se percatan de los riesgos: por ejemplo, atender una llamada con manos mojadas puede infiltrar agua en el equipo, causando corrosión interna:contentReference[oaicite:46]{index=46}. También, dejar el celular bajo el sol intenso (en el coche o la playa) puede dañar la batería y componentes:contentReference[oaicite:47]{index=47}. Tras las vacaciones, aproximadamente 1 de cada 10 averías atendidas se atribuye a exposición prolongada al calor:contentReference[oaicite:48]{index=48}, y 3 de cada 10 a intrusión de arena u otros residuos:contentReference[oaicite:49]{index=49}. En época de lluvias, abundan los casos de teléfonos que se mojan por la lluvia inesperada – a veces basta un pequeño ingreso de agua para generar fallas en pocos días. Hospital del Móvil debería recalcar servicios preventivos (como sellado de puertos, fundas impermeables) e informar a sus clientes sobre cuidados estacionales, lo que podría mitigar algunos daños (y a la vez posicionar la marca como experta preocupada por el cliente). En resumen, el comportamiento del consumidor en términos de reparaciones está altamente influenciado por su ciclo de vida anual (vacaciones, fiestas) y por factores ambientales, creando patrones predecibles de demanda que pueden aprovecharse con planeación y campañas de marketing estacionales.</p>
+  </div>
+
+  <!-- Tab 4: Análisis de Ubicación (Zona Rosa) -->
+  <div id="tab4" class="tab-content">
+    <h2>4. Análisis de Ubicación: Hospital del Móvil en Zona Rosa</h2>
+    <p><strong>Ventajas competitivas de la Zona Rosa:</strong> Estar ubicado en Zona Rosa le otorga a Hospital del Móvil varias ventajas estratégicas. Primero, la zona es un punto neurálgico de la Ciudad de México, conocida por su intensa actividad comercial, turística y de entretenimiento. Esto significa un flujo permanente de potenciales clientes, incluyendo visitantes que pueden necesitar un servicio de emergencia (por ejemplo, turistas con un teléfono descompuesto buscan rápido un “hospital de móviles”). Segundo, la marca “Zona Rosa” es reconocida y de fácil referencia: muchos capitalinos ubican la zona y pueden confiar en un local establecido allí más que en un puesto improvisado en otro sitio. Tercero, la diversidad de público (ejecutivos de día, turistas y jóvenes de noche) extiende el potencial horario de negocio más allá del horario de oficina tradicional. Además, la zona cuenta con seguridad y iluminación suficiente para operar en horarios vespertinos, lo cual permite a Hospital del Móvil atender urgencias hasta tarde (de hecho, la sucursal ya abre incluso los sábados medio día, capitalizando la afluencia de fin de semana).</p>
+    <p><strong>Tráfico y accesibilidad:</strong> Zona Rosa es altamente accesible mediante transporte público y privado. La cercanía de estaciones de Metro (Línea 1 y 7) y Metrobús, particularmente la estación Insurgentes a unos pasos, facilita que clientes de toda la ciudad lleguen sin complicaciones. Esto es crucial para quienes necesitan una reparación rápida y pueden desplazarse en hora de comida o después del trabajo. En auto, la zona es céntrica y conectada por vías importantes (Reforma, Chapultepec, Insurgentes), atrayendo también clientes de zonas como Polanco, Roma-Condesa, del Valle, etc., en un radio relativamente corto. Si bien el estacionamiento en Zona Rosa puede ser retador, existen pensiones y la gente se las ingenia dada la conveniencia de la ubicación. Para los clientes corporativos cercanos, la ubicación es óptima: pueden enviar a un mensajero o empleado caminando con los equipos a reparar, reduciendo tiempos muertos. Asimismo, la tienda puede ofrecer servicio a domicilio en áreas cercanas con rapidez gracias a la densidad urbana (ej. recoger equipos en oficinas sobre Reforma). En resumen, la accesibilidad de la zona amplía el alcance de la clientela potencial, desde transeúntes locales hasta personas que hacen un viaje específico a Zona Rosa por la reputación del lugar.</p>
+    <p><strong>Proximidad a oficinas corporativas y negocios:</strong> La Zona Rosa/Colonia Juárez colinda con el corredor financiero de Paseo de la Reforma, donde se ubican numerosos edificios corporativos, bancos, embajadas (la embajada de EE.UU. está a pocas cuadras), hoteles de negocios y dependencias de gobierno. Esta proximidad es una mina de oportunidades B2B: muchas empresas emiten smartphones a sus empleados y requieren mantenimiento constante (cambios de pantalla, baterías, etc., en flotas de decenas o cientos de dispositivos). De hecho, Hospital del Móvil ya cuenta entre su clientela con algunas empresas que gestionan equipos corporativos. Estando cerca, se puede ofrecer convenios de servicio corporativo, con recolecta y entrega incluso el mismo día para dispositivos críticos. También, los profesionales individuales que trabajan por la zona valoran mucho tener un taller confiable cerca: un abogado, ejecutivo o freelancer en Reforma 222 que rompe su teléfono, puede caminar a la tienda y tenerlo reparado antes de terminar la jornada. Otra fuente son los comercios y restaurantes de Zona Rosa (por ejemplo, bares, discotecas, cafeterías): sus dueños y empleados suelen necesitar reparaciones (por el intenso uso de los equipos en el negocio, cobros con celular, etc.) y aprecian la cercanía de un taller de confianza.</p>
+    <p><strong>Mapa competitivo (2 km a la redonda):</strong> En los alrededores inmediatos de Zona Rosa existen pocos competidores de igual calibre. La mayoría de la competencia en un radio de 2 km consiste en pequeños locales o puestos informales de reparación de celulares, algunos dentro de plazas de tecnología menores o mercados sobre ruedas de electrónica. Por ejemplo, en la misma Zona Rosa se pueden encontrar uno o dos locales independientes que ofrecen servicios similares, pero generalmente con menos años de trayectoria y sin la reputación establecida de Hospital del Móvil (que lleva más de 10 años en el mercado). A poca distancia, sobre Av. Chapultepec o en colonias vecinas (Juárez, Cuauhtémoc) hay pequeños talleres, pero muchos clientes prefieren un lugar consolidado y con garantías. Los centros de servicio oficiales de las marcas (por ejemplo, un Apple Authorized Service Provider o los centros de Telcel/Samsung) no abundan en esta área específica; suelen ubicarse en centros comerciales más lejanos (Polanco, Santa Fe) o en el centro histórico (Eje Central) que está a ~3 km. Esto posiciona a Hospital del Móvil como <em>el</em> taller especializado referente en la zona. Según listados de “mejores lugares de reparación” de la CDMX, Hospital del Móvil destaca con sucursal en Zona Rosa:contentReference[oaicite:50]{index=50}, mientras la mayoría de competidores de la lista se reparten en otras zonas de la ciudad. Dentro de 2 km, una competencia directa notable podría ser la presencia de un módulo de reparación en la tienda departamental Sears (Insurgentes) o pequeños negocios en plazas comerciales cercanas, pero ninguno ofrece el paquete completo de servicios, experiencia y visibilidad que Hospital del Móvil ya tiene. Esto significa que, bien aprovechada, la ubicación brinda una situación cuasi-monopólica en su nicho local: el cliente que está por la zona y busca “reparación celular cerca” probablemente encontrará a Hospital del Móvil como primera opción.</p>
+    <p><strong>Oportunidades de expansión local:</strong> Dado el éxito en Zona Rosa, se pueden explorar micro-oportunidades en los alrededores: alianzas con hoteles (dejar folletos o convenios para huéspedes que necesiten reparación), convenios con tiendas de electrónica (por ejemplo, una tienda de accesorios podría referir clientes a cambio de comisión), e incluso señalización externa más visible para atraer a transeúntes que quizás desconocen la ubicación exacta. Otra idea es instalar “puntos de recepción” en lugares de alto tráfico cercanos (ejemplo: un kiosco de recepción de equipos en Reforma 222 o en la Glorieta Insurgentes) para ganar comodidad. Sin embargo, considerando que Zona Rosa ya atrae a los clientes por sí misma, la clave será seguir destacando en servicio y reputación para retener esa ventaja competitiva local.</p>
+  </div>
+
+  <!-- Tab 5: Proyecciones y Oportunidades -->
+  <div id="tab5" class="tab-content">
+    <h2>5. Proyecciones y Oportunidades (2025-2030)</h2>
+    <p><strong>Crecimiento del mercado a 2025-2030:</strong> Se espera que el mercado de dispositivos móviles en México entre en una fase de madurez en cuanto a volumen, pero con crecimiento en valor y servicios. Para 2030, prácticamente toda la población adulta tendrá un smartphone, por lo que el número de dispositivos en uso crecerá a la par de la población. Sin embargo, la tasa de reemplazo más lenta podría significar que los usuarios conservarán más tiempo sus equipos, impulsando la demanda de reparaciones y mantenimiento. Las ventas de smartphones nuevos anualizan crecimientos modestos (~5% anual):contentReference[oaicite:51]{index=51}, pero orientadas a gamas más altas (lo que eleva la inversión por equipo). Esto puede traducirse en un mercado de reparación robusto: más dispositivos fuera de garantía circulando y más valor a recuperar mediante arreglos. A nivel de ingresos, si en 2024 el mercado mexicano de smartphones nuevos vale $149 mil millones MXN:contentReference[oaicite:52]{index=52}, el segmento de reparaciones (no cuantificado oficialmente) podría estimarse en varios miles de millones anuales y creciendo moderadamente. Globalmente, el sector de reparación de smartphones podría crecer a tasas cercanas a 3-5% anual en la segunda mitad de la década, impulsado por iniciativas de electrónica sustentable y derecho a reparar. En México, hacia 2030, podríamos ver estable o ligeramente a la baja el número de reparaciones por unidad (debido a mejor durabilidad de equipos), pero con mayor complejidad técnica y costo promedio por reparación (ya que componentes como pantallas plegables o módulos 5G son más caros de reemplazar). Un posible escenario conservador es que Hospital del Móvil experimente un crecimiento bajo pero sostenido, siguiendo la inercia del mercado; el optimista sería capitalizar plenamente nuevas áreas de servicio y expandirse geográficamente, logrando un crecimiento por encima del mercado.</p>
+    <p><strong>Nuevas tecnologías y servicios emergentes:</strong> El horizonte 2025-2030 traerá innovaciones que impactarán el negocio. Por un lado, están emergiendo nuevos factores de forma en móviles: teléfonos plegables/dobles pantallas, dispositivos modulares, realidad aumentada integrada (gafas inteligentes complementando al smartphone). Esto abre necesidades de servicio especializadas – por ejemplo, reparar la bisagra y pantalla flexible de un plegable requiere habilidades distintas (y será un servicio premium dada la escasez de proveedores capacitados). Hospital del Móvil debe anticipar estas tendencias capacitando a su personal e invirtiendo en herramientas específicas (microscopios para micro-soldadura, equipos de desensamble para cristal pegado, etc.). Por otro lado, el movimiento de <em>Right to Repair</em> (Derecho a Reparar) está ganando tracción globalmente: se están aprobando leyes en la Unión Europea y algunos estados de EUA que obligan a fabricantes a facilitar refacciones y manuales al público:contentReference[oaicite:53]{index=53}. Si México adopta políticas similares, talleres independientes podrían acceder más fácilmente a piezas originales y software de diagnóstico, mejorando la calidad y rapidez de sus reparaciones. Asimismo, crecerán servicios complementarios: seguros para smartphone (que cubren daño accidental), garantías extendidas, y soporte a domicilio. La empresa VaKeVa en CDMX, por ejemplo, ya ofrece reparación a domicilio:contentReference[oaicite:54]{index=54}, lo que apunta a que la conveniencia será un factor clave. Hospital del Móvil podría implementar servicios móviles (un técnico que visite al cliente) o alianzas con plataformas de delivery para recolectar dispositivos. Las tecnologías IoT y la proliferación de dispositivos inteligentes (smartwatches, tablets, laptops ultradelgadas) también representan campos de expansión: un taller que antes solo veía celulares ahora podría atender relojes inteligentes con cambio de pantalla, drones con reparaciones menores, o tabletas de escuelas. Identificar qué servicios emergentes son afines (por ejemplo, reparación de consolas portátiles, o calibración de cámaras móviles profesionales) permitirá diversificar la oferta y acceder a nuevos ingresos.</p>
+    <p><strong>Nichos de mercado no explotados:</strong> A pesar de la amplia base de clientes actual, aún existen nichos por atender. Uno de ellos es el mercado de <em>dispositivos de empresas y gobierno</em>: ofrecer contratos de mantenimiento a corporativos, aseguradoras o dependencias públicas. Por ejemplo, convertirse en el taller autorizado que tramite las reparaciones de cierta aseguradora de celulares, o dar servicio a flotas de smartphones de una dependencia gubernamental local. Otro nicho son los <em>usuarios de alto poder adquisitivo</em> que demandan servicio VIP: recogida del equipo en su oficina/casa, dispositivo de reemplazo temporal, reparación exprés garantizada en pocas horas. Este modelo premium podría atraer a ejecutivos que no pueden quedarse incomunicados. También está el mercado de <em>accesorios y personalización</em>: aunque Hospital del Móvil vende accesorios, podría profundizar en accesorios especializados (p.ej. protectores de grado militar, kits de lentes para cámara, etc.) y ofrecer instalación o personalización (como instalar protectores hidrogel profesionales, etc.). Un nicho geográfico no explotado completamente es la clientela foránea: ya hay personas de otras ciudades que envían sus equipos a Hospital del Móvil atraídas por su reputación. Esto podría formalizarse en un servicio nacional de reparación por paquetería, con un portal web donde se cotice, recoja vía mensajería, repare y se reenvíe el equipo. Capturar clientes fuera de la CDMX ampliaría el mercado significativamente. Finalmente, nichos técnicos como <em>recuperación de datos</em> (cuando un teléfono muere pero se quiere rescatar fotos/archivos) o <em>resurrección de equipos vintage</em> (fans que quieren arreglar un Nokia clásico o iPod) pueden sumarse como servicios boutique que diferencien al taller.</p>
+    <p><strong>Amenazas y riesgos del sector:</strong> No todo es oportunidad; hay también riesgos a considerar. Uno es el avance tecnológico que dificulta la reparación independiente: diseños sellados, partes pegadas, componentes soldados en placa (p.ej. baterías no removibles, memoria soldada) complican las reparaciones y pueden aumentar los costos o tiempos, haciendo menos viable arreglar ciertos modelos económicos. Asimismo, los fabricantes presionan por monopolizar el servicio técnico: desde mensajes de advertencia al usuario tras reparaciones no autorizadas (como alertas de “pantalla no original” en iPhone) hasta esquemas de suscripción que ofrecen renovaciones frecuentes, restando mercado a la reparación. Otra amenaza es la competencia de actores informales: aunque en Zona Rosa la posición es fuerte, a nivel ciudad surgen pequeños talleres o técnicos freelance que compiten en precio (muchas veces sacrificando calidad o garantía). La clave será mantener una propuesta de valor sólida (garantía, piezas de calidad, confianza) para que el cliente perciba que lo barato puede salir caro. También existe el factor económico: si la renta o gastos operativos en CDMX suben, puede apretar márgenes; al mismo tiempo, una recesión podría afectar el gasto de las familias, aunque históricamente la reparación se mantiene porque es más barata que reemplazar. Otro riesgo a futuro es la posible disminución del parque a reparar si tecnologías sustitutas emergen (p. ej., si para 2030 los smartphones fueran parcialmente reemplazados por lentes AR y wearables, reduciendo la cantidad de teléfonos tradicionales en uso). Sin embargo, esos escenarios de desaparición total son remotos:contentReference[oaicite:55]{index=55} – es más probable que simplemente haya más dispositivos diferentes alrededor. Finalmente, está la dependencia de suministros: la escasez o encarecimiento de refacciones (por aranceles, inflación o falta de stock de modelos antiguos) puede complicar ciertos trabajos. Hospital del Móvil deberá gestionar bien su cadena de suministro de partes (incluso importando directamente si es viable) y adaptarse rápidamente a los cambios para mitigar estos riesgos.</p>
+    <p><strong>Recomendaciones estratégicas:</strong> Con base en todo el análisis, se proponen las siguientes estrategias para Hospital del Móvil:
+      <ul>
+        <li><em>Fortalecer presencia digital (SEO/SEM):</em> Mejorar el posicionamiento en búsquedas de Google y directorios en línea para que más clientes potenciales de la CDMX (y otras ciudades) encuentren la empresa. Actualmente la llegada de clientes ha sido orgánica y por recomendaciones, pero hay oportunidad de explotar reseñas, contenido útil (ej. blogs sobre cuidado de celulares) y redes sociales para atraer volumen incremental de clientes sin depender solo del boca a boca.</li>
+        <li><em>Programas de fidelización y referidos:</em> Implementar un sencillo programa de lealtad (p. ej. después de X reparaciones, una limpieza gratis; o descuento en una segunda reparación) para incrementar el retorno de clientes actuales. Asimismo, incentivar referidos ofreciendo un descuento a quien recomiende a un amigo. Dado que la experiencia ha sido el fuerte, capitalizar la satisfacción de clientes actuales puede traer nuevos con costo de adquisición muy bajo.</li>
+        <li><em>Alianzas corporativas y B2B:</em> Formalizar convenios con empresas de la zona (y fuera de ella). Por ejemplo, ofrecer a un corporativo el servicio de mantenimiento a todos sus teléfonos de empresa con tarifa especial y prioridad. Esto asegura flujo constante de trabajo y posiciona a Hospital del Móvil como socio tecnológico, no solo taller reactivo. Similarmente, explorar acuerdos con aseguradoras de celulares o con cadenas minoristas de electrónica para ser el taller que atienda sus garantías o servicios extendidos en la CDMX.</li>
+        <li><em>Extender servicios premium:</em> Desplegar opciones como servicio a domicilio (un técnico va a la ubicación del cliente para reparaciones sencillas) y mensajería express (recolección y entrega del dispositivo reparado). Estas comodidades atraen a clientes de alto perfil que valoran su tiempo. Se puede cobrar un extra por este servicio VIP, aumentando el ticket promedio y la satisfacción.</li>
+        <li><em>Capacitación continua e inversión en tecnología:</em> Destinar un porcentaje fijo de los ingresos a capacitar al personal en nuevas técnicas de microsoldadura, diagnóstico electrónico avanzado y reparaciones de nuevos dispositivos (foldables, etc.). Adquirir herramientas de punta antes que la competencia. Esto asegurará que Hospital del Móvil sea reconocido por poder reparar lo que otros no pueden (dando acceso a un nicho de reparaciones complejas con alto margen).</li>
+        <li><em>Optimización de inventario y costos:</em> Aprovechar los datos de ventas (por ejemplo, ese archivo de Google Sheets de ventas históricas) para identificar tendencias de refacciones más usadas y pronosticar demanda. Con eso, negociar compras al mayoreo de piezas clave directamente con proveedores internacionales (China, USA) reduciendo costos unitarios. Un inventario bien manejado mejora los tiempos de reparación (ROI en satisfacción cliente) y aumenta márgenes por menor costo de refacción.</li>
+        <li><em>Explorar nueva sucursal o expansión física:</em> Si los recursos lo permiten, considerar abrir otra sucursal en un punto estratégico complementario. Por ejemplo, un local en la zona Poniente (Polanco o Santa Fe) donde hay alta concentración de NSE A/B que pagan por conveniencia, o al sur (Coyoacán/San Ángel) para cubrir otro polo de la ciudad. Alternativamente, un modelo “pop-up” o kiosco dentro de un centro comercial podría probar demanda sin incurrir en toda la inversión de un local grande. La expansión debe analizarse con prudencia para no afectar la operación actual, pero podría incrementar considerablemente el alcance de la marca.</li>
+        <li><em>Medir y mejorar KPIs claves:</em> Implementar seguimiento a indicadores como tiempo promedio de reparación, porcentaje de reparaciones exitosas a la primera, tasa de devoluciones por falla, satisfacción del cliente (encuestas breves post-servicio), etc. y establecer metas de mejora continua. Esto permite asegurar la calidad a medida que el volumen crezca. En particular, enfocarse en el KPI de <strong>Retorno sobre Inversión (ROI)</strong> de cada iniciativa: por ejemplo, medir el ROI de una campaña digital en términos de ventas generadas vs costo, o el ROI de comprar cierta herramienta en la reducción de tiempos de reparación. Un enfoque en ROI garantiza crecimiento sostenible y priorización de lo que más valor genera.</li>
+      </ul>
+    </p>
+    <p>En conclusión, Hospital del Móvil se encuentra en una posición sólida en un mercado dinámico. Con un análisis profundo del entorno demográfico de Zona Rosa, entendimiento de las tendencias del sector móvil en México, y un plan estratégico que aprovecha las oportunidades mientras mitiga riesgos, la empresa puede aspirar a un crecimiento sostenido. La clave estará en mantenerse adaptable: el sector tecnología cambia rápidamente, pero con datos en mano, atención al cliente de primer nivel y una visión innovadora, Hospital del Móvil puede consolidarse como líder en reparación de dispositivos móviles en la Ciudad de México y más allá.</p>
+
+    <!-- Example dynamic KPIs -->
+    <div class="kpi">
+      <div id="kpi-penetracion" class="value">0%</div>
+      <div class="label">Penetración de smartphones</div>
+    </div>
+    <div class="kpi">
+      <div id="kpi-reemplazo" class="value">0</div>
+      <div class="label">Meses promedio de reemplazo</div>
+    </div>
+    <div class="kpi">
+      <div id="kpi-ventas" class="value">0</div>
+      <div class="label">Valor mercado smartphones 2024 (mil MXN)</div>
+    </div>
+
+    <!-- Interactive Market Potential Calculator -->
+    <h3>Calculadora de Potencial de Mercado</h3>
+    <div class="calc-container">
+      <p>Estimación de ingresos mensuales potenciales en Zona Rosa:</p>
+      <label>Población/visitantes con smartphone en el área: <input type="number" id="popInput" value="50000"> personas</label><br>
+      <label>Porcentaje que requiere reparación por año: <input type="number" id="incidenceInput" value="20"> %</label><br>
+      <label>Cuota de mercado capturable (Hospital del Móvil): <input type="number" id="shareInput" value="10"> %</label><br>
+      <label>Ticket promedio por reparación: $<input type="number" id="ticketInput" value="1000"> MXN</label><br>
+      <p>Ingresos mensuales aproximados: <span id="revenueResult" class="calc-result">$0 MXN</span></p>
+    </div>
+  </div> <!-- end tab5 content -->
+
+</div> <!-- end tabs container -->
+
+<!-- Include Chart.js from CDN for charts -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script>
+  // Tab switching function
+  function openTab(tabId) {
+    // Hide all tab contents and remove active class on tabs
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    document.querySelectorAll('.tab-nav li').forEach(li => li.classList.remove('active'));
+    // Show selected content and mark tab as active
+    document.getElementById(tabId).classList.add('active');
+    // Mark the clicked tab nav as active
+    let tabs = document.querySelectorAll('.tab-nav li');
+    if(tabId === 'tab1') tabs[0].classList.add('active');
+    if(tabId === 'tab2') tabs[1].classList.add('active');
+    if(tabId === 'tab3') tabs[2].classList.add('active');
+    if(tabId === 'tab4') tabs[3].classList.add('active');
+    if(tabId === 'tab5') tabs[4].classList.add('active');
+    // If switching to a tab with charts, update them to ensure proper rendering
+    if(tabId === 'tab1' && chartSocio) chartSocio.resize();
+    if(tabId === 'tab2' && chartMarca) chartMarca.resize();
+  }
+
+  // Initialize charts when document is ready
+  document.addEventListener('DOMContentLoaded', function () {
+    // Chart 1: Socioeconomic distribution pie (Zona Rosa visitors)
+    const ctx1 = document.getElementById('chartSocio').getContext('2d');
+    window.chartSocio = new Chart(ctx1, {
+      type: 'doughnut',
+      data: {
+        labels: ['Medio (44%)', 'Medio-Alto (38%)', 'Alto (8%)', 'Medio-Bajo (7%)', 'Bajo (2%)'],
+        datasets: [{
+          data: [44, 38, 8, 7, 2],
+          backgroundColor: ['#6ea8a1', '#88c1be', '#b2d9d6', '#e8f6f5', '#445e5c'],
+          hoverOffset: 4
+        }]
+      },
+      options: {
+        plugins: { legend: { position: 'bottom' } },
+        aspectRatio: 1
+      }
+    });
+
+    // Chart 2: Market share pie (Smartphone brands Q3 2024)
+    const ctx2 = document.getElementById('chartMarca').getContext('2d');
+    window.chartMarca = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Samsung', 'Motorola', 'Apple', 'OPPO', 'Xiaomi', 'Otros'],
+        datasets: [{
+          data: [29.6, 21.7, 16.8, 7.3, 7.0, 17.6],  // 'Otros' includes remaining brands like Huawei, etc.
+          backgroundColor: ['#264653', '#2a9d8f', '#e9c46a', '#f4a261', '#e76f51', '#999999'],
+          hoverOffset: 6
+        }]
+      },
+      options: {
+        plugins: { legend: { position: 'bottom' } },
+        aspectRatio: 1
+      }
+    });
+
+    // Initialize KPI counters (animate values)
+    animateValue('kpi-penetracion', 0, 95.7, 2000, '%');
+    animateValue('kpi-reemplazo', 0, 25.7, 2000, ' meses');
+    animateValue('kpi-ventas', 0, 149400, 2000, '');
+
+    // Initial calculation for revenue
+    calculateRevenue();
+  });
+
+  // Function to animate numerical KPI values
+  function animateValue(elementId, start, end, duration, suffix = '') {
+    const obj = document.getElementById(elementId);
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const current = start + (end - start) * progress;
+      obj.textContent = suffix ? current.toFixed(1) + suffix : Math.floor(current) + suffix;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Market potential calculator logic
+  function calculateRevenue() {
+    const pop = parseInt(document.getElementById('popInput').value) || 0;
+    const incidence = parseFloat(document.getElementById('incidenceInput').value) / 100 || 0;
+    const share = parseFloat(document.getElementById('shareInput').value) / 100 || 0;
+    const ticket = parseFloat(document.getElementById('ticketInput').value) || 0;
+    // Annual potential repairs = population * incidence
+    const annualRepairs = pop * incidence * share;
+    const monthlyRevenue = annualRepairs * ticket / 12;
+    document.getElementById('revenueResult').textContent = '$' + monthlyRevenue.toFixed(0) + ' MXN';
+  }
+  // Recalculate on input changes
+  document.getElementById('popInput').oninput = calculateRevenue;
+  document.getElementById('incidenceInput').oninput = calculateRevenue;
+  document.getElementById('shareInput').oninput = calculateRevenue;
+  document.getElementById('ticketInput').oninput = calculateRevenue;
+</script>
+
+</body>
+</html>
