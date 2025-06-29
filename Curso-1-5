@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Marketing Digital - Lecciones 1-5 - Hospital del Móvil</title>
+    <style>
+        :root {
+            --primary-red: #B91C3C;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray-medium: #E5E7EB;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+            --success-green: #15803D;
+            --warning-orange: #F59E0B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--gray-light) 0%, var(--gray-medium) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        .header {
+            text-align: center;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--primary-red);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            background: var(--gray-medium);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover, .tab.active {
+            background: var(--primary-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lesson {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary-red);
+        }
+
+        .lesson.hidden { display: none; }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .lesson-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .lesson h2 { color: var(--primary-red); margin-bottom: 5px; }
+        .duration { color: var(--text-gray); font-size: 0.9em; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .card {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .card h3 { color: var(--primary-red); margin-bottom: 10px; }
+
+        .example {
+            background: linear-gradient(135deg, rgba(185, 28, 60, 0.05), var(--white));
+            border: 1px solid var(--primary-red);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example h4 { color: var(--primary-red); margin-bottom: 10px; }
+
+        .exercise {
+            background: var(--gray-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--success-green);
+        }
+
+        .exercise h4 { color: var(--success-green); margin-bottom: 10px; }
+
+        .tip {
+            background: #F0FDF4;
+            border-left: 4px solid var(--success-green);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background: #FEF3C7;
+            border-left: 4px solid var(--warning-orange);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .platform {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .platform:hover { transform: translateY(-5px); }
+        .platform-icon { font-size: 3em; margin-bottom: 15px; }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .btn {
+            background: var(--primary-red);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover { background: #991B1B; transform: translateY(-2px); }
+        .btn:disabled { background: var(--gray-medium); cursor: not-allowed; transform: none; }
+
+        textarea, input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 5px;
+            margin: 5px 0;
+            font-family: inherit;
+        }
+
+        .script-examples {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .script-box {
+            background: var(--white);
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary-red);
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .header h1 { font-size: 2em; flex-direction: column; gap: 10px; }
+            .tab { font-size: 0.8em; padding: 10px 16px; }
+            .grid, .platforms { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <div class="logo-placeholder">🏥</div>
+                Curso Marketing Digital
+            </h1>
+            <div style="font-size: 1.3em; color: var(--text-gray); margin-bottom: 20px;">
+                Hospital del Móvil - Capacitación Administrativa
+            </div>
+            <div style="color: var(--text-gray);">
+                Lecciones 1-5: Fundamentos y Redes Sociales Principales
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab active" onclick="showLesson(0)">🎯 Lección 1: Introducción</button>
+            <button class="tab" onclick="showLesson(1)">📱 Lección 2: Redes y Nichos</button>
+            <button class="tab" onclick="showLesson(2)">📘 Lección 3: Facebook</button>
+            <button class="tab" onclick="showLesson(3)">📸 Lección 4: Instagram</button>
+            <button class="tab" onclick="showLesson(4)">🎵 Lección 5: TikTok</button>
+        </div>
+
+        <!-- LECCIÓN 1: INTRODUCCIÓN -->
+        <div id="lesson-0" class="lesson">
+            <div class="lesson-header">
+                <div class="lesson-icon">🎯</div>
+                <div>
+                    <h2>Lección 1: Introducción al Marketing Digital</h2>
+                    <div class="duration">⏱️ 8 minutos</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>💡 ¿Por qué necesitamos marketing digital?</h4>
+                <p>Imagina que Hospital del Móvil es como un restaurante increíble pero escondido en un callejón. Tenemos el mejor servicio, pero nadie lo sabe. El marketing digital es como poner letreros luminosos en las calles principales para que la gente nos encuentre.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>🏆 Nuestros Objetivos</h3>
+                    <ul>
+                        <li>Que más gente sepa que existimos</li>
+                        <li>Mostrar por qué somos mejores que la competencia</li>
+                        <li>Convertir seguidores en clientes reales</li>
+                        <li>Fidelizar a nuestros clientes actuales</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📱 Nuestras Plataformas</h3>
+                    <ul>
+                        <li><strong>Facebook:</strong> Para informar y educar</li>
+                        <li><strong>Instagram:</strong> Para mostrar nuestro trabajo</li>
+                        <li><strong>TikTok:</strong> Para llegar a jóvenes</li>
+                        <li><strong>WhatsApp:</strong> Para atender clientes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Consejo clave:</strong> Cada red social es como un canal de TV diferente. Facebook es como el noticiero, Instagram como una revista de moda, TikTok como MTV, y WhatsApp como el teléfono de casa.
+            </div>
+
+            <div class="exercise">
+                <h4>🎮 Ejercicio 1: Reconocimiento</h4>
+                <p><strong>Tarea para esta semana:</strong> Abre cada red social en tu teléfono y observa:</p>
+                <ul>
+                    <li>¿Qué tipo de contenido ves en cada una?</li>
+                    <li>¿Cómo se comporta la gente en cada red?</li>
+                    <li>¿Qué empresas locales sigues y por qué?</li>
+                    <li>¿Qué posts te hacen querer comprar algo?</li>
+                </ul>
+                <textarea placeholder="Escribe tus observaciones aquí..." rows="4"></textarea>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 2: REDES Y NICHOS -->
+        <div id="lesson-1" class="lesson hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📱</div>
+                <div>
+                    <h2>Lección 2: Redes Sociales y Nuestros Nichos</h2>
+                    <div class="duration">⏱️ 10 minutos</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>🎯 Nuestros 6 Nichos Principales</h4>
+                <p>Como un sastre que hace trajes diferentes para cada ocasión, nosotros creamos contenido específico para cada tipo de cliente. No es lo mismo hablarle a un repartidor que a una mamá ejecutiva.</p>
+            </div>
+
+            <div class="platforms">
+                <div class="platform">
+                    <div class="platform-icon">🚗</div>
+                    <h3>Repartidores</h3>
+                    <p><strong>Facebook:</strong> Tips de cuidado<br>
+                    <strong>Instagram:</strong> Reparaciones rápidas<br>
+                    <strong>TikTok:</strong> Trucos preventivos<br>
+                    <strong>WhatsApp:</strong> Servicio express</p>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-icon">👩‍👧‍👦</div>
+                    <h3>Madres Trabajadoras</h3>
+                    <p><strong>Facebook:</strong> Consejos familiares<br>
+                    <strong>Instagram:</strong> Casos antes/después<br>
+                    <strong>TikTok:</strong> Soluciones rápidas<br>
+                    <strong>WhatsApp:</strong> Atención personalizada</p>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-icon">🏃‍♂️</div>
+                    <h3>Deportistas/Aventureros</h3>
+                    <p><strong>Facebook:</strong> Protección extrema<br>
+                    <strong>Instagram:</strong> Fundas resistentes<br>
+                    <strong>TikTok:</strong> Tests de resistencia<br>
+                    <strong>WhatsApp:</strong> Asesoría técnica</p>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-icon">💼</div>
+                    <h3>Ejecutivos Zona Rosa</h3>
+                    <p><strong>Facebook:</strong> Servicios premium<br>
+                    <strong>Instagram:</strong> Profesionalismo<br>
+                    <strong>TikTok:</strong> Menos relevante<br>
+                    <strong>WhatsApp:</strong> Servicio VIP</p>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-icon">🏨</div>
+                    <h3>Turistas</h3>
+                    <p><strong>Facebook:</strong> Ubicación/horarios<br>
+                    <strong>Instagram:</strong> Servicio rápido<br>
+                    <strong>TikTok:</strong> Emergencias divertidas<br>
+                    <strong>WhatsApp:</strong> Soporte inmediato</p>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-icon">🏠</div>
+                    <h3>Vecinos de la Zona</h3>
+                    <p><strong>Facebook:</strong> Comunidad local<br>
+                    <strong>Instagram:</strong> Vida del barrio<br>
+                    <strong>TikTok:</strong> Tendencias locales<br>
+                    <strong>WhatsApp:</strong> Servicio de confianza</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>📊 Comparación por Canal</h4>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background: var(--gray-light);">
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Canal</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Mejor Para</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Tipo de Contenido</th>
+                            <th style="padding: 10px; border: 1px solid var(--gray-medium);">Frecuencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Facebook</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Madres, Ejecutivos, Vecinos</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Educativo, Informativo</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">3-4 veces/semana</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>Instagram</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Todos los nichos</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Visual, Antes/Después</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Diario</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>TikTok</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Repartidores, Deportistas</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Entretenido, Viral</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">4-5 veces/semana</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);"><strong>WhatsApp</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Atención personalizada</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">Servicio, Promociones</td>
+                            <td style="padding: 10px; border: 1px solid var(--gray-medium);">24/7 respuesta</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="exercise">
+                <h4>🎮 Ejercicio 2: Identificación de Nichos</h4>
+                <p><strong>Tarea para esta semana:</strong> Identifica qué nicho representa cada cliente que llega:</p>
+                <ul>
+                    <li>Anota el tipo de cliente en una libreta</li>
+                    <li>Observa qué problemas tiene cada grupo</li>
+                    <li>Piensa qué contenido les serviría más</li>
+                </ul>
+                <textarea placeholder="Al final de la semana, escribe tus observaciones sobre qué tipo de clientes llegan más..." rows="4"></textarea>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 3: FACEBOOK -->
+        <div id="lesson-2" class="lesson hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📘</div>
+                <div>
+                    <h2>Lección 3: Facebook - La Red de Información</h2>
+                    <div class="duration">⏱️ 9 minutos</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>📺 Facebook es como el noticiero de barrio</h4>
+                <p>La gente va a Facebook para informarse, leer noticias, conocer sobre negocios locales y tomar decisiones importantes. Es donde los adultos buscan información confiable antes de gastar su dinero.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>👥 Audiencia Principal</h3>
+                    <ul>
+                        <li>Madres de familia (25-45 años)</li>
+                        <li>Ejecutivos (30-50 años)</li>
+                        <li>Vecinos de la zona (25-55 años)</li>
+                        <li>Gente que busca información antes de comprar</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📝 Tipo de Contenido Exitoso</h3>
+                    <ul>
+                        <li><strong>Educativo:</strong> "¿Por qué se rompe la pantalla?"</li>
+                        <li><strong>Testimoniales:</strong> Historias de clientes reales</li>
+                        <li><strong>Promociones:</strong> Ofertas especiales limitadas</li>
+                        <li><strong>Información práctica:</strong> Horarios, ubicación, servicios</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>✏️ Ejemplos de Posts Exitosos para Facebook</h4>
+                
+                <div style="margin: 15px 0; padding: 15px; background: var(--gray-light); border-radius: 8px;">
+                    <strong>Para Madres Trabajadoras:</strong><br>
+                    "👩‍👧‍👦 ¿Tu hijo rompió la pantalla del iPad y tienes junta importante mañana? No te preocupes, en Hospital del Móvil lo reparamos mientras trabajas. ¡30 minutos y como nuevo! Tu tranquilidad no tiene precio. #MadresTranquilas #ReparacionesRapidas #ZonaRosa"
+                </div>
+                
+                <div style="margin: 15px 0; padding: 15px; background: var(--gray-light); border-radius: 8px;">
+                    <strong>Para Ejecutivos:</strong><br>
+                    "💼 ¿Pantalla rota en día de junta importante? Servicio express para profesionales en Zona Rosa. Diagnóstico gratis y reparación inmediata. Tu imagen profesional no puede esperar. Estamos a 2 cuadras de Reforma. #EjecutivosZonaRosa #ServicioProfesional"
+                </div>
+
+                <div style="margin: 15px 0; padding: 15px; background: var(--gray-light); border-radius: 8px;">
+                    <strong>Para Vecinos de la Zona:</strong><br>
+                    "🏠 Vecinos de la zona: ¿Sabían que el 80% de pantallas rotas se pueden reparar en menos de 1 hora? No tires tu celular a la basura. Hospital del Móvil, su taller de confianza desde hace 10 años. Diagnóstico gratuito. #VecinosZonaRosa #Sustentabilidad"
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>💡 Consejos para Facebook:</strong>
+                <ul>
+                    <li><strong>Usa títulos que hagan preguntas:</strong> "¿Sabías que...?" genera más interacción</li>
+                    <li><strong>Incluye ubicación:</strong> "En Zona Rosa" genera confianza local</li>
+                    <li><strong>Agrega horarios de atención:</strong> Información práctica que buscan</li>
+                    <li><strong>Usa hashtags locales:</strong> #ZonaRosa #CDMX #Cuauhtémoc</li>
+                    <li><strong>Publica entre 12pm-2pm:</strong> Cuando la gente revisa en el trabajo</li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Errores que debemos evitar en Facebook:</strong>
+                <ul>
+                    <li>Posts muy largos (máximo 2 párrafos)</li>
+                    <li>Muchas promociones seguidas (aburre)</li>
+                    <li>Fotos borrosas o mal iluminadas</li>
+                    <li>No responder comentarios en menos de 2 horas</li>
+                    <li>Usar lenguaje muy técnico</li>
+                </ul>
+            </div>
+
+            <div class="exercise">
+                <h4>🎮 Ejercicio 3: Crear tu primer post de Facebook</h4>
+                <p><strong>Práctica:</strong> Escribe un post para madres trabajadoras sobre cuidado preventivo del celular:</p>
+                <textarea placeholder="Tu post debe incluir: Emoji, pregunta, beneficio, llamada a la acción, hashtag" rows="5"></textarea>
+                
+                <div style="margin-top: 15px;">
+                    <strong>Checklist - Tu post debe tener:</strong>
+                    <ul>
+                        <li>✅ Al menos 1 emoji relacionado con el nicho</li>
+                        <li>✅ Una pregunta que genere curiosidad</li>
+                        <li>✅ Un beneficio claro para el cliente</li>
+                        <li>✅ Una llamada a la acción específica</li>
+                        <li>✅ 2-3 hashtags relevantes</li>
+                        <li>✅ Menos de 150 palabras</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 4: INSTAGRAM -->
+        <div id="lesson-3" class="lesson hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">📸</div>
+                <div>
+                    <h2>Lección 4: Instagram - La Vitrina Visual</h2>
+                    <div class="duration">⏱️ 10 minutos</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>🖼️ Instagram es como el escaparate de una tienda de lujo</h4>
+                <p>La gente entra con los ojos. Si ven algo bonito y profesional, se detienen. Si no les gusta lo que ven en los primeros 3 segundos, se van a la competencia. Todo debe verse impecable y atractivo.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📱 Formatos de Instagram</h3>
+                    <ul>
+                        <li><strong>Feed Posts:</strong> Fotos cuadradas principales (1080x1080)</li>
+                        <li><strong>Stories:</strong> Videos/fotos verticales de 24 horas</li>
+                        <li><strong>Reels:</strong> Videos cortos (15-30 segundos)</li>
+                        <li><strong>IGTV:</strong> Videos largos (hasta 60 minutos)</li>
+                        <li><strong>Live:</strong> Transmisiones en vivo</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Qué Funciona Mejor</h3>
+                    <ul>
+                        <li><strong>Antes/Después:</strong> Pantallas rotas → completamente reparadas</li>
+                        <li><strong>Proceso:</strong> Cómo reparamos paso a paso (time-lapse)</li>
+                        <li><strong>Testimoniales:</strong> Clientes contentos con su celular</li>
+                        <li><strong>Behind the scenes:</strong> El día a día del taller</li>
+                        <li><strong>Tips rápidos:</strong> Cómo cuidar tu celular</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>📸 Ejemplos Visuales por Nicho</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0;">
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Repartidores:</strong><br>
+                        📱➡️✨ "Celular de repartidor: De quebrado a perfecto en 1 hora"<br>
+                        <em>Foto: Antes/después con uniforme de Didi visible</em>
+                    </div>
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Madres:</strong><br>
+                        👩‍👧‍👦📱 "Mientras mamá trabaja, nosotros reparamos el iPad de los niños"<br>
+                        <em>Foto: Tablet reparada con juguetes alrededor</em>
+                    </div>
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Deportistas:</strong><br>
+                        🏃‍♂️💪 "Protección extrema: Fundas que sobreviven al CrossFit"<br>
+                        <em>Foto: Celular con funda resistente en el gym</em>
+                    </div>
+                    <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                        <strong>Ejecutivos:</strong><br>
+                        💼✨ "Servicio premium para profesionales de Zona Rosa"<br>
+                        <em>Foto: iPhone reparado en escritorio ejecutivo</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>📱 Reglas de Oro para Instagram:</strong>
+                <ul>
+                    <li><strong>Iluminación:</strong> Siempre usa luz natural o buena iluminación LED</li>
+                    <li><strong>Ángulos:</strong> Toma fotos desde arriba (vista cenital) para reparaciones</li>
+                    <li><strong>Colores:</strong> Usa fondos limpios (blanco, gris claro)</li>
+                    <li><strong>Consistencia:</strong> Mismo estilo de fotos siempre</li>
+                    <li><strong>Resolución:</strong> Mínimo 1080x1080 píxeles</li>
+                    <li><strong>Hashtags:</strong> 20-30 hashtags mezclando populares y de nicho</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>📝 Estructura de Caption Exitoso</h4>
+                <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                    <strong>Fórmula ganadora:</strong><br>
+                    1. <strong>Hook:</strong> Pregunta o dato sorprendente<br>
+                    2. <strong>Historia:</strong> Qué pasó con este celular<br>
+                    3. <strong>Beneficio:</strong> Qué ganó el cliente<br>
+                    4. <strong>Call to action:</strong> Qué debe hacer el lector<br>
+                    5. <strong>Hashtags:</strong> 20-30 hashtags relevantes
+                </div>
+                
+                <div style="background: var(--white); padding: 15px; margin: 10px 0; border-left: 4px solid var(--primary-red);">
+                    <strong>Ejemplo de caption:</strong><br>
+                    "¿Creías que tu iPhone estaba muerto para siempre? 😱<br><br>
+                    
+                    Este iPhone 12 llegó completamente mojado después de caerse en Xochimilco 💦 El cliente pensó que había perdido 3 años de fotos familiares...<br><br>
+                    
+                    ✨ 2 horas después: iPhone como nuevo + TODAS las fotos recuperadas<br><br>
+                    
+                    ¿Tu celular tuvo un accidente? No lo des por perdido. Escríbenos al WhatsApp 📲<br><br>
+                    
+                    #ReparacionCelular #iPhone #ZonaRosa #RecuperacionDatos"
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h4>🎮 Ejercicio 4: Tu primera foto para Instagram</h4>
+                <p><strong>Práctica:</strong> Toma una foto "antes y después" de una reparación:</p>
+                
+                <div style="background: var(--gray-light); padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <strong>Checklist fotográfico:</strong>
+                    <ul>
+                        <li>✅ Busca un celular con pantalla rota para el "antes"</li>
+                        <li>✅ Colócalo sobre fondo blanco con buena luz</li>
+                        <li>✅ Toma la misma foto después de reparado</li>
+                        <li>✅ Usa el mismo ángulo y distancia</li>
+                        <li>✅ Asegúrate que se vea la diferencia claramente</li>
+                    </ul>
+                </div>
+                
+                <textarea placeholder="Escribe un caption dirigido a uno de nuestros nichos usando la fórmula: Hook + Historia + Beneficio + Call to Action + Hashtags" rows="6"></textarea>
+                
+                <div style="margin-top: 10px;">
+                    <strong>¿Para qué nicho escribiste?</strong>
+                    <select>
+                        <option>Repartidores</option>
+                        <option>Madres trabajadoras</option>
+                        <option>Deportistas</option>
+                        <option>Ejecutivos</option>
+                        <option>Turistas</option>
+                        <option>Vecinos</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 5: TIKTOK -->
+        <div id="lesson-4" class="lesson hidden">
+            <div class="lesson-header">
+                <div class="lesson-icon">🎵</div>
+                <div>
+                    <h2>Lección 5: TikTok - El Canal de Entretenimiento</h2>
+                    <div class="duration">⏱️ 8 minutos</div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>🎭 TikTok es como un programa de TV súper divertido</h4>
+                <p>La gente viene a entretenerse, a aprender algo rápido o a ver cosas sorprendentes. Si tu video no engancha en los primeros 3 segundos, la gente se va. Todo debe ser dinámico, divertido y útil.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>🎯 Audiencia TikTok</h3>
+                    <ul>
+                        <li>Repartidores jóvenes (18-35 años)</li>
+                        <li>Deportistas y aventureros</li>
+                        <li>Gente que busca tips rápidos</li>
+                        <li>Personas que quieren entretenerse</li>
+                        <li>Usuarios que siguen tendencias</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎬 Tipos de Videos</h3>
+                    <ul>
+                        <li><strong>Educativos:</strong> "Cómo proteger tu celular"</li>
+                        <li><strong>Antes/Después:</strong> Transformaciones rápidas</li>
+                        <li><strong>Detrás de cámaras:</strong> Proceso de reparación</li>
+                        <li><strong>Trends:</strong> Tendencias adaptadas a nuestro negocio</li>
+                        <li><strong>POV:</strong> "Punto de vista" situaciones comunes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>🎥 Scripts para Videos TikTok (15-30 segundos)</h4>
+                
+                <div class="script-examples">
+                    <div class="script-box">
+                        <strong>Video 1: "POV: Eres repartidor y se te cae el celular"</strong><br>
+                        <em>Segundos 1-3:</em> Celular cayendo en cámara lenta + sonido dramático<br>
+                        <em>Segundos 4-10:</em> Pantalla completamente rota, zoom a los cristales<br>
+                        <em>Segundos 11-15:</em> Mismo celular, pantalla perfecta + música alegre<br>
+                        <em>Texto en pantalla:</em> "Hospital del Móvil te salva el día 🏥📱"<br>
+                        <em>Hashtags:</em> #RepartidorTok #CelularRoto #Salvado #ZonaRosa
+                    </div>
+
+                    <div class="script-box">
+                        <strong>Video 2: "Mitos sobre reparar celulares"</strong><br>
+                        <em>Segundos 1-5:</em> "MITO: Meter el celular mojado en arroz" + emoji ❌<br>
+                        <em>Segundos 6-10:</em> "REALIDAD: Puede dañar más los componentes"<br>
+                        <em>Segundos 11-15:</em> "SOLUCIÓN: Apágalo y tráelo inmediatamente"<br>
+                        <em>Música:</em> Trending sound sobre mitos y realidades<br>
+                        <em>Hashtags:</em> #MitosCelular #TechTips #ReparacionCelular
+                    </div>
+
+                    <div class="script-box">
+                        <strong>Video 3: "Test de resistencia de fundas"</strong><br>
+                        <em>Segundos 1-5:</em> "Probando fundas para deportistas extremos"<br>
+                        <em>Segundos 6-12:</em> Dejando caer celular con funda desde altura<br>
+                        <em>Segundos 13-15:</em> "✅ Aprobado para CrossFit" + celular intacto<br>
+                        <em>Música:</em> Sonido épico de acción<br>
+                        <em>Hashtags:</em> #FundasResistentes #DeporteExtremo #TestCelular
+                    </div>
+
+                    <div class="script-box">
+                        <strong>Video 4: "Cuando tu mamá ve tu celular roto"</strong><br>
+                        <em>Segundos 1-3:</em> Cara de horror de "mamá" viendo pantalla rota<br>
+                        <em>Segundos 4-8:</em> "Mijo, ¿cómo vas a conseguir trabajo así?"<br>
+                        <em>Segundos 9-15:</em> Montaje rápido de reparación + mamá feliz<br>
+                        <em>Música:</em> Sonido trending sobre mamás mexicanas<br>
+                        <em>Hashtags:</em> #MamáMexicana #CelularRoto #Salvado
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip">
+                <strong>🎬 Fórmula para Videos Virales:</strong>
+                <ol>
+                    <li><strong>Hook (3 segundos):</strong> Algo que sorprenda, intrigue o emocione</li>
+                    <li><strong>Problema (5 segundos):</strong> Situación que todos reconocen</li>
+                    <li><strong>Solución (7 segundos):</strong> Cómo lo resolvemos nosotros</li>
+                    <li><strong>Call to Action:</strong> "Síguenos para más tips" o "¿Te pasó?"</li>
+                </ol>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ No hagas esto en TikTok:</strong>
+                <ul>
+                    <li>Videos muy largos (máximo 30 segundos para empezar)</li>
+                    <li>Hablar como presentador de noticias (muy formal)</li>
+                    <li>Usar música con copyright (usa la biblioteca de TikTok)</li>
+                    <li>Olvidar poner texto en pantalla (mucha gente ve sin sonido)</li>
+                    <li>Quedarse quieto (todo debe tener movimiento)</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>📱 Mejores Horarios para TikTok</h4>
+                <div style="background: var(--gray-light); padding: 15px; border-radius: 8px;">
+                    <strong>Horarios óptimos:</strong><br>
+                    • <strong>Martes a Jueves:</strong> 6pm-10pm<br>
+                    • <strong>Sábados:</strong> 9am-11am<br>
+                    • <strong>Domingos:</strong> 7pm-9pm<br><br>
+                    
+                    <strong>Evita:</strong><br>
+                    • Lunes muy temprano<br>
+                    • Viernes después de 6pm<br>
+                    • Horarios de comida (1pm-3pm)
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h4>🎮 Ejercicio 5: Planea tu primer TikTok</h4>
+                <p><strong>Elige un tema para tu video:</strong></p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 10px 0;">
+                    <button style="padding: 10px; background: var(--gray-light); border: 1px solid var(--gray-medium); border-radius: 5px; cursor: pointer;" onclick="selectTopic(this, '3errores')">"3 errores que matan tu celular"</button>
+                    <button style="padding: 10px; background: var(--gray-light); border: 1px solid var(--gray-medium); border-radius: 5px; cursor: pointer;" onclick="selectTopic(this, 'povgym')">"POV: Tu celular sobrevive al gym"</button>
+                    <button style="padding: 10px; background: var(--gray-light); border: 1px solid var(--gray-medium); border-radius: 5px; cursor: pointer;" onclick="selectTopic(this, 'reparacion60')">"Reparación en 60 segundos"</button>
+                    <button style="padding: 10px; background: var(--gray-light); border: 1px solid var(--gray-medium); border-radius: 5px; cursor: pointer;" onclick="selectTopic(this, 'mitos')">"Mitos vs Realidad: Celulares"</button>
+                </div>
+                
+                <div style="margin: 15px 0;">
+                    <strong>Ahora escribe tu guión segundo a segundo:</strong>
+                    <textarea id="tiktokScript" placeholder="Ejemplo:
+Segundo 1-3: [Descripción de qué pasa]
+Segundo 4-10: [Qué sigue]
+Segundo 11-15: [Final + call to action]
+Música sugerida: [tipo de música]
+Texto en pantalla: [qué texto aparece]" rows="8"></textarea>
+                </div>
+                
+                <div style="margin: 15px 0;">
+                    <strong>Hashtags para tu video:</strong>
+                    <input type="text" placeholder="#ReparacionCelular #TechTips #ZonaRosa #..." />
+                </div>
+                
+                <div style="background: var(--success-green); color: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <strong>💡 Tip para grabar:</strong> Usa la cámara vertical de tu celular, graba en buena luz, y asegúrate de que todo se vea desde el primer segundo. ¡El movimiento y la energía son clave!
+                </div>
+            </div>
+        </div>
+
+        <!-- NAVEGACIÓN -->
+        <div class="nav-buttons">
+            <button class="btn" onclick="previousLesson()" id="prevBtn">⬅️ Lección Anterior</button>
+            <button class="btn" onclick="nextLesson()" id="nextBtn">Siguiente Lección ➡️</button>
+        </div>
+
+        <div style="text-align: center; padding: 30px; background: var(--white); border-radius: 15px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <h3 style="color: var(--primary-red); margin-bottom: 15px;">🎓 ¡Has completado las primeras 5 lecciones!</h3>
+            <p style="color: var(--text-gray); margin-bottom: 20px;">Ya dominas los fundamentos y las 3 redes sociales principales.</p>
+            <div style="background: var(--gray-light); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <strong>✅ Lo que ya sabes:</strong><br>
+                🎯 Por qué necesitas marketing digital<br>
+                📱 Cómo adaptar contenido a cada nicho<br>
+                📘 Crear posts efectivos para Facebook<br>
+                📸 Tomar fotos profesionales para Instagram<br>
+                🎵 Planear videos virales para TikTok
+            </div>
+            <p style="color: var(--text-gray);">¡Sigue practicando y pronto tendrás las lecciones 6-10!</p>
+        </div>
+    </div>
+
+    <script>
+        let currentLesson = 0;
+        const totalLessons = 5;
+
+        function showLesson(lessonIndex) {
+            // Ocultar todas las lecciones
+            document.querySelectorAll('.lesson').forEach(lesson => {
+                lesson.classList.add('hidden');
+            });
+            
+            // Mostrar la lección seleccionada
+            document.getElementById(`lesson-${lessonIndex}`).classList.remove('hidden');
+            
+            // Actualizar tabs activos
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab')[lessonIndex].classList.add('active');
+            
+            currentLesson = lessonIndex;
+            updateNavButtons();
+            window.scrollTo(0, 0);
+        }
+
+        function nextLesson() {
+            if (currentLesson < totalLessons - 1) {
+                currentLesson++;
+                showLesson(currentLesson);
+            }
+        }
+
+        function previousLesson() {
+            if (currentLesson > 0) {
+                currentLesson--;
+                showLesson(currentLesson);
+            }
+        }
+
+        function updateNavButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.disabled = currentLesson === 0;
+            nextBtn.disabled = currentLesson === totalLessons - 1;
+            
+            if (currentLesson === totalLessons - 1) {
+                nextBtn.textContent = '🎉 Lecciones 1-5 Completadas';
+            } else {
+                nextBtn.textContent = 'Siguiente Lección ➡️';
+            }
+        }
+
+        function selectTopic(button, topic) {
+            // Remover selección previa
+            document.querySelectorAll('button').forEach(btn => {
+                if (btn.style.backgroundColor) btn.style.backgroundColor = '';
+            });
+            
+            // Marcar como seleccionado
+            button.style.backgroundColor = 'var(--primary-red)';
+            button.style.color = 'white';
+            
+            // Sugerir guión según el topic
+            const scripts = {
+                '3errores': 'Segundo 1-3: "3 errores que MATAN tu celular" + emoji ⚠️\nSegundo 4-8: Error 1 - No usar funda\nSegundo 9-13: Error 2 - Cargarlo toda la noche\nSegundo 14-18: Error 3 - No limpiarlo nunca\nSegundo 19-23: "¿Cometes alguno?" + Hospital del Móvil logo\nMúsica: Trending sobre errores\nTexto: "PARA ANTES DE QUE SEA TARDE"',
+                
+                'povgym': 'Segundo 1-3: "POV: Llevas tu cel al gym" + música dramática\nSegundo 4-8: Celular cayendo de la banda caminadora\nSegundo 9-13: Pantalla estrellada + cara de horror\nSegundo 14-18: "Pero tenías la funda de Hospital del Móvil"\nSegundo 19-23: Celular intacto + "Like si te salvamos"\nMúsica: Épica de acción\nTexto: "PLOT TWIST"',
+                
+                'reparacion60': 'Segundo 1-3: "Reparación iPhone en 60 segundos" + timer\nSegundo 4-15: Time-lapse súper rápido del proceso\nSegundo 16-20: "En la vida real: 45 minutos"\nSegundo 21-25: "Pero el resultado es el mismo" + celular perfecto\nMúsica: Acelerada tipo montaje\nTexto: "NO ES MAGIA, ES EXPERIENCIA"',
+                
+                'mitos': 'Segundo 1-3: "MITO O REALIDAD?" + emoji 🤔\nSegundo 4-8: "El arroz arregla celulares mojados"\nSegundo 9-13: "❌ MITO - Puede empeorar"\nSegundo 14-18: "✅ REALIDAD - Apágalo y tráelo YA"\nSegundo 19-23: "Hospital del Móvil sabe qué hacer"\nMúsica: Suspense + resolución\nTexto: "LA VERDAD DUELE"'
+            };
+            
+            document.getElementById('tiktokScript').value = scripts[topic] || '';
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                previousLesson();
+            } else if (e.key === 'ArrowRight') {
+                nextLesson();
+            }
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNavButtons();
+        });
+    </script>
+</body>
+</html>
