@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital - Lecciones 6-10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .lesson-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .lesson-number {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .lesson-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .lesson-content {
+            padding: 30px;
+        }
+
+        .lesson-objectives {
+            background: #f8f9fa;
+            border-left: 4px solid #4facfe;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .lesson-objectives h3 {
+            color: #4facfe;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .lesson-objectives ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .lesson-objectives li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .lesson-objectives li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .subsection {
+            margin-bottom: 20px;
+        }
+
+        .subsection h4 {
+            color: #495057;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .example-box {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .example-box h4 {
+            color: #0c5460;
+            margin-bottom: 10px;
+        }
+
+        .tip-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tip-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .tool-card h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .metrics-table th,
+        .metrics-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .metrics-table th {
+            background: #4facfe;
+            color: white;
+        }
+
+        .activity-box {
+            background: #e7f3ff;
+            border: 2px solid #4facfe;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .activity-box h4 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .lesson-content {
+                padding: 20px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📱 Curso de Marketing Digital</h1>
+            <p>Lecciones 6-10: Estrategias Avanzadas y Métricas</p>
+        </header>
+
+        <!-- LECCIÓN 6 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">LECCIÓN 6</div>
+                <div class="lesson-title">Marketing de Contenidos</div>
+            </div>
+            <div class="lesson-content">
+                <div class="lesson-objectives">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <ul>
+                        <li>Comprender la importancia del marketing de contenidos</li>
+                        <li>Desarrollar una estrategia de contenidos efectiva</li>
+                        <li>Crear diferentes tipos de contenido digital</li>
+                        <li>Medir el rendimiento del contenido</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>¿Qué es el Marketing de Contenidos?</h3>
+                    <p>El marketing de contenidos es una estrategia de marketing enfocada en crear, distribuir y compartir contenido valioso, relevante y consistente para atraer y retener una audiencia claramente definida, con el objetivo de impulsar acciones rentables del cliente.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Beneficios del Marketing de Contenidos</h3>
+                    <div class="subsection">
+                        <h4>📈 Aumento de Visibilidad</h4>
+                        <p>El contenido de calidad mejora el SEO y aumenta la visibilidad online de tu marca.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🤝 Construcción de Autoridad</h4>
+                        <p>Establece tu marca como líder de pensamiento en tu industria.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>💰 Generación de Leads</h4>
+                        <p>Atrae potenciales clientes y los guía a través del embudo de ventas.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Tipos de Contenido Digital</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5>📝 Blogs</h5>
+                            <p>Artículos informativos y educativos que posicionan tu marca como experta.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🎥 Videos</h5>
+                            <p>Contenido visual dinámico que genera mayor engagement.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📊 Infografías</h5>
+                            <p>Información visual fácil de digerir y compartir.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🎙️ Podcasts</h5>
+                            <p>Contenido de audio para audiencias en movimiento.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📚 Ebooks</h5>
+                            <p>Contenido profundo para generación de leads.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📱 Posts Sociales</h5>
+                            <p>Contenido optimizado para cada plataforma social.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>🔑 Regla 80/20 del Contenido</h4>
+                    <p>80% de tu contenido debe educar, entretener o inspirar a tu audiencia. Solo el 20% debe ser promocional sobre tu producto o servicio.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Estrategia de Contenidos: Los 5 Pilares</h3>
+                    <div class="subsection">
+                        <h4>1. 🎯 Definir Audiencia</h4>
+                        <p>Crear buyer personas detalladas y entender sus necesidades, dolores y intereses.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>2. 🗓️ Calendario Editorial</h4>
+                        <p>Planificar qué, cuándo y dónde publicar contenido de manera consistente.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>3. 📈 Distribución Multicanal</h4>
+                        <p>Adaptar el contenido para diferentes plataformas y canales.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>4. 🔄 Reutilización de Contenido</h4>
+                        <p>Transformar un contenido en múltiples formatos para maximizar su alcance.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>5. 📊 Medición y Optimización</h4>
+                        <p>Analizar métricas y ajustar la estrategia según los resultados.</p>
+                    </div>
+                </div>
+
+                <div class="activity-box">
+                    <h4>🚀 Actividad Práctica</h4>
+                    <p><strong>Crea tu primera campaña PPC:</strong></p>
+                    <ol>
+                        <li>Define objetivo de campaña (ventas, leads, tráfico)</li>
+                        <li>Investiga 10 palabras clave relevantes</li>
+                        <li>Crea 3 versiones de anuncio para testing A/B</li>
+                        <li>Establece presupuesto diario y estrategia de puja</li>
+                        <li>Configura conversiones para medir resultados</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 9 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">LECCIÓN 9</div>
+                <div class="lesson-title">Analytics y Métricas</div>
+            </div>
+            <div class="lesson-content">
+                <div class="lesson-objectives">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <ul>
+                        <li>Dominar Google Analytics y otras herramientas de medición</li>
+                        <li>Identificar métricas clave para cada objetivo</li>
+                        <li>Crear dashboards e informes efectivos</li>
+                        <li>Tomar decisiones basadas en datos</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>¿Por qué son Importantes las Métricas?</h3>
+                    <div class="highlight-box">
+                        <h4>📊 "Lo que no se mide, no se puede mejorar"</h4>
+                        <p>Las métricas te permiten:</p>
+                        <ul>
+                            <li>Entender el comportamiento de tu audiencia</li>
+                            <li>Identificar qué estrategias funcionan</li>
+                            <li>Optimizar el ROI de tus campañas</li>
+                            <li>Tomar decisiones informadas</li>
+                            <li>Demostrar el valor del marketing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Pirámide de Métricas de Marketing</h3>
+                    <div class="subsection">
+                        <h4>🔝 Métricas de Negocio (Top-Level)</h4>
+                        <ul>
+                            <li><strong>Revenue (Ingresos):</strong> Dinero generado</li>
+                            <li><strong>ROI:</strong> Retorno de la inversión</li>
+                            <li><strong>LTV (Lifetime Value):</strong> Valor de vida del cliente</li>
+                            <li><strong>CAC (Customer Acquisition Cost):</strong> Costo de adquisición</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎯 Métricas de Marketing (Mid-Level)</h4>
+                        <ul>
+                            <li><strong>Leads generados:</strong> Potenciales clientes</li>
+                            <li><strong>Conversion Rate:</strong> % de visitantes que convierten</li>
+                            <li><strong>Cost Per Lead:</strong> Costo por lead generado</li>
+                            <li><strong>MQL/SQL:</strong> Leads calificados marketing/ventas</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📱 Métricas de Actividad (Low-Level)</h4>
+                        <ul>
+                            <li><strong>Tráfico web:</strong> Visitantes únicos, pageviews</li>
+                            <li><strong>Engagement:</strong> Likes, shares, comments</li>
+                            <li><strong>Email metrics:</strong> Open rate, click rate</li>
+                            <li><strong>SEO metrics:</strong> Rankings, backlinks</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Google Analytics 4 (GA4): Métricas Esenciales</h3>
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Métrica</th>
+                                <th>Qué Mide</th>
+                                <th>Por qué es Importante</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Users (Usuarios)</td>
+                                <td>Visitantes únicos en un período</td>
+                                <td>Tamaño de tu audiencia</td>
+                            </tr>
+                            <tr>
+                                <td>Sessions (Sesiones)</td>
+                                <td>Número de visitas</td>
+                                <td>Frecuencia de interacción</td>
+                            </tr>
+                            <tr>
+                                <td>Bounce Rate</td>
+                                <td>% de visitas de una sola página</td>
+                                <td>Relevancia del contenido</td>
+                            </tr>
+                            <tr>
+                                <td>Session Duration</td>
+                                <td>Tiempo promedio en el sitio</td>
+                                <td>Engagement del contenido</td>
+                            </tr>
+                            <tr>
+                                <td>Conversions</td>
+                                <td>Objetivos completados</td>
+                                <td>Efectividad del sitio</td>
+                            </tr>
+                            <tr>
+                                <td>Traffic Sources</td>
+                                <td>De dónde vienen los visitantes</td>
+                                <td>Canales más efectivos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3>Herramientas de Analytics Esenciales</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5>📊 Google Analytics</h5>
+                            <p>Análisis completo del tráfico web</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🔍 Google Search Console</h5>
+                            <p>Performance en búsquedas de Google</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📱 Facebook Analytics</h5>
+                            <p>Métricas de redes sociales</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📧 Email Analytics</h5>
+                            <p>Métricas de campañas de email</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🎥 YouTube Analytics</h5>
+                            <p>Performance de contenido de video</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📈 Hotjar</h5>
+                            <p>Heatmaps y grabaciones de sesiones</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Métricas por Canal de Marketing</h3>
+                    
+                    <div class="subsection">
+                        <h4>🔍 SEO Metrics</h4>
+                        <ul>
+                            <li>Posiciones de palabras clave</li>
+                            <li>Tráfico orgánico</li>
+                            <li>Click-through rate (CTR)</li>
+                            <li>Backlinks y autoridad de dominio</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📱 Social Media Metrics</h4>
+                        <ul>
+                            <li>Reach e Impressions</li>
+                            <li>Engagement Rate</li>
+                            <li>Follower Growth</li>
+                            <li>Social Traffic to Website</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📧 Email Marketing Metrics</h4>
+                        <ul>
+                            <li>Open Rate (15-25% promedio)</li>
+                            <li>Click Rate (2-5% promedio)</li>
+                            <li>Unsubscribe Rate (<0.5%)</li>
+                            <li>List Growth Rate</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>💰 PPC Metrics</h4>
+                        <ul>
+                            <li>Cost Per Click (CPC)</li>
+                            <li>Click-Through Rate (CTR)</li>
+                            <li>Quality Score</li>
+                            <li>Return on Ad Spend (ROAS)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📊 Dashboard de Marketing Ejemplo</h4>
+                    <p><strong>KPIs Principales:</strong></p>
+                    <ul>
+                        <li>Ingresos mensuales: $50,000</li>
+                        <li>ROI de marketing: 300%</li>
+                        <li>Costo de adquisición (CAC): $25</li>
+                        <li>Valor de vida del cliente (LTV): $150</li>
+                    </ul>
+                    <p><strong>Métricas de Tráfico:</strong></p>
+                    <ul>
+                        <li>Visitantes únicos: 15,000</li>
+                        <li>Tasa de conversión: 2.5%</li>
+                        <li>Fuentes principales: Orgánico (40%), PPC (30%), Social (20%), Email (10%)</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Mejores Prácticas para Analytics</h4>
+                    <ul>
+                        <li><strong>Configura objetivos:</strong> Define qué acciones son valiosas</li>
+                        <li><strong>Segmenta datos:</strong> Analiza por audiencia, canal, dispositivo</li>
+                        <li><strong>Reportes automáticos:</strong> Programa informes semanales/mensuales</li>
+                        <li><strong>Contexto temporal:</strong> Compara períodos similares</li>
+                        <li><strong>Actionable insights:</strong> Convierte datos en acciones</li>
+                    </ul>
+                </div>
+
+                <div class="activity-box">
+                    <h4>🚀 Actividad Práctica</h4>
+                    <p><strong>Configura tu sistema de métricas:</strong></p>
+                    <ol>
+                        <li>Instala Google Analytics 4 en tu sitio web</li>
+                        <li>Define 5 KPIs principales para tu negocio</li>
+                        <li>Configura 3 objetivos de conversión</li>
+                        <li>Crea un dashboard simple con métricas clave</li>
+                        <li>Programa un reporte semanal automático</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 10 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">LECCIÓN 10</div>
+                <div class="lesson-title">Estrategia Integral de Marketing Digital</div>
+            </div>
+            <div class="lesson-content">
+                <div class="lesson-objectives">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <ul>
+                        <li>Integrar todos los canales de marketing digital</li>
+                        <li>Crear una estrategia cohesiva y efectiva</li>
+                        <li>Planificar campañas omnicanal</li>
+                        <li>Establecer presupuestos y cronogramas</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>La Estrategia Integral: Conectando Todos los Puntos</h3>
+                    <p>El marketing digital exitoso no es la suma de tácticas aisladas, sino la integración estratégica de todos los canales trabajando hacia objetivos comunes.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>🎯 Principios de una Estrategia Integral</h4>
+                        <ul>
+                            <li><strong>Customer-Centric:</strong> Todo gira alrededor del cliente</li>
+                            <li><strong>Data-Driven:</strong> Decisiones basadas en datos</li>
+                            <li><strong>Omnicanal:</strong> Experiencia consistente en todos los puntos de contacto</li>
+                            <li><strong>Ágil:</strong> Capacidad de adaptarse rápidamente</li>
+                            <li><strong>Medible:</strong> Cada acción debe ser trackeable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Marco de Estrategia: Los 7 Pilares</h3>
+                    
+                    <div class="subsection">
+                        <h4>1. 🎯 Definición de Objetivos SMART</h4>
+                        <ul>
+                            <li><strong>Specific:</strong> Específicos y claros</li>
+                            <li><strong>Measurable:</strong> Medibles con métricas</li>
+                            <li><strong>Achievable:</strong> Alcanzables</li>
+                            <li><strong>Relevant:</strong> Relevantes para el negocio</li>
+                            <li><strong>Time-bound:</strong> Con fecha límite</li>
+                        </ul>
+                        <div class="example-box">
+                            <h4>Ejemplo de Objetivo SMART</h4>
+                            <p>"Aumentar las ventas online en 30% en los próximos 6 meses, generando $100,000 adicionales en ingresos a través de marketing digital, con un ROI mínimo de 250%."</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>2. 👥 Research y Buyer Personas</h4>
+                        <p>Conocimiento profundo de tu audiencia objetivo.</p>
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Elemento</th>
+                                    <th>Información a Recopilar</th>
+                                    <th>Herramientas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Demográfico</td>
+                                    <td>Edad, género, ubicación, ingresos</td>
+                                    <td>Google Analytics, Surveys</td>
+                                </tr>
+                                <tr>
+                                    <td>Psicográfico</td>
+                                    <td>Valores, intereses, estilo de vida</td>
+                                    <td>Social media, entrevistas</td>
+                                </tr>
+                                <tr>
+                                    <td>Comportamental</td>
+                                    <td>Hábitos de compra, canales preferidos</td>
+                                    <td>Analytics, CRM</td>
+                                </tr>
+                                <tr>
+                                    <td>Pain Points</td>
+                                    <td>Problemas y necesidades</td>
+                                    <td>Customer service, reviews</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>3. 🗺️ Customer Journey Mapping</h4>
+                        <p>Mapear todos los touchpoints del cliente:</p>
+                        <ul>
+                            <li><strong>Awareness:</strong> ¿Cómo descubren tu marca?</li>
+                            <li><strong>Consideration:</strong> ¿Dónde investigan opciones?</li>
+                            <li><strong>Purchase:</strong> ¿Cómo y dónde compran?</li>
+                            <li><strong>Retention:</strong> ¿Cómo mantenerlos engaged?</li>
+                            <li><strong>Advocacy:</strong> ¿Cómo convertirlos en promotores?</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>4. 📊 Audit de Situación Actual</h4>
+                        <p>Análisis FODA del marketing digital actual:</p>
+                        <div class="tools-grid">
+                            <div class="tool-card">
+                                <h5>💪 Fortalezas</h5>
+                                <p>Qué está funcionando bien</p>
+                            </div>
+                            <div class="tool-card">
+                                <h5>❌ Debilidades</h5>
+                                <p>Áreas de mejora</p>
+                            </div>
+                            <div class="tool-card">
+                                <h5>🚀 Oportunidades</h5>
+                                <p>Nuevas posibilidades</p>
+                            </div>
+                            <div class="tool-card">
+                                <h5>⚠️ Amenazas</h5>
+                                <p>Riesgos y competencia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>5. 🎪 Mix de Canales Estratégico</h4>
+                        <p>Selección y asignación de canales según objetivos:</p>
+                        <ul>
+                            <li><strong>Owned Media:</strong> Website, blog, email list</li>
+                            <li><strong>Earned Media:</strong> PR, reviews, word-of-mouth</li>
+                            <li><strong>Paid Media:</strong> PPC, social ads, display</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>6. 💰 Presupuesto y Recursos</h4>
+                        <p>Distribución estratégica de presupuesto:</p>
+                        <div class="example-box">
+                            <h4>Ejemplo de Distribución de Presupuesto</h4>
+                            <ul>
+                                <li>PPC (Google Ads + Facebook): 40%</li>
+                                <li>Content Marketing: 25%</li>
+                                <li>Email Marketing: 15%</li>
+                                <li>SEO y herramientas: 10%</li>
+                                <li>Social Media orgánico: 10%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>7. 📅 Timeline y Cronograma</h4>
+                        <p>Planificación temporal de todas las actividades:</p>
+                        <ul>
+                            <li>Campañas estacionales</li>
+                            <li>Lanzamientos de productos</li>
+                            <li>Eventos importantes</li>
+                            <li>Revisiones y optimizaciones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Integración de Canales: El Efecto Sinérgico</h3>
+                    
+                    <div class="tip-box">
+                        <h4>💡 Estrategias de Integración</h4>
+                        <ul>
+                            <li><strong>Mensaje consistente:</strong> Mismo tono y propuesta de valor</li>
+                            <li><strong>Cross-promotion:</strong> Cada canal promociona los otros</li>
+                            <li><strong>Retargeting cruzado:</strong> Visitantes de email van a social ads</li>
+                            <li><strong>Content recycling:</strong> Un contenido, múltiples formatos</li>
+                            <li><strong>Data sharing:</strong> Insights de un canal informan otros</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Casos de Uso: Campañas Integradas</h3>
+                    
+                    <div class="example-box">
+                        <h4>🚀 Caso: Lanzamiento de Producto</h4>
+                        <p><strong>Fase 1 - Teasing (2 semanas antes):</strong></p>
+                        <ul>
+                            <li>Social media: Posts misteriosos, countdown</li>
+                            <li>Email: Lista de espera, early access</li>
+                            <li>Blog: Behind the scenes content</li>
+                        </ul>
+                        <p><strong>Fase 2 - Lanzamiento (día cero):</strong></p>
+                        <ul>
+                            <li>PPC: Campañas de búsqueda y display</li>
+                            <li>Social: Live demos, influencer content</li>
+                            <li>Email: Anuncio oficial con oferta especial</li>
+                            <li>PR: Press release, media outreach</li>
+                        </ul>
+                        <p><strong>Fase 3 - Sostenimiento (4 semanas):</strong></p>
+                        <ul>
+                            <li>SEO: Content optimization</li>
+                            <li>Retargeting: Recuperar visitantes</li>
+                            <li>Customer testimonials</li>
+                            <li>Analytics y optimización</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Dashboard Estratégico: KPIs Integrales</h3>
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>KPI Principal</th>
+                                <th>Métricas de Soporte</th>
+                                <th>Frecuencia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revenue</td>
+                                <td>Ingresos totales</td>
+                                <td>Revenue by channel, LTV</td>
+                                <td>Diaria</td>
+                            </tr>
+                            <tr>
+                                <td>Acquisition</td>
+                                <td>Nuevos clientes</td>
+                                <td>CAC, conversion rate</td>
+                                <td>Semanal</td>
+                            </tr>
+                            <tr>
+                                <td>Engagement</td>
+                                <td>Session duration</td>
+                                <td>Pages/session, bounce rate</td>
+                                <td>Semanal</td>
+                            </tr>
+                            <tr>
+                                <td>Brand</td>
+                                <td>Brand mentions</td>
+                                <td>Sentiment, share of voice</td>
+                                <td>Mensual</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="activity-box">
+                    <h4>🚀 Proyecto Final: Tu Estrategia Integral</h4>
+                    <p><strong>Crea una estrategia completa de marketing digital:</strong></p>
+                    <ol>
+                        <li><strong>Define objetivos SMART</strong> para los próximos 6 meses</li>
+                        <li><strong>Crea 2 buyer personas</strong> detalladas</li>
+                        <li><strong>Mapea el customer journey</strong> de tu audiencia</li>
+                        <li><strong>Selecciona 4-5 canales</strong> principales</li>
+                        <li><strong>Diseña una campaña integrada</strong> de lanzamiento</li>
+                        <li><strong>Establece presupuesto</strong> por canal</li>
+                        <li><strong>Crea cronograma</strong> de 3 meses</li>
+                        <li><strong>Define KPIs</strong> y sistema de medición</li>
+                    </ol>
+                    <p><strong>Entregable:</strong> Documento de estrategia de 5-10 páginas o presentación de 15 slides.</p>
+                </div>
+
+                <div class="tip-box">
+                    <h4>🎓 ¡Felicitaciones!</h4>
+                    <p>Has completado el curso de Marketing Digital. Ahora tienes las herramientas y conocimientos para crear estrategias efectivas que generen resultados reales para tu negocio.</p>
+                    <p><strong>Próximos pasos:</strong></p>
+                    <ul>
+                        <li>Implementa tu estrategia paso a paso</li>
+                        <li>Mide y ajusta constantemente</li>
+                        <li>Mantente actualizado con las tendencias</li>
+                        <li>Continúa experimentando y aprendiendo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-button" onclick="window.scrollTo(0, 0)">⬆️ Volver al Inicio</button>
+            <button class="nav-button" onclick="alert('¡Curso completado! 🎉')">🎯 Completar Curso</button>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('Inicio')) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add progress tracking
+        function trackProgress() {
+            const lessons = document.querySelectorAll('.lesson-card');
+            let completedLessons = 0;
+            
+            lessons.forEach((lesson, index) => {
+                lesson.addEventListener('click', function() {
+                    if (!this.classList.contains('completed')) {
+                        this.style.opacity = '0.8';
+                        completedLessons++;
+                        updateProgress();
+                    }
+                });
+            });
+        }
+
+        function updateProgress() {
+            const totalLessons = 5; // Lecciones 6-10
+            const progress = Math.round((completedLessons / totalLessons) * 100);
+            console.log(`Progreso del curso: ${progress}%`);
+        }
+
+        // Initialize progress tracking
+        trackProgress();
+
+        // Add interactive elements
+        document.querySelectorAll('.activity-box').forEach(box => {
+            box.style.cursor = 'pointer';
+            box.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>box">
+                    <h4>🚀 Actividad Práctica</h4>
+                    <p><strong>Crea tu estrategia de contenidos:</strong></p>
+                    <ol>
+                        <li>Define 3 buyer personas para tu negocio</li>
+                        <li>Identifica 5 temas principales de interés para tu audiencia</li>
+                        <li>Planifica un mes de contenido (4 posts por semana)</li>
+                        <li>Selecciona las mejores plataformas para tu contenido</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 7 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">LECCIÓN 7</div>
+                <div class="lesson-title">Email Marketing</div>
+            </div>
+            <div class="lesson-content">
+                <div class="lesson-objectives">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <ul>
+                        <li>Dominar las estrategias de email marketing</li>
+                        <li>Crear campañas efectivas de email</li>
+                        <li>Segmentar audiencias para mejor targeting</li>
+                        <li>Optimizar tasas de apertura y conversión</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>¿Por qué el Email Marketing Sigue Siendo Poderoso?</h3>
+                    <div class="highlight-box">
+                        <h4>📊 Estadísticas Clave</h4>
+                        <ul>
+                            <li>ROI promedio: $42 por cada $1 invertido</li>
+                            <li>99% de los consumidores revisan su email diariamente</li>
+                            <li>Tasa de conversión 6x mayor que redes sociales</li>
+                            <li>Alcance directo sin algoritmos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Tipos de Campañas de Email</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5>📧 Newsletter</h5>
+                            <p>Comunicación regular con tu audiencia</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🎯 Promocionales</h5>
+                            <p>Ofertas, descuentos y lanzamientos</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🤖 Automatizadas</h5>
+                            <p>Secuencias triggered por comportamiento</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🎂 Transaccionales</h5>
+                            <p>Confirmaciones, recibos, cumpleaños</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Elementos de un Email Exitoso</h3>
+                    <div class="subsection">
+                        <h4>📝 Línea de Asunto</h4>
+                        <p>Primera impresión crucial que determina si se abre el email.</p>
+                        <div class="tip-box">
+                            <h4>💡 Tips para Asuntos Efectivos</h4>
+                            <ul>
+                                <li>Mantén entre 30-50 caracteres</li>
+                                <li>Crea urgencia o curiosidad</li>
+                                <li>Personaliza con el nombre</li>
+                                <li>Evita palabras spam</li>
+                                <li>Usa emojis con moderación</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>👋 Preheader</h4>
+                        <p>Texto de vista previa que complementa el asunto.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📱 Diseño Responsivo</h4>
+                        <p>60% de emails se leen en móvil. El diseño debe adaptarse.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎯 Call-to-Action (CTA)</h4>
+                        <p>Botón o enlace claro que dirija la acción deseada.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Segmentación de Audiencia</h3>
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Criterio de Segmentación</th>
+                                <th>Ejemplo</th>
+                                <th>Beneficio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Demográfico</td>
+                                <td>Edad, género, ubicación</td>
+                                <td>Mensajes relevantes</td>
+                            </tr>
+                            <tr>
+                                <td>Comportamental</td>
+                                <td>Compras anteriores, clicks</td>
+                                <td>Ofertas personalizadas</td>
+                            </tr>
+                            <tr>
+                                <td>Engagement</td>
+                                <td>Activos vs. inactivos</td>
+                                <td>Estrategias diferenciadas</td>
+                            </tr>
+                            <tr>
+                                <td>Ciclo de vida</td>
+                                <td>Nuevos, recurrentes, churned</td>
+                                <td>Mensajes específicos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3>Automatización de Email Marketing</h3>
+                    <div class="subsection">
+                        <h4>🏃‍♂️ Secuencia de Bienvenida</h4>
+                        <p>Serie de emails para nuevos suscriptores (típicamente 3-7 emails).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🛒 Carrito Abandonado</h4>
+                        <p>Recupera ventas perdidas con recordatorios automáticos.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎯 Lead Nurturing</h4>
+                        <p>Guía leads a través del funnel de ventas.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🔄 Re-engagement</h4>
+                        <p>Reactiva suscriptores inactivos.</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📧 Ejemplo: Email de Carrito Abandonado</h4>
+                    <p><strong>Asunto:</strong> "¿Olvidaste algo? 🛒 Tu carrito te está esperando"</p>
+                    <p><strong>Contenido:</strong></p>
+                    <ul>
+                        <li>Saludo personalizado</li>
+                        <li>Imagen del producto abandonado</li>
+                        <li>Beneficios del producto</li>
+                        <li>Oferta especial (10% descuento)</li>
+                        <li>CTA claro: "Completar Compra"</li>
+                        <li>Urgencia: "Oferta válida por 24 horas"</li>
+                    </ul>
+                </div>
+
+                <div class="activity-box">
+                    <h4>🚀 Actividad Práctica</h4>
+                    <p><strong>Diseña tu primera campaña de email:</strong></p>
+                    <ol>
+                        <li>Elige una herramienta (Mailchimp, Sendinblue, etc.)</li>
+                        <li>Crea una lista segmentada de 50 contactos</li>
+                        <li>Diseña un email con todos los elementos clave</li>
+                        <li>Programa una secuencia de bienvenida de 3 emails</li>
+                        <li>Define métricas a monitorear</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECCIÓN 8 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">LECCIÓN 8</div>
+                <div class="lesson-title">Publicidad Digital (PPC)</div>
+            </div>
+            <div class="lesson-content">
+                <div class="lesson-objectives">
+                    <h3>🎯 Objetivos de Aprendizaje</h3>
+                    <ul>
+                        <li>Entender los fundamentos de la publicidad PPC</li>
+                        <li>Crear campañas efectivas en Google Ads y Facebook Ads</li>
+                        <li>Optimizar presupuestos y pujas</li>
+                        <li>Medir y mejorar el ROI de campañas pagadas</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>¿Qué es PPC (Pay-Per-Click)?</h3>
+                    <p>La publicidad PPC es un modelo donde pagas cada vez que alguien hace clic en tu anuncio. Es una forma de "comprar" visitas a tu sitio web en lugar de obtenerlas orgánicamente.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>🎯 Ventajas del PPC</h4>
+                        <ul>
+                            <li>Resultados inmediatos</li>
+                            <li>Control total del presupuesto</li>
+                            <li>Targeting muy específico</li>
+                            <li>Métricas detalladas y medibles</li>
+                            <li>Flexibilidad para ajustar campañas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Principales Plataformas PPC</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5>🔍 Google Ads</h5>
+                            <p>Búsquedas, Display, Shopping, YouTube</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📘 Facebook Ads</h5>
+                            <p>Facebook, Instagram, Messenger</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>💼 LinkedIn Ads</h5>
+                            <p>Perfecto para B2B y profesionales</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🐦 Twitter Ads</h5>
+                            <p>Promoción de tweets y cuentas</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>📱 TikTok Ads</h5>
+                            <p>Video ads para audiencias jóvenes</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5>🛒 Amazon Ads</h5>
+                            <p>Productos en el marketplace más grande</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Google Ads: Tipos de Campañas</h3>
+                    <div class="subsection">
+                        <h4>🔍 Búsqueda (Search)</h4>
+                        <p>Anuncios de texto que aparecen en los resultados de búsqueda de Google.</p>
+                        <div class="example-box">
+                            <h4>Ejemplo de Anuncio de Búsqueda</h4>
+                            <p><strong>Título 1:</strong> Zapatillas Nike Originales</p>
+                            <p><strong>Título 2:</strong> Envío Gratis en 24h</p>
+                            <p><strong>Descripción:</strong> Descubre la nueva colección Nike. Calidad garantizada y los mejores precios. ¡Compra ahora!</p>
+                            <p><strong>URL:</strong> tiendazapatillas.com/nike</p>
+                        </div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🖼️ Display</h4>
+                        <p>Anuncios visuales (banners, imágenes, videos) en sitios web asociados.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>🛍️ Shopping</h4>
+                        <p>Anuncios de productos con imagen, precio y tienda.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h4>📺 Video (YouTube)</h4>
+                        <p>Anuncios de video antes, durante o después de videos de YouTube.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Facebook Ads: Targeting Avanzado</h3>
+                    <table class="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Targeting</th>
+                                <th>Opciones</th>
+                                <th>Uso Recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Demográfico</td>
+                                <td>Edad, género, educación, estado civil</td>
+                                <td>Segmentación básica</td>
+                            </tr>
+                            <tr>
+                                <td>Geográfico</td>
+                                <td>País, ciudad, código postal, radio</td>
+                                <td>Negocios locales</td>
+                            </tr>
+                            <tr>
+                                <td>Intereses</td>
+                                <td>Hobbies, marcas, actividades</td>
+                                <td>Ampliar audiencia</td>
+                            </tr>
+                            <tr>
+                                <td>Comportamientos</td>
+                                <td>Compras, viajes, dispositivos</td>
+                                <td>Targeting específico</td>
+                            </tr>
+                            <tr>
+                                <td>Audiencias Personalizadas</td>
+                                <td>Clientes existentes, visitantes web</td>
+                                <td>Retargeting</td>
+                            </tr>
+                            <tr>
+                                <td>Lookalike</td>
+                                <td>Similar a tus mejores clientes</td>
+                                <td>Nuevas adquisiciones</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3>Métricas Clave en PPC</h3>
+                    <div class="subsection">
+                        <h4>💰 CPC (Cost Per Click)</h4>
+                        <p>Cuánto pagas por cada clic en tu anuncio.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>👁️ CTR (Click Through Rate)</h4>
+                        <p>Porcentaje de personas que ven tu anuncio y hacen clic.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>🎯 Conversión</h4>
+                        <p>Acciones valiosas que realizan los usuarios (compra, registro, etc.).</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>📊 ROAS (Return On Ad Spend)</h4>
+                        <p>Ingresos generados por cada peso invertido en publicidad.</p>
+                    </div>
+                    <div class="subsection">
+                        <h4>⭐ Quality Score</h4>
+                        <p>Puntuación de Google que afecta el costo y posición del anuncio.</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 Consejos para Optimizar PPC</h4>
+                    <ul>
+                        <li><strong>Investigación de palabras clave:</strong> Usa herramientas como Google Keyword Planner</li>
+                        <li><strong>Prueba A/B:</strong> Testea diferentes versiones de anuncios</li>
+                        <li><strong>Landing pages optimizadas:</strong> Coherencia entre anuncio y página de destino</li>
+                        <li><strong>Negative keywords:</strong> Excluye términos irrelevantes</li>
+                        <li><strong>Horarios inteligentes:</strong> Pauta cuando tu audiencia está activa</li>
+                        <li><strong>Retargeting:</strong> Re-engage visitantes que no convirtieron</li>
+                    </ul>
+                </div>
+
+                <div class="activity-
