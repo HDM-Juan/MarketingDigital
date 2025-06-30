@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital del Móvil - Centro de Estudios y Estrategias</title>
+    <title>Hospital del Móvil - Índice Completo de Estudios y Curso</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -34,175 +34,63 @@
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 3.2em;
             color: #B91C3C;
             margin-bottom: 10px;
         }
 
         .header .subtitle {
-            font-size: 1.3em;
+            font-size: 1.4em;
             color: #6B7280;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .header .description {
             font-size: 1.1em;
             color: #6B7280;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .estudios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .estudio-card {
-            background: #FFFFFF;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid #E5E7EB;
-            cursor: pointer;
-        }
-
-        .estudio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-left-color: #B91C3C;
-        }
-
-        .estudio-card.principal {
-            border-left-color: #B91C3C;
-            background: linear-gradient(135deg, rgba(185, 28, 60, 0.05), #FFFFFF);
-        }
-
-        .estudio-card.principal:hover {
-            border-left-color: #991B1B;
-        }
-
-        .estudio-card.coming-soon {
-            border-left-color: #ed8936;
-            opacity: 0.7;
-            cursor: default;
-        }
-
-        .estudio-card.coming-soon:hover {
-            transform: none;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-header {
+        .navigation-tabs {
             display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            background: #E5E7EB;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: #6B7280;
-            font-size: 1.5em;
-            margin-right: 15px;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
         }
 
-        .card-icon.principal {
-            background: #B91C3C;
-            color: white;
-        }
-
-        .card-icon.coming-soon {
-            background: #6B7280;
-            color: white;
-        }
-
-        .card-title {
-            font-size: 1.4em;
-            color: #2d3748;
-            font-weight: 600;
-        }
-
-        .card-status {
-            background: #B91C3C;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-left: auto;
-        }
-
-        .card-status.coming-soon {
-            background: #6B7280;
-        }
-
-        .card-description {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .card-features {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .card-features li {
-            color: #718096;
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .card-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #B91C3C;
-            font-weight: bold;
-        }
-
-        .card-features.coming-soon li::before {
-            content: "⏳";
-        }
-
-        .card-button {
-            display: inline-block;
-            background: #6B7280;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
+        .tab-button {
+            background: transparent;
+            border: none;
+            padding: 15px 25px;
+            margin: 0 5px;
+            border-radius: 10px;
+            cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            text-align: center;
-            width: 100%;
+            white-space: nowrap;
+            color: #6B7280;
         }
 
-        .card-button:hover {
-            background: #4B5563;
-            transform: translateY(-2px);
-        }
-
-        .card-button.principal {
+        .tab-button.active {
             background: #B91C3C;
+            color: white;
         }
 
-        .card-button.principal:hover {
-            background: #991B1B;
+        .tab-button:hover {
+            background: rgba(185, 28, 60, 0.1);
         }
 
-        .card-button.coming-soon {
-            background: #a0aec0;
-            cursor: not-allowed;
-            pointer-events: none;
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         .stats-section {
@@ -215,8 +103,8 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
             text-align: center;
         }
 
@@ -228,12 +116,265 @@
             font-size: 2.5em;
             font-weight: bold;
             color: #B91C3C;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .stat-label {
             color: #6B7280;
             font-size: 1.1em;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: #FFFFFF;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #E5E7EB;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-card.disponible {
+            border-left-color: #B91C3C;
+        }
+
+        .content-card.curso {
+            border-left-color: #067D3F;
+            background: linear-gradient(135deg, rgba(6, 125, 63, 0.05), #FFFFFF);
+        }
+
+        .content-card.curso:hover {
+            border-left-color: #047857;
+        }
+
+        .content-card.coming-soon {
+            border-left-color: #F59E0B;
+            opacity: 0.8;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+            background: #E5E7EB;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6B7280;
+            font-size: 1.3em;
+            margin-right: 15px;
+        }
+
+        .card-icon.disponible {
+            background: #B91C3C;
+            color: white;
+        }
+
+        .card-icon.curso {
+            background: #067D3F;
+            color: white;
+        }
+
+        .card-icon.coming-soon {
+            background: #F59E0B;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            color: #2d3748;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .card-status {
+            background: #B91C3C;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+        }
+
+        .card-status.curso {
+            background: #067D3F;
+        }
+
+        .card-status.coming-soon {
+            background: #F59E0B;
+        }
+
+        .card-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .card-features li {
+            color: #718096;
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            font-size: 0.9em;
+        }
+
+        .card-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #B91C3C;
+            font-weight: bold;
+        }
+
+        .card-features.curso li::before {
+            color: #067D3F;
+        }
+
+        .card-features.coming-soon li::before {
+            content: "⏳";
+            color: #F59E0B;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: #6B7280;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            font-size: 0.9em;
+        }
+
+        .card-button:hover {
+            background: #4B5563;
+            transform: translateY(-2px);
+        }
+
+        .card-button.disponible {
+            background: #B91C3C;
+        }
+
+        .card-button.disponible:hover {
+            background: #991B1B;
+        }
+
+        .card-button.curso {
+            background: #067D3F;
+        }
+
+        .card-button.curso:hover {
+            background: #047857;
+        }
+
+        .card-button.coming-soon {
+            background: #F59E0B;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .curso-progress {
+            background: linear-gradient(135deg, #067D3F 0%, #059669 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: white;
+            height: 100%;
+            border-radius: 5px;
+            width: 100%;
+            animation: fillProgress 2s ease-out;
+        }
+
+        @keyframes fillProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #067D3F;
+            cursor: pointer;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .chapter-number {
+            background: #067D3F;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .chapter-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .chapter-description {
+            color: #718096;
+            font-size: 0.9em;
+            line-height: 1.4;
         }
 
         .footer {
@@ -242,6 +383,7 @@
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
         }
 
         .footer-content {
@@ -265,11 +407,19 @@
             }
             
             .header h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
             
-            .estudios-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .navigation-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                margin: 2px 0;
             }
         }
     </style>
@@ -278,347 +428,332 @@
     <div class="container">
         <div class="header">
             <h1>🏥 Hospital del Móvil</h1>
-            <div class="subtitle">Centro de Estudios y Estrategias Digitales</div>
+            <div class="subtitle">Centro de Estudios y Curso Completo de Marketing Digital</div>
             <div class="description">
-                Análisis, estrategias y herramientas para el crecimiento del negocio de reparación de dispositivos móviles en Zona Rosa, CDMX
+                Análisis estratégicos especializados + Curso completo de Marketing Digital de 15 capítulos para el crecimiento del negocio de reparación de dispositivos móviles
             </div>
         </div>
 
+        <div class="navigation-tabs">
+            <button class="tab-button active" onclick="showTab('estudios')">📊 Estudios Estratégicos</button>
+            <button class="tab-button" onclick="showTab('curso')">📚 Curso Marketing (15 Cap.)</button>
+            <button class="tab-button" onclick="showTab('recursos')">🎯 Recursos y Resúmenes</button>
+            <button class="tab-button" onclick="showTab('proximamente')">🚀 Próximamente</button>
+        </div>
+
         <div class="stats-section">
-            <h3 style="text-align: center; margin-bottom: 25px; color: #2d3748;">📊 Resumen Ejecutivo</h3>
+            <h3 style="text-align: center; margin-bottom: 25px; color: #2d3748;">📈 Resumen Ejecutivo Total</h3>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">10</div>
-                    <div class="stat-label">Años de Experiencia</div>
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Estudios Estratégicos</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Estudios Disponibles</div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Capítulos del Curso</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Recursos Adicionales</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">+300%</div>
                     <div class="stat-label">ROI Proyectado</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">7</div>
-                    <div class="stat-label">Competidores Analizados</div>
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Años de Experiencia</div>
                 </div>
             </div>
         </div>
 
-        <div class="estudios-grid">
-            <!-- Dashboard Principal -->
-            <div class="estudio-card principal" onclick="window.open('dashboard-estrategia.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">📊</div>
-                    <div>
+        <!-- TAB 1: ESTUDIOS ESTRATÉGICOS -->
+        <div id="estudios" class="tab-content active">
+            <div class="content-grid">
+                <!-- Dashboard Principal -->
+                <div class="content-card disponible" onclick="window.open('dashboard-estrategia.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">📊</div>
                         <div class="card-title">Dashboard Estratégico Interactivo</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Estrategia digital completa con análisis por nichos, calculadora ROI, calendario estacional y plan de implementación detallado.
+                    </div>
+                    <ul class="card-features">
+                        <li>6 nichos específicos con estrategias personalizadas</li>
+                        <li>Calculadora ROI interactiva en tiempo real</li>
+                        <li>Calendario estacional con picos de venta</li>
+                        <li>Plan de contenido por red social y nicho</li>
+                    </ul>
+                    <a href="dashboard-estrategia.html" class="card-button disponible" target="_blank">
+                        🚀 Acceder al Dashboard
+                    </a>
                 </div>
-                <div class="card-description">
-                    Estrategia digital completa con análisis por nichos, calculadora ROI, calendario estacional y plan de implementación detallado.
-                </div>
-                <ul class="card-features">
-                    <li>6 nichos específicos con estrategias personalizadas</li>
-                    <li>Calculadora ROI interactiva en tiempo real</li>
-                    <li>Calendario estacional con picos de venta</li>
-                    <li>Plan de contenido por red social y nicho</li>
-                    <li>Promociones sin descuentos por segmento</li>
-                    <li>KPIs y métricas de seguimiento</li>
-                </ul>
-                <a href="dashboard-estrategia.html" class="card-button principal" target="_blank">
-                    🚀 Acceder al Dashboard
-                </a>
-            </div>
 
-            <!-- Infografía del Sector -->
-            <div class="estudio-card principal" onclick="window.open('infografia-sector.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">📊</div>
-                    <div>
+                <!-- Infografía del Sector -->
+                <div class="content-card disponible" onclick="window.open('infografia-sector.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">📈</div>
                         <div class="card-title">Infografía del Sector</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Análisis visual completo del sector de reparación de dispositivos móviles con datos del mercado y tendencias.
+                    </div>
+                    <ul class="card-features">
+                        <li>Datos estadísticos del sector móvil en México</li>
+                        <li>Tendencias de crecimiento y proyecciones</li>
+                        <li>Comportamiento del consumidor mexicano</li>
+                        <li>Oportunidades de negocio identificadas</li>
+                    </ul>
+                    <a href="infografia-sector.html" class="card-button disponible" target="_blank">
+                        📈 Ver Infografía
+                    </a>
                 </div>
-                <div class="card-description">
-                    Análisis visual completo del sector de reparación de dispositivos móviles con datos del mercado, tendencias y oportunidades de crecimiento.
-                </div>
-                <ul class="card-features">
-                    <li>Datos estadísticos del sector móvil en México</li>
-                    <li>Tendencias de crecimiento y proyecciones</li>
-                    <li>Análisis de penetración de mercado</li>
-                    <li>Comportamiento del consumidor mexicano</li>
-                    <li>Oportunidades de negocio identificadas</li>
-                    <li>Visualización interactiva de datos</li>
-                </ul>
-                <a href="infografia-sector.html" class="card-button principal" target="_blank">
-                    📈 Ver Infografía
-                </a>
-            </div>
 
-            <!-- Campaña de Redes Sociales -->
-            <div class="estudio-card principal" onclick="window.open('campana_redes_hospitalmovil.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">📱</div>
-                    <div>
+                <!-- Campaña de Redes Sociales -->
+                <div class="content-card disponible" onclick="window.open('campana_redes_hospitalmovil.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">📱</div>
                         <div class="card-title">Campaña de Redes Sociales</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Estrategia ejecutiva de contenido para redes sociales con diferenciadores únicos y promociones 2x1.
+                    </div>
+                    <ul class="card-features">
+                        <li>Diferenciadores clave vs competencia</li>
+                        <li>8 ideas de videos con enfoque estratégico</li>
+                        <li>Promociones 2x1 de bajo costo, alto impacto</li>
+                        <li>Estrategia Meta Ads con $1,000 MXN/mes</li>
+                    </ul>
+                    <a href="campana_redes_hospitalmovil.html" class="card-button disponible" target="_blank">
+                        📋 Ver Estrategia
+                    </a>
                 </div>
-                <div class="card-description">
-                    Estrategia ejecutiva de contenido para redes sociales con diferenciadores únicos, promociones 2x1 y análisis competitivo.
-                </div>
-                <ul class="card-features">
-                    <li>Diferenciadores clave vs competencia</li>
-                    <li>8 ideas de videos con enfoque estratégico</li>
-                    <li>Promociones 2x1 de bajo costo, alto impacto</li>
-                    <li>Estrategia Meta Ads con $1,000 MXN/mes</li>
-                    <li>WhatsApp Business optimizado</li>
-                    <li>Análisis competitivo detallado</li>
-                </ul>
-                <a href="campana_redes_hospitalmovil.html" class="card-button principal" target="_blank">
-                    📋 Ver Estrategia
-                </a>
-            </div>
 
-            <!-- Campaña 8 Videos Detallados -->
-            <div class="estudio-card principal" onclick="window.open('campana-8-videos.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">🎬</div>
-                    <div>
-                        <div class="card-title">8 Videos Cortos Listos para Producir</div>
+                <!-- 8 Videos Detallados -->
+                <div class="content-card disponible" onclick="window.open('campana-8-videos.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">🎬</div>
+                        <div class="card-title">8 Videos Cortos Listos</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Guía de producción completa con 8 videos cortos, scripts detallados y timeline de 4 semanas.
+                    </div>
+                    <ul class="card-features">
+                        <li>8 videos con scripts completos palabra por palabra</li>
+                        <li>Hashtags optimizados por contenido</li>
+                        <li>Timeline de publicación de 4 semanas</li>
+                        <li>Guía de implementación paso a paso</li>
+                    </ul>
+                    <a href="campana-8-videos.html" class="card-button disponible" target="_blank">
+                        🎥 Scripts Detallados
+                    </a>
                 </div>
-                <div class="card-description">
-                    Guía de producción completa con 8 videos cortos, scripts detallados, hashtags y timeline de publicación de 4 semanas.
-                </div>
-                <ul class="card-features">
-                    <li>8 videos con scripts completos palabra por palabra</li>
-                    <li>Duración específica y tipo de cada video</li>
-                    <li>Hashtags optimizados por contenido</li>
-                    <li>Timeline de publicación de 4 semanas</li>
-                    <li>Estrategia de promociones estacionales</li>
-                    <li>Guía de implementación paso a paso</li>
-                </ul>
-                <a href="campana-8-videos.html" class="card-button principal" target="_blank">
-                    🎥 Scripts Detallados
-                </a>
-            </div>
 
-            <!-- Suite de Herramientas Digitales -->
-            <div class="estudio-card principal" onclick="window.open('herramientas-digitales.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">⚡</div>
-                    <div>
+                <!-- Suite Herramientas -->
+                <div class="content-card disponible" onclick="window.open('herramientas-digitales.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">⚡</div>
                         <div class="card-title">Suite de Herramientas Digitales</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Centro de comando completo con IA, automatización y analytics para dominar el marketing digital.
+                    </div>
+                    <ul class="card-features">
+                        <li>Meta Business Suite + TikTok + Google Ads integrados</li>
+                        <li>IA avanzada: Claude 4, Gemini 2.5, Apollo AI</li>
+                        <li>Templates Canva Teams personalizados</li>
+                        <li>ROI tracking en tiempo real</li>
+                    </ul>
+                    <a href="herramientas-digitales.html" class="card-button disponible" target="_blank">
+                        🚀 Acceder a Herramientas
+                    </a>
                 </div>
-                <div class="card-description">
-                    Centro de comando completo con IA, automatización, analytics y gestión multiplataforma para dominar el marketing digital.
-                </div>
-                <ul class="card-features">
-                    <li>Meta Business Suite + TikTok + Google Ads integrados</li>
-                    <li>IA avanzada: Claude 4, Gemini 2.5, Apollo AI</li>
-                    <li>Análisis automático de mensajes y tendencias</li>
-                    <li>Templates Canva Teams personalizados</li>
-                    <li>Workflow automatizado completo</li>
-                    <li>ROI tracking en tiempo real</li>
-                </ul>
-                <a href="herramientas-digitales.html" class="card-button principal" target="_blank">
-                    🚀 Acceder a Herramientas
-                </a>
-            </div>
 
-            <!-- Análisis de Datos Históricos -->
-            <div class="estudio-card principal" onclick="window.open('analisis-datos-historicos.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">📊</div>
-                    <div>
+                <!-- Análisis Datos Históricos -->
+                <div class="content-card disponible" onclick="window.open('analisis-datos-historicos.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">📊</div>
                         <div class="card-title">Análisis de Datos Históricos</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Dashboard interactivo con análisis completo de 10 años de datos: clientes, servicios y comportamiento.
+                    </div>
+                    <ul class="card-features">
+                        <li>Análisis de 8,478 clientes y patrones</li>
+                        <li>Top 5 fallas más comunes y rentabilidad</li>
+                        <li>Marcas y modelos estrella más atendidos</li>
+                        <li>Recomendaciones estratégicas basadas en datos</li>
+                    </ul>
+                    <a href="analisis-datos-historicos.html" class="card-button disponible" target="_blank">
+                        📈 Ver Análisis Completo
+                    </a>
                 </div>
-                <div class="card-description">
-                    Dashboard interactivo con análisis completo de 10 años de datos: clientes recurrentes, servicios más rentables, marcas estrella y comportamiento de precios.
-                </div>
-                <ul class="card-features">
-                    <li>Análisis de 8,478 clientes y patrones de recurrencia</li>
-                    <li>Top 5 fallas más comunes y rentabilidad por servicio</li>
-                    <li>Marcas y modelos estrella más atendidos</li>
-                    <li>Discrepancia entre presupuesto inicial y costo final</li>
-                    <li>Gráficos interactivos con datos reales</li>
-                    <li>Recomendaciones estratégicas basadas en datos</li>
-                </ul>
-                <a href="analisis-datos-historicos.html" class="card-button principal" target="_blank">
-                    📈 Ver Análisis Completo
-                </a>
-            </div>
 
-            <!-- Simulador Financiero Avanzado -->
-            <div class="estudio-card principal" onclick="window.open('Simuldor-Financiero.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">💰</div>
-                    <div>
+                <!-- Simulador Financiero -->
+                <div class="content-card disponible" onclick="window.open('Simuldor-Financiero.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">💰</div>
                         <div class="card-title">Simulador Financiero Avanzado</div>
                         <span class="card-status">Disponible</span>
                     </div>
+                    <div class="card-description">
+                        Simulador financiero completo con múltiples escenarios, proyecciones y análisis Monte Carlo.
+                    </div>
+                    <ul class="card-features">
+                        <li>Proyecciones financieras basadas en datos históricos</li>
+                        <li>Análisis de escenarios (optimista, realista, pesimista)</li>
+                        <li>Simulaciones Monte Carlo con 10,000 iteraciones</li>
+                        <li>Evaluación de inversiones con VPN y TIR</li>
+                    </ul>
+                    <a href="Simuldor-Financiero.html" class="card-button disponible" target="_blank">
+                        💡 Abrir Simulador
+                    </a>
                 </div>
-                <div class="card-description">
-                    Simulador financiero completo con múltiples escenarios, proyecciones detalladas, análisis Monte Carlo y análisis de inversión para optimizar decisiones.
-                </div>
-                <ul class="card-features">
-                    <li>Proyecciones financieras basadas en datos históricos</li>
-                    <li>Análisis de escenarios (optimista, realista, pesimista)</li>
-                    <li>Simulaciones Monte Carlo con 10,000 iteraciones</li>
-                    <li>Análisis de sensibilidad en tiempo real</li>
-                    <li>Evaluación de inversiones con VPN y TIR</li>
-                    <li>Dashboard interactivo con métricas clave</li>
-                </ul>
-                <a href="Simuldor-Financiero.html" class="card-button principal" target="_blank">
-                    💡 Abrir Simulador
-                </a>
-            </div>
 
-            <!-- Análisis Competencia -->
-            <div class="estudio-card principal" onclick="window.open('FODA-Competencia.html', '_blank')">
-                <div class="card-header">
-                    <div class="card-icon principal">🔍</div>
-                    <div>
+                <!-- Análisis Competencia -->
+                <div class="content-card disponible" onclick="window.open('FODA-Competencia.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon disponible">🔍</div>
                         <div class="card-title">Análisis Competencia Detallado</div>
                         <span class="card-status">Disponible</span>
                     </div>
-                </div>
-                <div class="card-description">
-                    Investigación profunda con análisis FODA estratégico, matriz de posicionamiento, ventajas competitivas sostenibles y recomendaciones priorizadas basadas en 10 años de datos.
-                </div>
-                <ul class="card-features">
-                    <li>Matriz de posicionamiento real vs. competencia</li>
-                    <li>Análisis FODA con amenazas y oportunidades claras</li>
-                    <li>Ventajas competitivas sostenibles identificadas</li>
-                    <li>Dashboard de métricas clave vs. sector</li>
-                    <li>Estrategias defensivas y ofensivas</li>
-                    <li>Plan de acción priorizado por impacto</li>
-                </ul>
-                <a href="FODA-Competencia.html" class="card-button principal" target="_blank">
-                    🔍 Ver Análisis Completo
-                </a>
-            </div>
-
-            <!-- Estudio de Mercado -->
-            <div class="estudio-card coming-soon">
-                <div class="card-header">
-                    <div class="card-icon coming-soon">📈</div>
-                    <div>
-                        <div class="card-title">Estudio de Mercado Zona Rosa</div>
-                        <span class="card-status coming-soon">Planificado</span>
+                    <div class="card-description">
+                        Investigación profunda con análisis FODA estratégico y ventajas competitivas sostenibles.
                     </div>
+                    <ul class="card-features">
+                        <li>Matriz de posicionamiento real vs. competencia</li>
+                        <li>Análisis FODA con amenazas y oportunidades</li>
+                        <li>Ventajas competitivas sostenibles identificadas</li>
+                        <li>Plan de acción priorizado por impacto</li>
+                    </ul>
+                    <a href="FODA-Competencia.html" class="card-button disponible" target="_blank">
+                        🔍 Ver Análisis Completo
+                    </a>
                 </div>
-                <div class="card-description">
-                    Análisis del mercado local, demografía, patrones de consumo y proyecciones de crecimiento para dispositivos móviles en Zona Rosa.
-                </div>
-                <ul class="card-features coming-soon">
-                    <li>Demografía detallada Zona Rosa</li>
-                    <li>Análisis de tráfico peatonal</li>
-                    <li>Estacionalidad de demanda</li>
-                    <li>Perfil socioeconómico clientes</li>
-                    <li>Proyecciones de mercado 5 años</li>
-                    <li>Oportunidades de expansión</li>
-                </ul>
-                <a href="#" class="card-button coming-soon">
-                    📋 En Planificación
-                </a>
-            </div>
-
-            <!-- Plan de Implementación -->
-            <div class="estudio-card coming-soon">
-                <div class="card-header">
-                    <div class="card-icon coming-soon">🛠️</div>
-                    <div>
-                        <div class="card-title">Plan de Implementación Detallado</div>
-                        <span class="card-status coming-soon">Q2 2025</span>
-                    </div>
-                </div>
-                <div class="card-description">
-                    Guía paso a paso para implementar todas las estrategias digitales con cronograma, presupuesto y métricas de éxito.
-                </div>
-                <ul class="card-features coming-soon">
-                    <li>Cronograma semanal 6 meses</li>
-                    <li>Presupuesto detallado por actividad</li>
-                    <li>Checklist de implementación</li>
-                    <li>Templates y recursos descargables</li>
-                    <li>Sistema de seguimiento y ajustes</li>
-                    <li>Escenarios de contingencia</li>
-                </ul>
-                <a href="#" class="card-button coming-soon">
-                    🗓️ Q2 2025
-                </a>
             </div>
         </div>
 
-        <div class="footer">
-            <div class="footer-content">
-                <strong>🏥 Hospital del Móvil - Centro de Estudios Estratégicos</strong><br>
-                Zona Rosa, Ciudad de México | 10+ años de experiencia<br>
-                <span style="color: #4a5568;">Última actualización: Junio 2025</span>
-                <span class="update-badge">8 Estudios Activos</span>
+        <!-- TAB 2: CURSO MARKETING DIGITAL -->
+        <div id="curso" class="tab-content">
+            <div class="curso-progress">
+                <h3>📚 Curso Completo de Marketing Digital - 15 Capítulos</h3>
+                <p>Aprende marketing digital desde cero con lecciones didácticas y ejemplos prácticos</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p><strong>✅ 15/15 Capítulos Completados</strong> | Resumen y Glosario Incluidos</p>
+            </div>
+
+            <div class="chapter-grid">
+                <!-- Capítulos 1-5 -->
+                <div class="chapter-card" onclick="window.open('Curso-1-5.html', '_blank')">
+                    <div class="chapter-number">1-5</div>
+                    <div class="chapter-title">Fundamentos del Marketing Digital</div>
+                    <div class="chapter-description">
+                        Introducción, conceptos básicos, buyer personas, redes sociales y content marketing
+                    </div>
+                </div>
+
+                <!-- Capítulos 6-10 -->
+                <div class="chapter-card" onclick="window.open('Curso-6-10.html', '_blank')">
+                    <div class="chapter-number">6-10</div>
+                    <div class="chapter-title">Estrategias y Herramientas</div>
+                    <div class="chapter-description">
+                        SEO, publicidad pagada, email marketing, analytics y herramientas digitales
+                    </div>
+                </div>
+
+                <!-- Capítulos 11-12 -->
+                <div class="chapter-card" onclick="window.open('Curso-11-12.html', '_blank')">
+                    <div class="chapter-number">11-12</div>
+                    <div class="chapter-title">Marketing de Influencers y Móvil</div>
+                    <div class="chapter-description">
+                        Colaboraciones con influencers y optimización para dispositivos móviles
+                    </div>
+                </div>
+
+                <!-- Capítulo 13 -->
+                <div class="chapter-card" onclick="window.open('Curso-13.html', '_blank')">
+                    <div class="chapter-number">13</div>
+                    <div class="chapter-title">Automatización de Marketing</div>
+                    <div class="chapter-description">
+                        Herramientas de automatización, workflows y procesos eficientes
+                    </div>
+                </div>
+
+                <!-- Capítulo 14 -->
+                <div class="chapter-card" onclick="window.open('Curso-14.html', '_blank')">
+                    <div class="chapter-number">14</div>
+                    <div class="chapter-title">Tendencias y Futuro del Marketing</div>
+                    <div class="chapter-description">
+                        IA, realidad virtual, blockchain y las próximas tendencias digitales
+                    </div>
+                </div>
+
+                <!-- Capítulo 15 -->
+                <div class="chapter-card" onclick="window.open('Curso-15.html', '_blank')">
+                    <div class="chapter-number">15</div>
+                    <div class="chapter-title">¿Por qué la gente NO compra?</div>
+                    <div class="chapter-description">
+                        Optimización de conversiones explicado súper simple con ejemplos de redes sociales
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        // Función para tracking de clics en estudios
-        document.querySelectorAll('.estudio-card:not(.coming-soon)').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if (e.target.tagName !== 'A') {
-                    const link = this.querySelector('a');
-                    if (link) {
-                        window.open(link.href, '_blank');
-                    }
-                }
-            });
-        });
+        <!-- TAB 3: RECURSOS Y RESÚMENES -->
+        <div id="recursos" class="tab-content">
+            <div class="content-grid">
+                <!-- Resumen Ejecutivo Capítulo 15 -->
+                <div class="content-card curso" onclick="window.open('Curso-Resumen.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon curso">📋</div>
+                        <div class="card-title">Resumen Ejecutivo Cap. 15</div>
+                        <span class="card-status curso">Disponible</span>
+                    </div>
+                    <div class="card-description">
+                        Resumen completo, conceptos principales, plan de acción y glosario de términos del Capítulo 15.
+                    </div>
+                    <ul class="card-features curso">
+                        <li>Resumen ejecutivo con números clave</li>
+                        <li>6 conceptos principales explicados simple</li>
+                        <li>Plan de acción de 30 días paso a paso</li>
+                        <li>Glosario con 12 términos esenciales</li>
+                    </ul>
+                    <a href="Curso-Resumen.html" class="card-button curso" target="_blank">
+                        📚 Ver Resumen y Glosario
+                    </a>
+                </div>
 
-        // Función para mostrar mensaje en estudios no disponibles
-        document.querySelectorAll('.estudio-card.coming-soon').forEach(card => {
-            card.addEventListener('click', function() {
-                const title = this.querySelector('.card-title').textContent;
-                alert(`📋 ${title}\n\nEste estudio está en desarrollo. Te notificaremos cuando esté disponible.\n\nPor ahora, puedes usar los 8 estudios disponibles que ya están completos y funcionales.`);
-            });
-        });
+                <!-- Curso Completo Unificado -->
+                <div class="content-card curso" onclick="window.open('Curso-Marketing-Digital.html', '_blank')">
+                    <div class="card-header">
+                        <div class="card-icon curso">📖</div>
+                        <div class="card-title">Curso Completo Unificado</div>
+                        <span class="card-status curso">Disponible</span>
+                    </div>
+                    <div class="card-description">
+                        Todos los 15 capítulos del curso en una sola página navegable con índice y búsqueda.
+                    </div>
+                    <ul class="card-features curso">
+                        <li>15 capítulos completos en una página</li>
+                        <li>Navegación rápida entre capítulos</li>
+                        <li>Búsqueda de contenido integrada</li>
+                        <li>Formato optimizado para estudio</li>
+                    </ul>
+                    <a href="Curso-Marketing-Digital.html" class="card-button curso" target="_blank">
+                        📖 Acceder al Curso Completo
+                    </a>
+                </div>
 
-        // Animación de números en las estadísticas
-        function animateNumbers() {
-            document.querySelectorAll('.stat-number').forEach(element => {
-                const finalNumber = element.textContent;
-                const isPercentage = finalNumber.includes('%');
-                const isPlus = finalNumber.includes('+');
-                const cleanNumber = parseInt(finalNumber.replace(/[^\d]/g, ''));
-                
-                let current = 0;
-                const increment = cleanNumber / 30;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= cleanNumber) {
-                        element.textContent = finalNumber;
-                        clearInterval(timer);
-                    } else {
-                        let display = Math.floor(current);
-                        if (isPlus) display = '+' + display;
-                        if (isPercentage) display += '%';
-                        element.textContent = display;
-                    }
-                }, 50);
-            });
-        }
-
-        // Inicializar animaciones cuando la página carga
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(animateNumbers, 500);
-        });
-    </script>
-</body>
-</html>
+                <!-- Guía de Implementación -->
+                <div class="content-card curso">
+                    <div class="card-header">
+                        <div class="card-icon curso">🛠️</div>
