@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 15: Análisis y Optimización de Conversiones</title>
+    <title>Capítulo 15: ¿Por qué la gente no compra? 🤔💸</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             line-height: 1.6;
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
@@ -29,21 +29,17 @@
             text-align: center;
             color: white;
             margin-bottom: 40px;
-            animation: fadeInDown 1s ease-out;
+            animation: bounceIn 1s ease-out;
         }
 
         .header h1 {
             font-size: 3.5rem;
             margin-bottom: 15px;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-            background: linear-gradient(45deg, #ffffff, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .header p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             opacity: 0.95;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
@@ -57,385 +53,357 @@
 
         .card {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 35px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             transition: all 0.4s ease;
-            animation: fadeInUp 0.8s ease-out;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            animation: slideInUp 0.8s ease-out;
+            border: 3px solid transparent;
+            background-clip: padding-box;
         }
 
         .card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+            border-color: #ff6b6b;
         }
 
         .card h2 {
             color: #2d3436;
             margin-bottom: 25px;
-            font-size: 2rem;
-            border-bottom: 4px solid #667eea;
+            font-size: 2.2rem;
+            text-align: center;
+            border-bottom: 4px solid #ff6b6b;
             padding-bottom: 15px;
-            position: relative;
         }
 
-        .card h2::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .analytics-dashboard {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        .explanation-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
             border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 6px solid #e17055;
+        }
+
+        .explanation-box h3 {
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .social-example {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 6px solid #00b894;
+        }
+
+        .social-example h4 {
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .metrics-playground {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 20px;
             padding: 25px;
             margin: 20px 0;
             color: white;
         }
 
-        .metrics-grid {
+        .simple-metrics {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin: 20px 0;
         }
 
-        .metric-card {
+        .metric-box {
             background: rgba(255, 255, 255, 0.2);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .metric-card:hover {
-            transform: scale(1.05);
+        .metric-box:hover {
             background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
-        .metric-value {
-            font-size: 2.5rem;
+        .big-number {
+            font-size: 3rem;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .metric-label {
-            font-size: 0.95rem;
+        .metric-name {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .simple-explanation {
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
-        .metric-trend {
-            font-size: 0.8rem;
-            margin-top: 5px;
-            padding: 3px 8px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .ab-test-builder {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 15px;
+        .ab-test-game {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            border-radius: 20px;
             padding: 25px;
             margin: 20px 0;
+            color: white;
         }
 
-        .test-variant {
-            background: white;
-            border-radius: 10px;
+        .test-option {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
             padding: 20px;
+            border-radius: 15px;
             margin: 15px 0;
-            border: 2px solid #e9ecef;
+            cursor: pointer;
             transition: all 0.3s ease;
+            border: 3px solid transparent;
         }
 
-        .test-variant:hover {
+        .test-option:hover {
             border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .test-variant.winner {
+        .test-option.winner {
             border-color: #00b894;
             background: #d1f2eb;
+            position: relative;
         }
 
-        .conversion-funnel {
+        .test-option.winner::after {
+            content: '🏆 ¡GANADOR!';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: #00b894;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .journey-map {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
             margin: 20px 0;
         }
 
-        .funnel-step {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        .journey-step {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
             position: relative;
-            transition: transform 0.3s ease;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .funnel-step:hover {
+        .journey-step:hover {
             transform: scale(1.05);
         }
 
-        .funnel-step::after {
-            content: '→';
+        .journey-step::after {
+            content: '➡️';
             position: absolute;
             right: -25px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
-            color: #2d3436;
-            font-weight: bold;
         }
 
-        .funnel-step:last-child::after {
+        .journey-step:last-child::after {
             display: none;
         }
 
-        .step-rate {
+        .step-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .step-percent {
             font-size: 2rem;
             font-weight: bold;
             color: #2d3436;
         }
 
         .step-label {
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-top: 5px;
-            opacity: 0.8;
+            color: #636e72;
         }
 
-        .heatmap-simulator {
+        .heatmap-demo {
             background: #f8f9fa;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 25px;
             margin: 20px 0;
+        }
+
+        .phone-mockup {
+            width: 200px;
+            height: 350px;
+            background: #333;
+            border-radius: 25px;
+            margin: 20px auto;
+            padding: 20px;
             position: relative;
         }
 
-        .heatmap-grid {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            grid-template-rows: repeat(8, 40px);
-            gap: 2px;
-            margin: 20px 0;
-        }
-
-        .heatmap-cell {
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .heat-low { background: #74b9ff; opacity: 0.3; }
-        .heat-medium { background: #fdcb6e; opacity: 0.6; }
-        .heat-high { background: #e84393; opacity: 0.9; }
-
-        .optimization-checklist {
-            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
             border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-            color: white;
-        }
-
-        .checklist-item {
-            background: rgba(255, 255, 255, 0.2);
             padding: 15px;
-            border-radius: 10px;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
+            display: grid;
+            grid-template-rows: 30px 60px 1fr 50px;
+            gap: 10px;
+        }
+
+        .screen-element {
+            border-radius: 8px;
             cursor: pointer;
-        }
-
-        .checklist-item:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateX(5px);
-        }
-
-        .checklist-item.completed {
-            background: rgba(0, 184, 148, 0.8);
-        }
-
-        .checkbox {
-            width: 20px;
-            height: 20px;
-            border: 2px solid white;
-            border-radius: 3px;
-            margin-right: 15px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 0.8rem;
             font-weight: bold;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .header-area {
+            background: #e9ecef;
         }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #2d3436;
-            font-size: 1.1rem;
+        .hero-area {
+            background: #fed6e3;
         }
 
-        input, textarea, select {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
+        .content-area {
+            background: #a8edea;
         }
 
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
-            transform: translateY(-2px);
+        .cta-area {
+            background: #ffeaa7;
         }
 
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 10px 8px;
-            display: inline-block;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
+        .screen-element:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
-        }
-
-        .btn-warning {
-            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #e84393 0%, #fd79a8 100%);
-        }
-
-        .chart-container {
-            background: white;
-            border-radius: 15px;
+        .optimization-tips {
+            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
+            border-radius: 20px;
             padding: 25px;
             margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .chart-bar {
-            height: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            margin: 10px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chart-label {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
             color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
         }
 
-        .chart-value {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-weight: bold;
+        .tip-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .quiz-container {
+        .tip-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(10px);
+        }
+
+        .tip-emoji {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .quiz-game {
             background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
-            border-radius: 20px;
-            padding: 35px;
+            border-radius: 25px;
+            padding: 30px;
             margin: 30px 0;
             color: white;
         }
 
         .quiz-question {
-            margin-bottom: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
         }
 
         .quiz-options {
             display: grid;
             gap: 12px;
-            margin: 20px 0;
+            margin-top: 15px;
         }
 
         .quiz-option {
             background: rgba(255, 255, 255, 0.9);
             color: #333;
-            padding: 18px;
-            border-radius: 10px;
+            padding: 15px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             border: 3px solid transparent;
-            font-weight: 500;
+            font-size: 1.1rem;
         }
 
         .quiz-option:hover {
             border-color: #667eea;
-            transform: translateX(8px);
+            transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .quiz-option.selected {
             background: #667eea;
             color: white;
-            transform: translateX(8px);
+            transform: translateY(-3px);
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 12px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 6px;
-            overflow: hidden;
-            margin: 20px 0;
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            font-family: inherit;
         }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(45deg, #00b894, #00cec9);
-            border-radius: 6px;
-            transition: width 1s ease;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        }
+
+        .btn-fun {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
         }
 
         .notification {
@@ -445,30 +413,27 @@
             background: #00b894;
             color: white;
             padding: 15px 25px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transform: translateX(400px);
             transition: transform 0.3s ease;
             z-index: 1000;
+            font-weight: bold;
         }
 
         .notification.show {
             transform: translateX(0);
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
 
         @media (max-width: 768px) {
@@ -476,420 +441,284 @@
             .content-grid { grid-template-columns: 1fr; }
             .container { padding: 15px; }
             .card { padding: 25px; }
-            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
-            .conversion-funnel { grid-template-columns: 1fr; }
+            .simple-metrics { grid-template-columns: repeat(2, 1fr); }
+            .journey-map { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 Capítulo 15</h1>
-            <p>Análisis y Optimización de Conversiones</p>
+            <h1>🤔💸 Capítulo 15</h1>
+            <p>¿Por qué la gente NO compra en redes sociales?</p>
         </div>
 
         <div class="content-grid">
-            <!-- Fundamentos de CRO -->
+            <!-- Explicación Simple -->
             <div class="card">
-                <h2>🎯 Fundamentos de CRO</h2>
-                <p><strong>Conversion Rate Optimization (CRO)</strong></p>
-                <p>Es el proceso sistemático de aumentar el porcentaje de visitantes del sitio web que completan una acción deseada, como realizar una compra, llenar un formulario o suscribirse a un servicio.</p>
+                <h2>🤷‍♀️ ¿Qué es la "Optimización de Conversiones"?</h2>
                 
-                <div style="margin-top: 25px;">
-                    <h3>Elementos Clave del CRO:</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #667eea;">
-                            <strong>📈 Análisis de Datos</strong><br>
-                            <small>Interpretación de métricas y comportamiento</small>
-                        </div>
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #00b894;">
-                            <strong>🧪 Testing A/B</strong><br>
-                            <small>Comparación de variantes para optimizar</small>
-                        </div>
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #e84393;">
-                            <strong>👥 User Experience</strong><br>
-                            <small>Mejora de la experiencia del usuario</small>
-                        </div>
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 4px solid #fdcb6e;">
-                            <strong>🔄 Optimización Continua</strong><br>
-                            <small>Proceso iterativo de mejoras</small>
-                        </div>
-                    </div>
+                <div class="explanation-box">
+                    <h3>🎯 Imagínate esto...</h3>
+                    <p>Tienes una tienda física y cada día entran 100 personas, pero solo 3 compran algo. ¿No te preguntarías por qué las otras 97 se van sin comprar?</p>
                 </div>
 
-                <div style="margin-top: 20px;">
-                    <h3>Beneficios del CRO:</h3>
-                    <ul style="margin-left: 20px; margin-top: 10px; line-height: 1.8;">
-                        <li>💰 Mayor ROI sin aumentar tráfico</li>
-                        <li>📊 Mejor comprensión del cliente</li>
-                        <li>🎯 Reducción de costos de adquisición</li>
-                        <li>⚡ Mejores resultados inmediatos</li>
-                        <li>📈 Crecimiento sostenible</li>
-                    </ul>
+                <div class="social-example">
+                    <h4>📱 En redes sociales es igual:</h4>
+                    <p><strong>• Instagram:</strong> 1000 personas ven tu post, 50 van a tu perfil, pero solo 2 compran</p>
+                    <p><strong>• TikTok:</strong> Tu video tiene 5000 views, 100 hacen clic en tu bio, pero solo 3 compran</p>
+                    <p><strong>• Facebook:</strong> Tu anuncio llega a 2000 personas, 30 visitan tu página, pero solo 1 compra</p>
+                </div>
+
+                <div class="explanation-box">
+                    <h3>💡 La optimización de conversiones es...</h3>
+                    <p><strong>Descubrir POR QUÉ la gente no compra</strong> y arreglar esos problemas para que MÁS gente sí compre. Es como ser detective de tu propio negocio! 🕵️‍♀️</p>
+                </div>
+
+                <div style="background: #dff0d8; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                    <p><strong>🎯 Objetivo simple:</strong> Si logras que de cada 100 visitantes compren 6 en lugar de 3, ¡DUPLICASTE tus ventas sin gastar más en publicidad!</p>
                 </div>
             </div>
 
-            <!-- Dashboard de Analytics -->
+            <!-- Números Simples -->
             <div class="card">
-                <h2>📊 Dashboard de Analytics</h2>
-                <div class="analytics-dashboard">
-                    <h3 style="margin-bottom: 20px;">Métricas de Conversión en Tiempo Real</h3>
+                <h2>📊 Tus Números en Redes (¡Súper Fácil!)</h2>
+                
+                <div class="metrics-playground">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🎮 Simulador de tu Negocio</h3>
                     
-                    <div class="metrics-grid">
-                        <div class="metric-card" onclick="showMetricDetails('conversion')">
-                            <div class="metric-value" id="conversionRate">3.24%</div>
-                            <div class="metric-label">Tasa de Conversión</div>
-                            <div class="metric-trend">↗ +0.8%</div>
+                    <div class="simple-metrics">
+                        <div class="metric-box" onclick="explainMetric('visitors')">
+                            <div class="big-number" id="visitors">1,000</div>
+                            <div class="metric-name">👀 Visitantes</div>
+                            <div class="simple-explanation">Gente que ve tu perfil</div>
                         </div>
-                        <div class="metric-card" onclick="showMetricDetails('visitors')">
-                            <div class="metric-value" id="visitors">12,847</div>
-                            <div class="metric-label">Visitantes</div>
-                            <div class="metric-trend">↗ +15%</div>
+                        
+                        <div class="metric-box" onclick="explainMetric('interested')">
+                            <div class="big-number" id="interested">150</div>
+                            <div class="metric-name">❤️ Interesados</div>
+                            <div class="simple-explanation">Dan like o comentan</div>
                         </div>
-                        <div class="metric-card" onclick="showMetricDetails('revenue')">
-                            <div class="metric-value" id="revenue">$8,429</div>
-                            <div class="metric-label">Revenue</div>
-                            <div class="metric-trend">↗ +22%</div>
+                        
+                        <div class="metric-box" onclick="explainMetric('clicks')">
+                            <div class="big-number" id="clicks">50</div>
+                            <div class="metric-name">👆 Clics</div>
+                            <div class="simple-explanation">Hacen clic en tu link</div>
                         </div>
-                        <div class="metric-card" onclick="showMetricDetails('bounce')">
-                            <div class="metric-value" id="bounceRate">42.3%</div>
-                            <div class="metric-label">Bounce Rate</div>
-                            <div class="metric-trend">↙ -5%</div>
-                        </div>
-                        <div class="metric-card" onclick="showMetricDetails('session')">
-                            <div class="metric-value" id="sessionDuration">4:23</div>
-                            <div class="metric-label">Duración Sesión</div>
-                            <div class="metric-trend">↗ +30s</div>
-                        </div>
-                        <div class="metric-card" onclick="showMetricDetails('pages')">
-                            <div class="metric-value" id="pagesPerSession">2.8</div>
-                            <div class="metric-label">Páginas/Sesión</div>
-                            <div class="metric-trend">↗ +0.3</div>
+                        
+                        <div class="metric-box" onclick="explainMetric('buyers')">
+                            <div class="big-number" id="buyers">3</div>
+                            <div class="metric-name">💳 Compradores</div>
+                            <div class="simple-explanation">Realmente compran</div>
                         </div>
                     </div>
                     
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="goalProgress" style="width: 72%;"></div>
-                    </div>
-                    <p style="text-align: center; margin-top: 10px;">72% del objetivo mensual (4.5% conversión)</p>
-                    
-                    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
-                        <button class="btn" onclick="refreshAnalytics()">Actualizar Datos</button>
-                        <button class="btn btn-success" onclick="exportReport()">Exportar Reporte</button>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn btn-success" onclick="changeNumbers()">🎲 Cambiar Números</button>
+                        <p style="margin-top: 10px; opacity: 0.9;">¡Haz clic en cada número para entender qué significa!</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Constructor de Tests A/B -->
+            <!-- Tests A/B Explicados Simple -->
             <div class="card">
-                <h2>🧪 Constructor de Tests A/B</h2>
-                <div class="ab-test-builder">
-                    <h3 style="margin-bottom: 20px; color: #2d3436;">Crear Nuevo Test A/B</h3>
-                    
-                    <div class="form-group">
-                        <label for="testName">Nombre del Test:</label>
-                        <input type="text" id="testName" placeholder="Ej: Test Botón CTA Homepage">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="testElement">Elemento a Testear:</label>
-                        <select id="testElement">
-                            <option value="headline">Headline/Título</option>
-                            <option value="cta">Botón CTA</option>
-                            <option value="image">Imagen Hero</option>
-                            <option value="form">Formulario</option>
-                            <option value="price">Pricing</option>
-                            <option value="layout">Layout/Diseño</option>
-                        </select>
-                    </div>
-                    
-                    <div class="test-variant">
-                        <h4>🅰️ Variante A (Control)</h4>
-                        <textarea placeholder="Describe la variante original..." rows="3"></textarea>
-                    </div>
-                    
-                    <div class="test-variant">
-                        <h4>🅱️ Variante B (Test)</h4>
-                        <textarea placeholder="Describe la nueva variante..." rows="3"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="testDuration">Duración del Test (días):</label>
-                        <input type="number" id="testDuration" value="14" min="7" max="60">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="trafficSplit">División de Tráfico:</label>
-                        <select id="trafficSplit">
-                            <option value="50-50">50% - 50%</option>
-                            <option value="70-30">70% - 30%</option>
-                            <option value="80-20">80% - 20%</option>
-                            <option value="90-10">90% - 10%</option>
-                        </select>
-                    </div>
-                    
-                    <button class="btn" onclick="createABTest()">Crear Test</button>
-                    <button class="btn btn-success" onclick="launchTest()">Lanzar Test</button>
-                    <button class="btn btn-warning" onclick="pauseTest()">Pausar Test</button>
-                </div>
+                <h2>🧪 Tests A/B: ¿Cuál Funciona Mejor?</h2>
                 
-                <div style="margin-top: 20px;">
-                    <h3>Tests Activos:</h3>
-                    <div class="test-variant winner">
-                        <h4>🏆 Test CTA Button - GANADOR</h4>
-                        <p><strong>Variante B:</strong> +23% conversión | Confianza: 95%</p>
-                        <p><em>Botón verde "Comenzar Ahora" vs botón azul "Empezar"</em></p>
+                <div class="explanation-box">
+                    <h3>🤔 ¿Qué es un Test A/B?</h3>
+                    <p>Es como probar dos camisetas diferentes y ver cuál te queda mejor. Solo que aquí probamos dos versiones de tu contenido para ver cuál vende más.</p>
+                </div>
+
+                <div class="ab-test-game">
+                    <h3 style="text-align: center; margin-bottom: 20px;">🏆 ¡Adivina cuál vendió más!</h3>
+                    <p style="text-align: center; margin-bottom: 20px;">Estás vendiendo un curso de cocina en Instagram...</p>
+                    
+                    <div class="test-option" onclick="selectTest(this, false)">
+                        <h4>🅰️ Opción A: Post Formal</h4>
+                        <p><strong>"Curso Profesional de Gastronomía - Técnicas Avanzadas"</strong></p>
+                        <p>📸 Foto: Chef en cocina profesional</p>
+                        <p>💰 Precio: $297</p>
+                        <small>Resultado: 2 ventas de 1000 views</small>
+                    </div>
+                    
+                    <div class="test-option winner" onclick="selectTest(this, true)">
+                        <h4>🅱️ Opción B: Post Casual</h4>
+                        <p><strong>"¡Cocina como tu abuela pero en 30 minutos! 👵❤️"</strong></p>
+                        <p>📸 Foto: Plato casero delicioso</p>
+                        <p>💰 Precio: $97</p>
+                        <small>Resultado: 12 ventas de 1000 views</small>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn btn-fun" onclick="explainWinner()">🤓 ¡Explícame por qué!</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Funnel de Conversión -->
+            <!-- El Viaje del Cliente -->
             <div class="card">
-                <h2>📈 Funnel de Conversión</h2>
-                <p>Análisis del recorrido completo del usuario desde la visita hasta la conversión:</p>
+                <h2>🚶‍♀️ El Viaje de tu Cliente (Paso a Paso)</h2>
                 
-                <div class="conversion-funnel">
-                    <div class="funnel-step" onclick="optimizeStep('visitors')">
-                        <div class="step-rate">100%</div>
-                        <div class="step-label">Visitantes<br>(12,847)</div>
-                    </div>
-                    <div class="funnel-step" onclick="optimizeStep('interest')">
-                        <div class="step-rate">68%</div>
-                        <div class="step-label">Interés<br>(8,736)</div>
-                    </div>
-                    <div class="funnel-step" onclick="optimizeStep('consideration')">
-                        <div class="step-rate">35%</div>
-                        <div class="step-label">Consideración<br>(4,496)</div>
-                    </div>
-                    <div class="funnel-step" onclick="optimizeStep('intent')">
-                        <div class="step-rate">12%</div>
-                        <div class="step-label">Intención<br>(1,542)</div>
-                    </div>
-                    <div class="funnel-step" onclick="optimizeStep('purchase')">
-                        <div class="step-rate">3.2%</div>
-                        <div class="step-label">Compra<br>(416)</div>
-                    </div>
+                <div class="explanation-box">
+                    <h3>🛤️ Imagínate que tu cliente es como alguien caminando por un camino...</h3>
+                    <p>Cada paso del camino, algunas personas se van. Tu trabajo es hacer que MÁS gente llegue hasta el final (que compren).</p>
                 </div>
-                
-                <div class="chart-container">
-                    <h3>Oportunidades de Mejora:</h3>
-                    <div class="chart-bar" style="width: 85%;">
-                        <div class="chart-label">Interés → Consideración</div>
-                        <div class="chart-value">-33%</div>
-                    </div>
-                    <div class="chart-bar" style="width: 65%;">
-                        <div class="chart-label">Consideración → Intención</div>
-                        <div class="chart-value">-23%</div>
-                    </div>
-                    <div class="chart-bar" style="width: 45%;">
-                        <div class="chart-label">Intención → Compra</div>
-                        <div class="chart-value">-8.8%</div>
-                    </div>
-                </div>
-                
-                <button class="btn" onclick="analyzeFunnel()">Analizar Funnel</button>
-                <button class="btn btn-success" onclick="optimizeFunnel()">Optimizar</button>
-            </div>
 
-            <!-- Simulador de Heatmap -->
-            <div class="card">
-                <h2>🔥 Simulador de Heatmap</h2>
-                <div class="heatmap-simulator">
-                    <h3 style="margin-bottom: 15px; color: #2d3436;">Mapa de Calor - Página de Producto</h3>
-                    <p style="margin-bottom: 20px; color: #636e72;">Haz clic en diferentes áreas para simular interacciones de usuarios</p>
-                    
-                    <div class="heatmap-grid" id="heatmapGrid">
-                        <!-- Generado por JavaScript -->
+                <div class="journey-map">
+                    <div class="journey-step" onclick="explainStep('discovery')">
+                        <div class="step-emoji">👀</div>
+                        <div class="step-percent">100%</div>
+                        <div class="step-label">Ven tu contenido</div>
                     </div>
                     
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                        <div>
-                            <span style="background: #74b9ff; opacity: 0.3; padding: 5px 10px; border-radius: 5px; margin-right: 10px;">Baja</span>
-                            <span style="background: #fdcb6e; opacity: 0.6; padding: 5px 10px; border-radius: 5px; margin-right: 10px;">Media</span>
-                            <span style="background: #e84393; opacity: 0.9; padding: 5px 10px; border-radius: 5px;">Alta</span>
-                        </div>
-                        <div>
-                            <button class="btn" onclick="generateHeatmap()">Generar Nuevo</button>
-                            <button class="btn btn-success" onclick="analyzeHeatmap()">Analizar</button>
-                        </div>
+                    <div class="journey-step" onclick="explainStep('interest')">
+                        <div class="step-emoji">❤️</div>
+                        <div class="step-percent">15%</div>
+                        <div class="step-label">Se interesan</div>
                     </div>
                     
-                    <div id="heatmapInsights" style="margin-top: 20px; padding: 15px; background: white; border-radius: 10px; display: none;">
-                        <h4>🔍 Insights del Heatmap:</h4>
-                        <ul id="insightsList" style="margin-top: 10px; line-height: 1.6;"></ul>
+                    <div class="journey-step" onclick="explainStep('consideration')">
+                        <div class="step-emoji">🤔</div>
+                        <div class="step-percent">5%</div>
+                        <div class="step-label">Lo consideran</div>
                     </div>
+                    
+                    <div class="journey-step" onclick="explainStep('purchase')">
+                        <div class="step-emoji">💳</div>
+                        <div class="step-percent">0.3%</div>
+                        <div class="step-label">Compran</div>
+                    </div>
+                </div>
+
+                <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-top: 20px;">
+                    <p><strong>💡 Tip:</strong> ¡Haz clic en cada paso para ver cómo mejorarlo! La mayoría de gente se pierde entre "Se interesan" y "Lo consideran".</p>
                 </div>
             </div>
 
-            <!-- Checklist de Optimización -->
+            <!-- Heatmap Explicado Simple -->
             <div class="card">
-                <h2>✅ Checklist de Optimización</h2>
-                <div class="optimization-checklist">
-                    <h3 style="margin-bottom: 20px;">Lista de Optimizaciones Prioritarias</h3>
-                    
-                    <div class="checklist-item" onclick="toggleChecklist(this)">
-                        <div class="checkbox"></div>
-                        <div>
-                            <strong>Optimizar velocidad de carga</strong><br>
-                            <small>Objetivo: < 3 segundos | Actual: 4.2s</small>
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item" onclick="toggleChecklist(this)">
-                        <div class="checkbox"></div>
-                        <div>
-                            <strong>Mejorar headlines principales</strong><br>
-                            <small>A/B test en progreso | 7 días restantes</small>
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item completed" onclick="toggleChecklist(this)">
-                        <div class="checkbox">✓</div>
-                        <div>
-                            <strong>Simplificar formulario de contacto</strong><br>
-                            <small>Reducido de 8 a 4 campos | +18% conversión</small>
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item" onclick="toggleChecklist(this)">
-                        <div class="checkbox"></div>
-                        <div>
-                            <strong>Añadir testimonios en checkout</strong><br>
-                            <small>Incrementar confianza y reducir abandono</small>
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item" onclick="toggleChecklist(this)">
-                        <div class="checkbox"></div>
-                        <div>
-                            <strong>Optimizar botones CTA</strong><br>
-                            <small>Color, texto y posicionamiento</small>
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item completed" onclick="toggleChecklist(this)">
-                        <div class="checkbox">✓</div>
-                        <div>
-                            <strong>Implementar chat en vivo</strong><br>
-                            <small>Soporte inmediato | +12% satisfacción</small>
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item" onclick="toggleChecklist(this)">
-                        <div class="checkbox"></div>
-                        <div>
-                            <strong>Optimizar para móviles</strong><br>
-                            <small>Responsive design y velocidad</small>
-                        </div>
-                    </div>
-                    
-                    <button class="btn" onclick="addChecklistItem()">Añadir Tarea</button>
-                    <button class="btn btn-success" onclick="exportChecklist()">Exportar Lista</button>
+                <h2>🔥 Mapas de Calor: ¿Dónde Miran tus Seguidores?</h2>
+                
+                <div class="explanation-box">
+                    <h3>🎯 ¿Qué es un mapa de calor?</h3>
+                    <p>Es como tener rayos X para ver exactamente DÓNDE miran las personas en tu contenido. Las zonas rojas = mucha atención, azules = poca atención.</p>
                 </div>
-            </div>
 
-            <!-- Herramientas de Análisis -->
-            <div class="card">
-                <h2>🛠️ Herramientas de Análisis</h2>
-                <p>Principales herramientas para optimización de conversiones:</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
-                    <div style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); color: white; padding: 20px; border-radius: 15px;">
-                        <h3>📊 Google Analytics</h3>
-                        <p>Análisis de tráfico, comportamiento y conversiones</p>
-                        <ul style="margin-top: 10px; line-height: 1.6;">
-                            <li>• Funnel de conversión</li>
-                            <li>• Segmentación avanzada</li>
-                            <li>• Goals y eventos</li>
-                        </ul>
-                        <button class="btn" onclick="connectGA()" style="margin-top: 15px;">Conectar</button>
+                <div class="heatmap-demo">
+                    <h3 style="text-align: center; margin-bottom: 15px;">📱 ¡Haz clic donde TÚ mirarías primero!</h3>
+                    
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="screen-element header-area" onclick="clickArea(this, 'header')">
+                                📱 @tu_negocio
+                            </div>
+                            <div class="screen-element hero-area" onclick="clickArea(this, 'hero')">
+                                🖼️ Foto Principal
+                            </div>
+                            <div class="screen-element content-area" onclick="clickArea(this, 'content')">
+                                📝 Descripción del Producto
+                            </div>
+                            <div class="screen-element cta-area" onclick="clickArea(this, 'cta')">
+                                🛒 COMPRAR AHORA
+                            </div>
+                        </div>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, #e84393 0%, #fd79a8 100%); color: white; padding: 20px; border-radius: 15px;">
-                        <h3>🔥 Hotjar</h3>
-                        <p>Heatmaps, grabaciones de sesiones y feedback</p>
-                        <ul style="margin-top: 10px; line-height: 1.6;">
-                            <li>• Mapas de calor</li>
-                            <li>• Session recordings</li>
-                            <li>• Encuestas de usuarios</li>
-                        </ul>
-                        <button class="btn" onclick="connectHotjar()" style="margin-top: 15px;">Conectar</button>
-                    </div>
-                    
-                    <div style="background: linear-gradient(135deg, #00b894 0%, #00cec9 100%); color: white; padding: 20px; border-radius: 15px;">
-                        <h3>🧪 Optimizely</h3>
-                        <p>Plataforma completa de A/B testing y personalización</p>
-                        <ul style="margin-top: 10px; line-height: 1.6;">
-                            <li>• Tests multivariados</li>
-                            <li>• Personalización</li>
-                            <li>• Análisis estadístico</li>
-                        </ul>
-                        <button class="btn" onclick="connectOptimizely()" style="margin-top: 15px;">Conectar</button>
-                    </div>
-                    
-                    <div style="background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); color: white; padding: 20px; border-radius: 15px;">
-                        <h3>⚡ PageSpeed Insights</h3>
-                        <p>Análisis de rendimiento y velocidad de carga</p>
-                        <ul style="margin-top: 10px; line-height: 1.6;">
-                            <li>• Core Web Vitals</li>
-                            <li>• Sugerencias técnicas</li>
-                            <li>• Móvil y desktop</li>
-                        </ul>
-                        <button class="btn" onclick="analyzePageSpeed()" style="margin-top: 15px;">Analizar</button>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 25px;">
-                    <h3>Metodología de Optimización:</h3>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 15px;">
-                        <ol style="line-height: 1.8; margin-left: 20px;">
-                            <li><strong>Análisis:</strong> Identificar problemas y oportunidades</li>
-                            <li><strong>Hipótesis:</strong> Formular teorías de mejora</li>
-                            <li><strong>Diseño:</strong> Crear variantes para testing</li>
-                            <li><strong>Implementación:</strong> Ejecutar tests A/B</li>
-                            <li><strong>Medición:</strong> Analizar resultados estadísticos</li>
-                            <li><strong>Optimización:</strong> Implementar ganadores y repetir</li>
-                        </ol>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <button class="btn" onclick="resetHeatmap()">🔄 Reiniciar</button>
+                        <button class="btn btn-success" onclick="showHeatmapTips()">💡 Ver Consejos</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Quiz Interactivo -->
+            <!-- Consejos de Optimización -->
             <div class="card">
-                <h2>🧠 Quiz: Optimización de Conversiones</h2>
-                <div class="quiz-container">
+                <h2>🚀 Consejos para Vender Más (¡Súper Fáciles!)</h2>
+                
+                <div class="optimization-tips">
+                    <h3 style="text-align: center; margin-bottom: 20px;">✨ Trucos que Funcionan de Verdad</h3>
+                    
+                    <div class="tip-item" onclick="expandTip(this, 'speed')">
+                        <div class="tip-emoji">⚡</div>
+                        <div>
+                            <strong>Velocidad de Carga</strong><br>
+                            <small>Si tu página tarda más de 3 segundos, 50% se va</small>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item" onclick="expandTip(this, 'trust')">
+                        <div class="tip-emoji">🛡️</div>
+                        <div>
+                            <strong>Testimonios Reales</strong><br>
+                            <small>Fotos y videos de clientes reales = más confianza</small>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item" onclick="expandTip(this, 'urgency')">
+                        <div class="tip-emoji">⏰</div>
+                        <div>
+                            <strong>Urgencia Real</strong><br>
+                            <small>"Solo quedan 3" funciona mejor que "Oferta limitada"</small>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item" onclick="expandTip(this, 'simple')">
+                        <div class="tip-emoji">🎯</div>
+                        <div>
+                            <strong>Botón Grande y Claro</strong><br>
+                            <small>"Comprar Ahora" mejor que "Adquirir Producto"</small>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-item" onclick="expandTip(this, 'mobile')">
+                        <div class="tip-emoji">📱</div>
+                        <div>
+                            <strong>Optimizado para Móvil</strong><br>
+                            <small>80% de tus clientes usan el celular</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Divertido -->
+            <div class="card">
+                <h2>🧠 Quiz: ¿Eres un Genio de las Conversiones?</h2>
+                
+                <div class="quiz-game">
                     <div class="quiz-question">
-                        <h3>1. ¿Cuál es el primer paso en un proceso de CRO?</h3>
+                        <h3>🤔 Pregunta 1: Tu post de Instagram tiene 1000 likes pero solo 1 venta. ¿Qué haces?</h3>
                         <div class="quiz-options">
-                            <div class="quiz-option" onclick="selectOption(this, false)">Crear variantes de test</div>
-                            <div class="quiz-option" onclick="selectOption(this, true)">Analizar datos y comportamiento</div>
-                            <div class="quiz-option" onclick="selectOption(this, false)">Lanzar tests A/B</div>
-                            <div class="quiz-option" onclick="selectOption(this, false)">Cambiar el diseño</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Hacer más posts iguales</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, true)">Cambiar el call-to-action</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Subir el precio</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Dejar de usar Instagram</div>
                         </div>
                     </div>
                     
                     <div class="quiz-question">
-                        <h3>2. ¿Qué significa una conversión estadísticamente significativa?</h3>
+                        <h3>🛒 Pregunta 2: ¿Cuál botón crees que funciona mejor?</h3>
                         <div class="quiz-options">
-                            <div class="quiz-option" onclick="selectOption(this, false)">Más del 50% de mejora</div>
-                            <div class="quiz-option" onclick="selectOption(this, true)">95% o más de confianza estadística</div>
-                            <div class="quiz-option" onclick="selectOption(this, false)">Al menos 1000 conversiones</div>
-                            <div class="quiz-option" onclick="selectOption(this, false)">Una semana de duración</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">"Adquirir Ahora"</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, true)">"¡Lo Quiero!" 💕</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">"Proceder al Checkout"</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">"Finalizar Compra"</div>
                         </div>
                     </div>
                     
                     <div class="quiz-question">
-                        <h3>3. ¿Cuál es la duración mínima recomendada para un test A/B?</h3>
+                        <h3>📱 Pregunta 3: Tu página web tarda 5 segundos en cargar. ¿Qué pasa?</h3>
                         <div class="quiz-options">
-                            <div class="quiz-option" onclick="selectOption(this, false)">3 días</div>
-                            <div class="quiz-option" onclick="selectOption(this, true)">1-2 semanas</div>
-                            <div class="quiz-option" onclick="selectOption(this, false)">1 mes</div>
-                            <div class="quiz-option" onclick="selectOption(this, false)">3 meses</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">No pasa nada importante</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, true)">Pierdes 50% de visitantes</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Solo pierdes 10%</div>
+                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Es normal en móviles</div>
                         </div>
                     </div>
                     
-                    <button class="btn" onclick="checkQuizResults()">Verificar Respuestas</button>
-                    <div id="quizResults" style="margin-top: 20px; display: none;"></div>
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button class="btn btn-fun" onclick="checkQuizAnswers()">🎉 ¡Ver mis Resultados!</button>
+                        <div id="quizResults" style="margin-top: 20px; display: none;"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -899,216 +728,143 @@
     <div id="notification" class="notification"></div>
 
     <script>
-        let checklistCompleted = 0;
-        let heatmapClicks = {};
+        let heatmapClicks = {
+            header: 0,
+            hero: 0,
+            content: 0,
+            cta: 0
+        };
 
-        // Inicializar heatmap
-        function initializeHeatmap() {
-            const grid = document.getElementById('heatmapGrid');
-            grid.innerHTML = '';
+        function explainMetric(metricType) {
+            const explanations = {
+                visitors: '👀 VISITANTES: Son todas las personas que ven tu perfil o contenido. Como cuando pasas por una tienda y miras el escaparate. ¡Más visitantes = más oportunidades!',
+                interested: '❤️ INTERESADOS: Son los que dan like, comentan o guardan tu post. Es como si en la tienda te detuvieras a mirar mejor un producto. ¡Están interesados pero aún no convencidos!',
+                clicks: '👆 CLICS: Son los valientes que hacen clic en tu link o bio. Es como entrar a la tienda. ¡Ya están más cerca de comprar!',
+                buyers: '💳 COMPRADORES: ¡Los héroes! Son los que realmente sacan su tarjeta y compran. De 1000 visitantes, solo 3 suelen comprar. ¡Por eso optimizamos!'
+            };
             
-            for (let i = 0; i < 80; i++) {
-                const cell = document.createElement('div');
-                cell.className = 'heatmap-cell heat-low';
-                cell.dataset.index = i;
-                cell.addEventListener('click', function() {
-                    simulateHeatmapClick(this);
-                });
-                grid.appendChild(cell);
-            }
+            showNotification(explanations[metricType]);
         }
 
-        function simulateHeatmapClick(cell) {
-            const index = cell.dataset.index;
-            heatmapClicks[index] = (heatmapClicks[index] || 0) + 1;
+        function changeNumbers() {
+            const visitors = Math.floor(Math.random() * 2000 + 500);
+            const interested = Math.floor(visitors * 0.15);
+            const clicks = Math.floor(interested * 0.33);
+            const buyers = Math.floor(clicks * 0.06);
             
-            const clicks = heatmapClicks[index];
-            if (clicks < 3) {
-                cell.className = 'heatmap-cell heat-low';
-            } else if (clicks < 6) {
-                cell.className = 'heatmap-cell heat-medium';
+            document.getElementById('visitors').textContent = visitors.toLocaleString();
+            document.getElementById('interested').textContent = interested.toLocaleString();
+            document.getElementById('clicks').textContent = clicks.toLocaleString();
+            document.getElementById('buyers').textContent = buyers.toLocaleString();
+            
+            showNotification('🎲 ¡Números actualizados! Estos podrían ser TUS números reales.');
+        }
+
+        function selectTest(element, isWinner) {
+            const allOptions = document.querySelectorAll('.test-option');
+            allOptions.forEach(option => option.style.border = '3px solid transparent');
+            
+            if (isWinner) {
+                element.style.border = '3px solid #00b894';
+                showNotification('🏆 ¡Correcto! El lenguaje casual y precio accesible siempre gana');
             } else {
-                cell.className = 'heatmap-cell heat-high';
+                element.style.border = '3px solid #e84393';
+                showNotification('❌ No... ¡La gente prefiere lo simple y familiar!');
             }
         }
 
-        function generateHeatmap() {
-            heatmapClicks = {};
-            const cells = document.querySelectorAll('.heatmap-cell');
+        function explainWinner() {
+            alert('🤓 ¿Por qué ganó la Opción B?\n\n✅ Lenguaje familiar ("como tu abuela")\n✅ Tiempo específico ("30 minutos")\n✅ Emoji que genera emoción\n✅ Precio más accesible\n✅ Foto de comida rica (no del chef)\n\n❌ La Opción A sonaba muy "profesional" y cara. ¡La gente compra con emociones, no con lógica!');
+        }
+
+        function explainStep(stepType) {
+            const explanations = {
+                discovery: '👀 DESCUBRIMIENTO: Aquí llegan TODOS. Tu contenido aparece en su feed.\n\n💡 Para mejorar: Usa hashtags relevantes, posta en horas pico, haz contenido llamativo.',
+                interest: '❤️ INTERÉS: Solo 15% se interesa. ¡Es normal!\n\n💡 Para mejorar: Usa títulos curiosos, haz preguntas, cuenta historias personales.',
+                consideration: '🤔 CONSIDERACIÓN: Solo 5% realmente lo considera.\n\n💡 Para mejorar: Muestra testimonios, ofrece garantía, explica beneficios claros.',
+                purchase: '💳 COMPRA: Solo 0.3% compra. ¡Por eso optimizamos!\n\n💡 Para mejorar: Botón claro, proceso simple, urgencia real, confianza.'
+            };
             
-            // Simular clics aleatorios
-            cells.forEach((cell, index) => {
-                const randomClicks = Math.floor(Math.random() * 10);
-                for (let i = 0; i < randomClicks; i++) {
-                    simulateHeatmapClick(cell);
-                }
+            alert(explanations[stepType]);
+        }
+
+        function clickArea(element, area) {
+            heatmapClicks[area]++;
+            
+            const clickCount = heatmapClicks[area];
+            let color = '#74b9ff';
+            let opacity = 0.3;
+            
+            if (clickCount >= 3) {
+                color = '#fdcb6e';
+                opacity = 0.6;
+            }
+            if (clickCount >= 6) {
+                color = '#e84393';
+                opacity = 0.9;
+            }
+            
+            element.style.backgroundColor = color;
+            element.style.opacity = opacity;
+            
+            const areaNames = {
+                header: 'Header',
+                hero: 'Foto Principal',
+                content: 'Descripción',
+                cta: 'Botón de Compra'
+            };
+            
+            showNotification('🔥 +1 clic en: ' + areaNames[area] + ' (Total: ' + clickCount + ')');
+        }
+
+        function resetHeatmap() {
+            heatmapClicks = { header: 0, hero: 0, content: 0, cta: 0 };
+            
+            const elements = document.querySelectorAll('.screen-element');
+            elements.forEach(element => {
+                element.style.backgroundColor = '';
+                element.style.opacity = '';
             });
             
-            showNotification('Nuevo heatmap generado');
+            showNotification('🔄 Heatmap reiniciado. ¡Prueba otra vez!');
         }
 
-        function analyzeHeatmap() {
-            const insights = [
-                '🎯 Área superior derecha recibe 40% más clics',
-                '📱 Los usuarios evitan la zona inferior izquierda',
-                '🔥 El botón principal tiene alta interacción',
-                '👀 Las imágenes generan más engagement que texto',
-                '⚡ La navegación superior es muy utilizada'
+        function showHeatmapTips() {
+            const tips = [
+                '🔥 La gente mira PRIMERO la foto principal',
+                '👀 Luego el botón de compra (si es llamativo)',
+                '📝 La descripción la leen AL FINAL',
+                '📱 El header casi no lo miran',
+                '💡 Por eso: Foto impactante + Botón grande = Más ventas'
             ];
             
-            const insightsContainer = document.getElementById('heatmapInsights');
-            const insightsList = document.getElementById('insightsList');
-            
-            insightsList.innerHTML = insights.map(insight => `<li>${insight}</li>`).join('');
-            insightsContainer.style.display = 'block';
-            
-            showNotification('Análisis del heatmap completado');
+            alert('💡 TIPS DE HEATMAP:\n\n' + tips.join('\n'));
         }
 
-        function toggleChecklist(item) {
-            const checkbox = item.querySelector('.checkbox');
-            const isCompleted = item.classList.contains('completed');
-            
-            if (!isCompleted) {
-                item.classList.add('completed');
-                checkbox.textContent = '✓';
-                checklistCompleted++;
-                showNotification('Tarea completada');
-            } else {
-                item.classList.remove('completed');
-                checkbox.textContent = '';
-                checklistCompleted--;
-            }
-            
-            updateProgress();
-        }
-
-        function updateProgress() {
-            const totalItems = document.querySelectorAll('.checklist-item').length;
-            const progressPercentage = (checklistCompleted / totalItems) * 100;
-            const progressBar = document.getElementById('goalProgress');
-            progressBar.style.width = progressPercentage + '%';
-        }
-
-        function refreshAnalytics() {
-            const metrics = {
-                conversionRate: (Math.random() * 2 + 2.5).toFixed(2) + '%',
-                visitors: Math.floor(Math.random() * 5000 + 10000).toLocaleString(),
-                revenue: ' + Math.floor(Math.random() * 5000 + 5000).toLocaleString(),
-                bounceRate: (Math.random() * 10 + 35).toFixed(1) + '%',
-                sessionDuration: Math.floor(Math.random() * 120 + 180) + 's',
-                pagesPerSession: (Math.random() * 1 + 2).toFixed(1)
+        function expandTip(element, tipType) {
+            const detailedTips = {
+                speed: '⚡ VELOCIDAD:\n\n• Usa imágenes optimizadas (no muy pesadas)\n• Elige un hosting rápido\n• Menos plugins = más velocidad\n• Prueba en 4G, no solo en WiFi\n\n💡 TIP: Usa Google PageSpeed para medir',
+                trust: '🛡️ CONFIANZA:\n\n• Fotos reales de clientes (no modelos)\n• Videos testimoniales cortos\n• Screenshots de reviews\n• Logos de medios que te mencionaron\n\n💡 TIP: Una review de video vale por 10 escritas',
+                urgency: '⏰ URGENCIA REAL:\n\n• "Solo quedan 3 unidades" (si es verdad)\n• "Oferta termina en 2 horas" (con contador)\n• "Últimos 5 cupos disponibles"\n\n❌ NO: "Oferta por tiempo limitado" (muy genérico)',
+                simple: '🎯 BOTÓN CLARO:\n\n✅ "¡Lo Quiero!" \n✅ "Comprar Ahora"\n✅ "Agregar al Carrito"\n\n❌ "Proceder al Checkout"\n❌ "Finalizar Transacción"\n❌ "Adquirir Producto"',
+                mobile: '📱 MÓVIL PRIMERO:\n\n• Botones grandes (fáciles de tocar)\n• Texto legible sin zoom\n• Formularios cortos\n• Carga rápida en 4G\n\n💡 TIP: Prueba TU sitio en tu celular cada semana'
             };
             
-            Object.keys(metrics).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.style.transform = 'scale(1.2)';
-                    element.style.color = '#4CAF50';
-                    setTimeout(() => {
-                        element.textContent = metrics[key];
-                        element.style.transform = 'scale(1)';
-                        element.style.color = 'white';
-                    }, 300);
-                }
-            });
-            
-            showNotification('Analytics actualizados');
+            alert(detailedTips[tipType]);
         }
 
-        function showMetricDetails(metric) {
-            const details = {
-                conversion: 'Tasa de conversión: 3.24%\n• Objetivo: 4.5%\n• Tendencia: +0.8% vs mes anterior\n• Mejor día: Martes (4.1%)',
-                visitors: 'Visitantes únicos: 12,847\n• Tráfico orgánico: 65%\n• Tráfico directo: 20%\n• Redes sociales: 15%',
-                revenue: 'Revenue total: $8,429\n• Revenue por visitante: $0.66\n• Valor promedio pedido: $78\n• Transacciones: 108',
-                bounce: 'Bounce Rate: 42.3%\n• Móvil: 48%\n• Desktop: 38%\n• Benchmark industria: 45%',
-                session: 'Duración sesión: 4:23\n• Primera visita: 3:45\n• Visitantes recurrentes: 5:12\n• Página más visitada: Productos',
-                pages: 'Páginas por sesión: 2.8\n• Móvil: 2.3\n• Desktop: 3.2\n• Meta objetivo: 3.5'
-            };
-            
-            alert(details[metric] || 'Información no disponible');
-        }
-
-        function createABTest() {
-            const testName = document.getElementById('testName').value;
-            const testElement = document.getElementById('testElement').value;
-            const duration = document.getElementById('testDuration').value;
-            
-            if (!testName) {
-                alert('Por favor ingresa un nombre para el test');
-                return;
-            }
-            
-            showNotification(`Test A/B "${testName}" creado exitosamente`);
-        }
-
-        function launchTest() {
-            showNotification('Test A/B lanzado - Recopilando datos...');
-        }
-
-        function pauseTest() {
-            showNotification('Test A/B pausado');
-        }
-
-        function optimizeStep(step) {
-            const recommendations = {
-                visitors: '• Mejorar SEO y SEM\n• Campañas en redes sociales\n• Marketing de contenidos',
-                interest: '• Optimizar headline principal\n• Mejorar propuesta de valor\n• A/B test en hero section',
-                consideration: '• Añadir testimonios\n• Mostrar garantías\n• Simplificar navegación',
-                intent: '• Optimizar formularios\n• Reducir fricción\n• Urgencia y escasez',
-                purchase: '• Simplificar checkout\n• Múltiples métodos pago\n• Chat de soporte'
-            };
-            
-            alert(`Recomendaciones para optimizar ${step}:\n\n${recommendations[step]}`);
-        }
-
-        function analyzeFunnel() {
-            alert('Análisis del Funnel:\n\n📊 Mayor pérdida en Consideración → Intención (-23%)\n🎯 Oportunidad: Mejorar propuesta de valor\n💡 Recomendación: A/B test en página de producto\n📈 Potencial de mejora: +15% conversión total');
-        }
-
-        function connectGA() {
-            showNotification('Google Analytics conectado exitosamente');
-        }
-
-        function connectHotjar() {
-            showNotification('Hotjar integrado correctamente');
-        }
-
-        function connectOptimizely() {
-            showNotification('Optimizely configurado');
-        }
-
-        function analyzePageSpeed() {
-            alert('📊 Análisis PageSpeed:\n\n• Desktop: 78/100 ⚡\n• Móvil: 65/100 ⚠️\n• LCP: 2.8s (Bueno)\n• FID: 120ms (Needs improvement)\n• CLS: 0.15 (Needs improvement)\n\n🔧 Recomendaciones:\n• Optimizar imágenes\n• Minimizar JavaScript\n• Usar CDN');
-        }
-
-        function addChecklistItem() {
-            const newTask = prompt('Describe la nueva tarea de optimización:');
-            if (newTask) {
-                showNotification('Nueva tarea añadida al checklist');
-            }
-        }
-
-        function exportChecklist() {
-            showNotification('Checklist exportado a PDF');
-        }
-
-        function exportReport() {
-            showNotification('Reporte de analytics exportado');
-        }
-
-        function selectOption(element, isCorrect) {
+        function selectQuizOption(element, isCorrect) {
             const siblings = element.parentNode.querySelectorAll('.quiz-option');
             siblings.forEach(sibling => sibling.classList.remove('selected'));
             element.classList.add('selected');
             element.dataset.correct = isCorrect;
         }
 
-        function checkQuizResults() {
+        function checkQuizAnswers() {
             const selectedOptions = document.querySelectorAll('.quiz-option.selected');
             
             if (selectedOptions.length < 3) {
-                alert('Por favor responde todas las preguntas');
+                alert('🤔 ¡Responde todas las preguntas primero!');
                 return;
             }
             
@@ -1117,29 +873,37 @@
                 if (option.dataset.correct === 'true') {
                     correct++;
                     option.style.backgroundColor = '#00b894';
+                    option.style.color = 'white';
                 } else {
                     option.style.backgroundColor = '#e84393';
+                    option.style.color = 'white';
                 }
             });
             
             const percentage = (correct / 3) * 100;
             let message = '';
+            let emoji = '';
             
             if (percentage >= 80) {
-                message = '🎉 ¡Excelente! Dominas la optimización de conversiones';
+                message = '¡ERES UN GENIO! 🧠✨ Ya entiendes cómo funciona la mente de tus clientes. ¡Vas a vender muchísimo!';
+                emoji = '🏆';
             } else if (percentage >= 60) {
-                message = '👍 Bien, pero puedes mejorar tu conocimiento en CRO';
+                message = '¡Muy bien! 👏 Entiendes lo básico. Con un poco más de práctica serás un experto en conversiones.';
+                emoji = '📈';
             } else {
-                message = '📚 Necesitas repasar los conceptos de optimización';
+                message = '¡No te preocupes! 🤗 Esto se aprende con práctica. Relee el capítulo y prueba el quiz otra vez.';
+                emoji = '📚';
             }
             
-            document.getElementById('quizResults').innerHTML = `
-                <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.9); border-radius: 10px; color: #333;">
-                    <h3>Resultado: ${correct}/3 (${percentage.toFixed(0)}%)</h3>
-                    <p>${message}</p>
-                </div>
-            `;
+            document.getElementById('quizResults').innerHTML = 
+                '<div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.9); border-radius: 15px; color: #333; margin-top: 15px;">' +
+                '<div style="font-size: 4rem; margin-bottom: 10px;">' + emoji + '</div>' +
+                '<h3>Resultado: ' + correct + '/3 (' + percentage.toFixed(0) + '%)</h3>' +
+                '<p style="margin-top: 10px; font-size: 1.1rem;">' + message + '</p>' +
+                '</div>';
             document.getElementById('quizResults').style.display = 'block';
+            
+            showNotification('🎯 Quiz completado: ' + correct + '/3 correctas');
         }
 
         function showNotification(message) {
@@ -1147,26 +911,29 @@
             notification.textContent = message;
             notification.classList.add('show');
             
-            setTimeout(() => {
+            setTimeout(function() {
                 notification.classList.remove('show');
-            }, 3000);
+            }, 4000);
         }
 
-        // Inicializar al cargar la página
+        // Inicializar al cargar
         window.addEventListener('load', function() {
-            initializeHeatmap();
+            showNotification('🎉 ¡Bienvenido al Capítulo 15! Aprende por qué la gente NO compra');
             
-            // Contar elementos completados inicialmente
-            const completedItems = document.querySelectorAll('.checklist-item.completed');
-            checklistCompleted = completedItems.length;
-            updateProgress();
-            
-            // Animaciones de carga
+            // Animación de carga de las tarjetas
             const cards = document.querySelectorAll('.card');
             cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animationDelay = (index * 0.2) + 's';
             });
         });
+
+        // Cambiar números automáticamente cada 10 segundos
+        setInterval(function() {
+            const shouldChange = Math.random() > 0.7; // 30% probabilidad
+            if (shouldChange) {
+                changeNumbers();
+            }
+        }, 10000);
     </script>
 </body>
 </html>
