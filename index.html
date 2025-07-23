@@ -351,6 +351,11 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
+        .chapter-card.completed {
+            background-color: #f0f9f4;
+            border-left-color: #10B981;
+        }
+
         .chapter-number {
             background: #067D3F;
             color: white;
@@ -920,6 +925,24 @@
         <!-- TAB 3: RECURSOS Y MATERIAL -->
         <div id="recursos" class="tab-content">
             <div class="content-grid">
+                <!-- Request Form -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">Solicitar Nuevo Contenido</div>
+                    </div>
+                    <div class="card-description">
+                        ¿Tienes alguna idea para un nuevo estudio, lección o recurso? ¡Envíanos tu solicitud!
+                    </div>
+                    <form id="request-form">
+                        <input type="text" id="request-input" placeholder="Escribe tu solicitud aquí..." style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;">
+                        <button type="submit" class="card-button" style="background-color: #B91C3C;">Enviar Solicitud</button>
+                    </form>
+                    <div id="request-list" style="margin-top: 20px;">
+                        <h4 style="margin-bottom: 10px;">Solicitudes Recientes:</h4>
+                        <ul id="requests"></ul>
+                    </div>
+                </div>
                 <!-- Curso Completo Unificado -->
                 <div class="content-card curso" onclick="window.open('Curso-Marketing-Digital.html', '_blank')">
                     <div class="card-header">
@@ -1238,47 +1261,6 @@
         </div>
     </div>
 
-    <script>
-        // Función para cambiar entre tabs
-        function showTab(tabName) {
-            // Ocultar todas las tabs
-            const allTabs = document.querySelectorAll('.tab-content');
-            allTabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remover clase active de todos los botones
-            const allButtons = document.querySelectorAll('.tab-button');
-            allButtons.forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            // Mostrar la tab seleccionada
-            const selectedTab = document.getElementById(tabName);
-            if (selectedTab) {
-                selectedTab.classList.add('active');
-            }
-            
-            // Agregar clase active al botón correspondiente
-            const clickedButton = event.target;
-            clickedButton.classList.add('active');
-        }
-
-        // Inicialización cuando la página carga
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Hospital del Móvil - Página cargada correctamente');
-            
-            // Asegurar que la primera tab esté activa al cargar
-            const firstTab = document.getElementById('estudios');
-            const firstButton = document.querySelector('.tab-button');
-            
-            if (firstTab) {
-                firstTab.classList.add('active');
-            }
-            if (firstButton) {
-                firstButton.classList.add('active');
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
