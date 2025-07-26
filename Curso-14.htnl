@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 14: Chatbots y Atención Automatizada</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f7fafc;
+            margin: 0;
+            color: #23272f;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 16px #e2e8f0;
+            border-radius: 14px;
+            padding: 36px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .header h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: #764ba2;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #5a67d8;
+            border-bottom: 2.5px solid #667eea;
+            padding-bottom: 8px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-size: 1.25em;
+        }
+        h3 {
+            color: #764ba2;
+            font-size: 1.09em;
+            margin: 20px 0 10px 0;
+        }
+        .card, .quiz-container, .automation-flow, .metrics-dashboard {
+            margin-bottom: 28px;
+        }
+        .card {
+            background: #f6f7fb;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #e2e8f0;
+            padding: 26px;
+        }
+        ul, ol {
+            margin: 10px 0 18px 28px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .btn {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin: 10px 5px 0 0;
+        }
+        .btn-secondary {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .example-box {
+            background: #fff;
+            border-left: 5px solid #667eea;
+            padding: 16px 24px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .automation-flow {
+            display: flex;
+            gap: 14px;
+        }
+        .flow-step {
+            background: #e6e6fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+        }
+        .metrics-dashboard {
+            display: flex;
+            gap: 12px;
+        }
+        .metric-card {
+            background: #667eea;
+            color: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            flex: 1;
+        }
+        .metric-value {
+            font-size: 1.35em;
+            font-weight: bold;
+        }
+        .metric-label {
+            font-size: 0.93em;
+            opacity: 0.9;
+        }
+        .quiz-container {
+            background: #ffecd2;
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .quiz-question {
+            margin-bottom: 18px;
+        }
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        .quiz-option {
+            background: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1.5px solid #e2e8f0;
+            transition: background 0.3s, color 0.3s;
+        }
+        .quiz-option.selected {
+            background: #667eea;
+            color: #fff;
+            border-color: #667eea;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 10px;}
+            .card, .quiz-container { padding: 10px;}
+            .automation-flow, .metrics-dashboard, .quiz-options { flex-direction: column; gap: 10px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Capítulo 14</h1>
+            <p>Chatbots y Atención Automatizada</p>
+        </div>
+        <div class="card">
+            <h2>¿Qué es un Chatbot?</h2>
+            <p>Un chatbot es un programa que simula conversaciones humanas y permite interactuar automáticamente con los usuarios a través de mensajes de texto o voz. Se utiliza en sitios web, redes sociales y aplicaciones de mensajería.</p>
+            <h3>Beneficios de Implementar Chatbots:</h3>
+            <ul>
+                <li>Atención 24/7 sin necesidad de agentes humanos</li>
+                <li>Respuesta instantánea a preguntas frecuentes</li>
+                <li>Automatización de procesos de ventas y soporte</li>
+                <li>Mejora de la experiencia del usuario</li>
+                <li>Reducción de costos operativos</li>
+                <li>Recopilación de datos y preferencias de clientes</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Tipos de Chatbots</h2>
+            <ul>
+                <li><strong>Basados en reglas:</strong> Responden a comandos y preguntas específicas predefinidas.</li>
+                <li><strong>Inteligencia artificial:</strong> Utilizan procesamiento de lenguaje natural (NLP) para entender y responder de forma más humana.</li>
+                <li><strong>Chatbots híbridos:</strong> Combinan reglas y NLP para mejorar la experiencia.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Ejemplos de Uso de Chatbots</h2>
+            <div class="example-box">
+                <ul>
+                    <li><strong>Soporte técnico:</strong> Respuestas automáticas a preguntas frecuentes.</li>
+                    <li><strong>Ventas:</strong> Asistencia en la elección de productos y generación de leads.</li>
+                    <li><strong>Reservas:</strong> Agendar citas o reservas de manera automática.</li>
+                    <li><strong>Seguimiento de pedidos:</strong> Información sobre el estado de envíos en tiempo real.</li>
+                    <li><strong>Encuestas:</strong> Recopilación de comentarios y satisfacción del cliente.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Flujo de Automatización con Chatbots</h2>
+            <div class="automation-flow">
+                <div class="flow-step"><strong>Inicio</strong><br>Usuario inicia conversación</div>
+                <div class="flow-step"><strong>Identificación</strong><br>Chatbot saluda y pregunta necesidad</div>
+                <div class="flow-step"><strong>Resolución</strong><br>Responde preguntas o guía procesos</div>
+                <div class="flow-step"><strong>Escalamiento</strong><br>Transfiere a agente humano si es necesario</div>
+                <div class="flow-step"><strong>Despedida</strong><br>Finaliza interacción y solicita feedback</div>
+            </div>
+            <button class="btn" onclick="alert('Flujo automatizado creado y activo.')">Crear Flujo Automatizado</button>
+        </div>
+        <div class="card">
+            <h2>Métricas Clave de Chatbots</h2>
+            <div class="metrics-dashboard">
+                <div class="metric-card">
+                    <div class="metric-value" id="responseTime">3.2 seg</div>
+                    <div class="metric-label">Tiempo de respuesta promedio</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="resolvedPercent">78%</div>
+                    <div class="metric-label">Consultas resueltas automáticamente</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="handoverRate">12%</div>
+                    <div class="metric-label">Requieren agente humano</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="customerSatisfaction">92%</div>
+                    <div class="metric-label">Satisfacción del cliente</div>
+                </div>
+            </div>
+            <button class="btn" onclick="updateChatbotMetrics()">Actualizar Métricas</button>
+        </div>
+        <div class="card">
+            <h2>Buenas Prácticas para Chatbots</h2>
+            <ul>
+                <li>Presentarse claramente al iniciar la conversación</li>
+                <li>Ofrecer opciones rápidas y botones de acción</li>
+                <li>Permitir fácil acceso a un agente humano</li>
+                <li>Usar lenguaje natural y amigable</li>
+                <li>Solicitar feedback al finalizar la interacción</li>
+                <li>Actualizar respuestas y flujos regularmente</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>🧠 Quiz: Chatbots y Automatización</h2>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h3>1. ¿Cuál es el principal beneficio de un chatbot?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this, true)">Atención instantánea 24/7</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">Resolución manual por agentes</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">Envío masivo de emails</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">Publicidad pagada</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <h3>2. ¿Qué debe hacer un chatbot si no puede resolver una consulta?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectOption(this, false)">Ignorar al usuario</div>
+                        <div class="quiz-option" onclick="selectOption(this, true)">Escalar a un agente humano</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">Cerrar la conversación</div>
+                        <div class="quiz-option" onclick="selectOption(this, false)">Enviar un enlace genérico</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="checkQuizResults()">Verificar Respuestas</button>
+                <div id="quizResults" style="margin-top: 20px; display: none;"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateChatbotMetrics() {
+            document.getElementById('responseTime').textContent = (Math.random()*2+2).toFixed(1) + ' seg';
+            document.getElementById('resolvedPercent').textContent = (Math.random()*10+75).toFixed(0) + '%';
+            document.getElementById('handoverRate').textContent = (Math.random()*5+10).toFixed(0) + '%';
+            document.getElementById('customerSatisfaction').textContent = (Math.random()*5+90).toFixed(0) + '%';
+        }
+        function selectOption(element, isCorrect) {
+            const siblings = element.parentNode.querySelectorAll('.quiz-option');
+            siblings.forEach(sibling => sibling.classList.remove('selected'));
+            element.classList.add('selected');
+            element.dataset.correct = isCorrect;
+        }
+        function checkQuizResults() {
+            const selectedOptions = document.querySelectorAll('.quiz-option.selected');
+            if (selectedOptions.length < 2) {
+                alert('Por favor responde todas las preguntas');
+                return;
+            }
+            let correct = 0;
+            selectedOptions.forEach(option => {
+                if (option.dataset.correct === 'true') {
+                    correct++;
+                    option.style.backgroundColor = '#4CAF50';
+                } else {
+                    option.style.backgroundColor = '#f44336';
+                }
+            });
+            const percentage = (correct / 2) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = '🎉 ¡Excelente! Dominas los chatbots';
+            } else if (percentage >= 60) {
+                message = '👍 Bien, pero puedes mejorar';
+            } else {
+                message = '📚 Repasa los conceptos sobre automatización';
+            }
+            document.getElementById('quizResults').innerHTML = `
+                <div style="text-align: center; padding: 20px; background: white; border-radius: 10px;">
+                    <h3>Resultado: ${correct}/2 (${percentage}%)</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+            document.getElementById('quizResults').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
