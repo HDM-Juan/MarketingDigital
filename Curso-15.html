@@ -3,960 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capítulo 15: ¿Por qué la gente no compra? 🤔💸</title>
+    <title>Capítulo 15: Marketing de Influencers y Colaboraciones</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            min-height: 100vh;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f7fafc;
+            margin: 0;
+            color: #23272f;
         }
-
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 16px #e2e8f0;
+            border-radius: 14px;
+            padding: 36px;
         }
-
         .header {
             text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            animation: bounceIn 1s ease-out;
+            margin-bottom: 36px;
         }
-
         .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 8px;
         }
-
         .header p {
-            font-size: 1.4rem;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            color: #764ba2;
+            font-size: 1.1em;
         }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        h2 {
+            color: #5a67d8;
+            border-bottom: 2.5px solid #667eea;
+            padding-bottom: 8px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-size: 1.25em;
         }
-
+        h3 {
+            color: #764ba2;
+            font-size: 1.09em;
+            margin: 20px 0 10px 0;
+        }
+        .card, .quiz-container, .collab-flow, .metrics-dashboard {
+            margin-bottom: 28px;
+        }
         .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 35px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            transition: all 0.4s ease;
-            animation: slideInUp 0.8s ease-out;
-            border: 3px solid transparent;
-            background-clip: padding-box;
+            background: #f6f7fb;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #e2e8f0;
+            padding: 26px;
         }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-            border-color: #ff6b6b;
+        ul, ol {
+            margin: 10px 0 18px 28px;
         }
-
-        .card h2 {
-            color: #2d3436;
-            margin-bottom: 25px;
-            font-size: 2.2rem;
-            text-align: center;
-            border-bottom: 4px solid #ff6b6b;
-            padding-bottom: 15px;
+        li {
+            margin-bottom: 8px;
         }
-
-        .explanation-box {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 6px solid #e17055;
-        }
-
-        .explanation-box h3 {
-            color: #2d3436;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        .social-example {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 6px solid #00b894;
-        }
-
-        .social-example h4 {
-            color: #2d3436;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .metrics-playground {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            color: white;
-        }
-
-        .simple-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .metric-box {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .metric-box:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .big-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .metric-name {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .simple-explanation {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .ab-test-game {
-            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            color: white;
-        }
-
-        .test-option {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 15px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
-        }
-
-        .test-option:hover {
-            border-color: #667eea;
-            transform: translateX(10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .test-option.winner {
-            border-color: #00b894;
-            background: #d1f2eb;
-            position: relative;
-        }
-
-        .test-option.winner::after {
-            content: '🏆 ¡GANADOR!';
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            background: #00b894;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .journey-map {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .journey-step {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .journey-step:hover {
-            transform: scale(1.05);
-        }
-
-        .journey-step::after {
-            content: '➡️';
-            position: absolute;
-            right: -25px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-        }
-
-        .journey-step:last-child::after {
-            display: none;
-        }
-
-        .step-emoji {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .step-percent {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #2d3436;
-        }
-
-        .step-label {
-            font-size: 1rem;
-            margin-top: 5px;
-            color: #636e72;
-        }
-
-        .heatmap-demo {
-            background: #f8f9fa;
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .phone-mockup {
-            width: 200px;
-            height: 350px;
-            background: #333;
-            border-radius: 25px;
-            margin: 20px auto;
-            padding: 20px;
-            position: relative;
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            display: grid;
-            grid-template-rows: 30px 60px 1fr 50px;
-            gap: 10px;
-        }
-
-        .screen-element {
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .header-area {
-            background: #e9ecef;
-        }
-
-        .hero-area {
-            background: #fed6e3;
-        }
-
-        .content-area {
-            background: #a8edea;
-        }
-
-        .cta-area {
-            background: #ffeaa7;
-        }
-
-        .screen-element:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        .optimization-tips {
-            background: linear-gradient(135deg, #81ecec 0%, #74b9ff 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            color: white;
-        }
-
-        .tip-item {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 15px;
-            border-radius: 12px;
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .tip-item:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateX(10px);
-        }
-
-        .tip-emoji {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-
-        .quiz-game {
-            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
-            border-radius: 25px;
-            padding: 30px;
-            margin: 30px 0;
-            color: white;
-        }
-
-        .quiz-question {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-        }
-
-        .quiz-options {
-            display: grid;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .quiz-option {
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            padding: 15px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
-            font-size: 1.1rem;
-        }
-
-        .quiz-option:hover {
-            border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .quiz-option.selected {
-            background: #667eea;
-            color: white;
-            transform: translateY(-3px);
-        }
-
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 30px;
+            padding: 10px 22px;
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1em;
             font-weight: bold;
-            transition: all 0.3s ease;
-            margin: 10px 5px;
-            font-family: inherit;
+            margin: 10px 5px 0 0;
         }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        .btn-secondary {
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
         }
-
-        .btn-success {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        .example-box {
+            background: #fff;
+            border-left: 5px solid #667eea;
+            padding: 16px 24px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
-
-        .btn-fun {
-            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+        .collab-flow {
+            display: flex;
+            gap: 14px;
         }
-
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #00b894;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            z-index: 1000;
+        .flow-step {
+            background: #e6e6fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+        }
+        .metrics-dashboard {
+            display: flex;
+            gap: 12px;
+        }
+        .metric-card {
+            background: #667eea;
+            color: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            flex: 1;
+        }
+        .metric-value {
+            font-size: 1.35em;
             font-weight: bold;
         }
-
-        .notification.show {
-            transform: translateX(0);
+        .metric-label {
+            font-size: 0.93em;
+            opacity: 0.9;
         }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
+        .quiz-container {
+            background: #ffecd2;
+            border-radius: 10px;
+            padding: 18px;
         }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        .quiz-question {
+            margin-bottom: 18px;
         }
-
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2.5rem; }
-            .content-grid { grid-template-columns: 1fr; }
-            .container { padding: 15px; }
-            .card { padding: 25px; }
-            .simple-metrics { grid-template-columns: repeat(2, 1fr); }
-            .journey-map { grid-template-columns: 1fr; }
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        .quiz-option {
+            background: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1.5px solid #e2e8f0;
+            transition: background 0.3s, color 0.3s;
+        }
+        .quiz-option.selected {
+            background: #667eea;
+            color: #fff;
+            border-color: #667eea;
+        }
+        @media (max-width: 700px) {
+            .container { padding: 10px;}
+            .card, .quiz-container { padding: 10px;}
+            .collab-flow, .metrics-dashboard, .quiz-options { flex-direction: column; gap: 10px;}
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤔💸 Capítulo 15</h1>
-            <p>¿Por qué la gente NO compra en redes sociales?</p>
+            <h1>🌟 Capítulo 15</h1>
+            <p>Marketing de Influencers y Colaboraciones</p>
         </div>
-
-        <div class="content-grid">
-            <!-- Explicación Simple -->
-            <div class="card">
-                <h2>🤷‍♀️ ¿Qué es la "Optimización de Conversiones"?</h2>
-                
-                <div class="explanation-box">
-                    <h3>🎯 Imagínate esto...</h3>
-                    <p>Tienes una tienda física y cada día entran 100 personas, pero solo 3 compran algo. ¿No te preguntarías por qué las otras 97 se van sin comprar?</p>
-                </div>
-
-                <div class="social-example">
-                    <h4>📱 En redes sociales es igual:</h4>
-                    <p><strong>• Instagram:</strong> 1000 personas ven tu post, 50 van a tu perfil, pero solo 2 compran</p>
-                    <p><strong>• TikTok:</strong> Tu video tiene 5000 views, 100 hacen clic en tu bio, pero solo 3 compran</p>
-                    <p><strong>• Facebook:</strong> Tu anuncio llega a 2000 personas, 30 visitan tu página, pero solo 1 compra</p>
-                </div>
-
-                <div class="explanation-box">
-                    <h3>💡 La optimización de conversiones es...</h3>
-                    <p><strong>Descubrir POR QUÉ la gente no compra</strong> y arreglar esos problemas para que MÁS gente sí compre. Es como ser detective de tu propio negocio! 🕵️‍♀️</p>
-                </div>
-
-                <div style="background: #dff0d8; padding: 15px; border-radius: 10px; margin-top: 20px;">
-                    <p><strong>🎯 Objetivo simple:</strong> Si logras que de cada 100 visitantes compren 6 en lugar de 3, ¡DUPLICASTE tus ventas sin gastar más en publicidad!</p>
-                </div>
-            </div>
-
-            <!-- Números Simples -->
-            <div class="card">
-                <h2>📊 Tus Números en Redes (¡Súper Fácil!)</h2>
-                
-                <div class="metrics-playground">
-                    <h3 style="text-align: center; margin-bottom: 20px;">🎮 Simulador de tu Negocio</h3>
-                    
-                    <div class="simple-metrics">
-                        <div class="metric-box" onclick="explainMetric('visitors')">
-                            <div class="big-number" id="visitors">1,000</div>
-                            <div class="metric-name">👀 Visitantes</div>
-                            <div class="simple-explanation">Gente que ve tu perfil</div>
-                        </div>
-                        
-                        <div class="metric-box" onclick="explainMetric('interested')">
-                            <div class="big-number" id="interested">150</div>
-                            <div class="metric-name">❤️ Interesados</div>
-                            <div class="simple-explanation">Dan like o comentan</div>
-                        </div>
-                        
-                        <div class="metric-box" onclick="explainMetric('clicks')">
-                            <div class="big-number" id="clicks">50</div>
-                            <div class="metric-name">👆 Clics</div>
-                            <div class="simple-explanation">Hacen clic en tu link</div>
-                        </div>
-                        
-                        <div class="metric-box" onclick="explainMetric('buyers')">
-                            <div class="big-number" id="buyers">3</div>
-                            <div class="metric-name">💳 Compradores</div>
-                            <div class="simple-explanation">Realmente compran</div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button class="btn btn-success" onclick="changeNumbers()">🎲 Cambiar Números</button>
-                        <p style="margin-top: 10px; opacity: 0.9;">¡Haz clic en cada número para entender qué significa!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tests A/B Explicados Simple -->
-            <div class="card">
-                <h2>🧪 Tests A/B: ¿Cuál Funciona Mejor?</h2>
-                
-                <div class="explanation-box">
-                    <h3>🤔 ¿Qué es un Test A/B?</h3>
-                    <p>Es como probar dos camisetas diferentes y ver cuál te queda mejor. Solo que aquí probamos dos versiones de tu contenido para ver cuál vende más.</p>
-                </div>
-
-                <div class="ab-test-game">
-                    <h3 style="text-align: center; margin-bottom: 20px;">🏆 ¡Adivina cuál vendió más!</h3>
-                    <p style="text-align: center; margin-bottom: 20px;">Estás vendiendo un curso de cocina en Instagram...</p>
-                    
-                    <div class="test-option" onclick="selectTest(this, false)">
-                        <h4>🅰️ Opción A: Post Formal</h4>
-                        <p><strong>"Curso Profesional de Gastronomía - Técnicas Avanzadas"</strong></p>
-                        <p>📸 Foto: Chef en cocina profesional</p>
-                        <p>💰 Precio: $297</p>
-                        <small>Resultado: 2 ventas de 1000 views</small>
-                    </div>
-                    
-                    <div class="test-option winner" onclick="selectTest(this, true)">
-                        <h4>🅱️ Opción B: Post Casual</h4>
-                        <p><strong>"¡Cocina como tu abuela pero en 30 minutos! 👵❤️"</strong></p>
-                        <p>📸 Foto: Plato casero delicioso</p>
-                        <p>💰 Precio: $97</p>
-                        <small>Resultado: 12 ventas de 1000 views</small>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button class="btn btn-fun" onclick="explainWinner()">🤓 ¡Explícame por qué!</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- El Viaje del Cliente -->
-            <div class="card">
-                <h2>🚶‍♀️ El Viaje de tu Cliente (Paso a Paso)</h2>
-                
-                <div class="explanation-box">
-                    <h3>🛤️ Imagínate que tu cliente es como alguien caminando por un camino...</h3>
-                    <p>Cada paso del camino, algunas personas se van. Tu trabajo es hacer que MÁS gente llegue hasta el final (que compren).</p>
-                </div>
-
-                <div class="journey-map">
-                    <div class="journey-step" onclick="explainStep('discovery')">
-                        <div class="step-emoji">👀</div>
-                        <div class="step-percent">100%</div>
-                        <div class="step-label">Ven tu contenido</div>
-                    </div>
-                    
-                    <div class="journey-step" onclick="explainStep('interest')">
-                        <div class="step-emoji">❤️</div>
-                        <div class="step-percent">15%</div>
-                        <div class="step-label">Se interesan</div>
-                    </div>
-                    
-                    <div class="journey-step" onclick="explainStep('consideration')">
-                        <div class="step-emoji">🤔</div>
-                        <div class="step-percent">5%</div>
-                        <div class="step-label">Lo consideran</div>
-                    </div>
-                    
-                    <div class="journey-step" onclick="explainStep('purchase')">
-                        <div class="step-emoji">💳</div>
-                        <div class="step-percent">0.3%</div>
-                        <div class="step-label">Compran</div>
-                    </div>
-                </div>
-
-                <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-top: 20px;">
-                    <p><strong>💡 Tip:</strong> ¡Haz clic en cada paso para ver cómo mejorarlo! La mayoría de gente se pierde entre "Se interesan" y "Lo consideran".</p>
-                </div>
-            </div>
-
-            <!-- Heatmap Explicado Simple -->
-            <div class="card">
-                <h2>🔥 Mapas de Calor: ¿Dónde Miran tus Seguidores?</h2>
-                
-                <div class="explanation-box">
-                    <h3>🎯 ¿Qué es un mapa de calor?</h3>
-                    <p>Es como tener rayos X para ver exactamente DÓNDE miran las personas en tu contenido. Las zonas rojas = mucha atención, azules = poca atención.</p>
-                </div>
-
-                <div class="heatmap-demo">
-                    <h3 style="text-align: center; margin-bottom: 15px;">📱 ¡Haz clic donde TÚ mirarías primero!</h3>
-                    
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="screen-element header-area" onclick="clickArea(this, 'header')">
-                                📱 @tu_negocio
-                            </div>
-                            <div class="screen-element hero-area" onclick="clickArea(this, 'hero')">
-                                🖼️ Foto Principal
-                            </div>
-                            <div class="screen-element content-area" onclick="clickArea(this, 'content')">
-                                📝 Descripción del Producto
-                            </div>
-                            <div class="screen-element cta-area" onclick="clickArea(this, 'cta')">
-                                🛒 COMPRAR AHORA
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 15px;">
-                        <button class="btn" onclick="resetHeatmap()">🔄 Reiniciar</button>
-                        <button class="btn btn-success" onclick="showHeatmapTips()">💡 Ver Consejos</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Consejos de Optimización -->
-            <div class="card">
-                <h2>🚀 Consejos para Vender Más (¡Súper Fáciles!)</h2>
-                
-                <div class="optimization-tips">
-                    <h3 style="text-align: center; margin-bottom: 20px;">✨ Trucos que Funcionan de Verdad</h3>
-                    
-                    <div class="tip-item" onclick="expandTip(this, 'speed')">
-                        <div class="tip-emoji">⚡</div>
-                        <div>
-                            <strong>Velocidad de Carga</strong><br>
-                            <small>Si tu página tarda más de 3 segundos, 50% se va</small>
-                        </div>
-                    </div>
-                    
-                    <div class="tip-item" onclick="expandTip(this, 'trust')">
-                        <div class="tip-emoji">🛡️</div>
-                        <div>
-                            <strong>Testimonios Reales</strong><br>
-                            <small>Fotos y videos de clientes reales = más confianza</small>
-                        </div>
-                    </div>
-                    
-                    <div class="tip-item" onclick="expandTip(this, 'urgency')">
-                        <div class="tip-emoji">⏰</div>
-                        <div>
-                            <strong>Urgencia Real</strong><br>
-                            <small>"Solo quedan 3" funciona mejor que "Oferta limitada"</small>
-                        </div>
-                    </div>
-                    
-                    <div class="tip-item" onclick="expandTip(this, 'simple')">
-                        <div class="tip-emoji">🎯</div>
-                        <div>
-                            <strong>Botón Grande y Claro</strong><br>
-                            <small>"Comprar Ahora" mejor que "Adquirir Producto"</small>
-                        </div>
-                    </div>
-                    
-                    <div class="tip-item" onclick="expandTip(this, 'mobile')">
-                        <div class="tip-emoji">📱</div>
-                        <div>
-                            <strong>Optimizado para Móvil</strong><br>
-                            <small>80% de tus clientes usan el celular</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quiz Divertido -->
-            <div class="card">
-                <h2>🧠 Quiz: ¿Eres un Genio de las Conversiones?</h2>
-                
-                <div class="quiz-game">
-                    <div class="quiz-question">
-                        <h3>🤔 Pregunta 1: Tu post de Instagram tiene 1000 likes pero solo 1 venta. ¿Qué haces?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Hacer más posts iguales</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, true)">Cambiar el call-to-action</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Subir el precio</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Dejar de usar Instagram</div>
-                        </div>
-                    </div>
-                    
-                    <div class="quiz-question">
-                        <h3>🛒 Pregunta 2: ¿Cuál botón crees que funciona mejor?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">"Adquirir Ahora"</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, true)">"¡Lo Quiero!" 💕</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">"Proceder al Checkout"</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">"Finalizar Compra"</div>
-                        </div>
-                    </div>
-                    
-                    <div class="quiz-question">
-                        <h3>📱 Pregunta 3: Tu página web tarda 5 segundos en cargar. ¿Qué pasa?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">No pasa nada importante</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, true)">Pierdes 50% de visitantes</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Solo pierdes 10%</div>
-                            <div class="quiz-option" onclick="selectQuizOption(this, false)">Es normal en móviles</div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 25px;">
-                        <button class="btn btn-fun" onclick="checkQuizAnswers()">🎉 ¡Ver mis Resultados!</button>
-                        <div id="quizResults" style="margin-top: 20px; display: none;"></div>
-                    </div>
-                </div>
+        <div class="card">
+            <h2>¿Qué es el Marketing de Influencers?</h2>
+            <p>Es una estrategia que consiste en colaborar con personas que tienen una audiencia relevante y credibilidad en redes sociales o medios digitales, para potenciar la visibilidad y confianza de una marca o producto.</p>
+            <h3>Ventajas Principales:</h3>
+            <ul>
+                <li>Acceso rápido a audiencias segmentadas</li>
+                <li>Genera confianza y autenticidad</li>
+                <li>Incrementa el alcance y las conversiones</li>
+                <li>Contenido creativo y diverso</li>
+                <li>Mejora el posicionamiento de marca</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Tipos de Influencers</h2>
+            <ul>
+                <li><strong>Nanoinfluencers:</strong> Menos de 10,000 seguidores. Alta interacción y nichos muy específicos.</li>
+                <li><strong>Microinfluencers:</strong> 10,000 a 100,000 seguidores. Segmentación precisa y credibilidad.</li>
+                <li><strong>Macroinfluencers:</strong> 100,000 a 1M seguidores. Gran alcance y reconocimiento.</li>
+                <li><strong>Celebrities:</strong> Más de 1M seguidores. Impacto masivo y campañas globales.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Ejemplos de Colaboraciones</h2>
+            <div class="example-box">
+                <ul>
+                    <li><strong>Unboxing y reseñas:</strong> Influencers reciben y muestran productos en video.</li>
+                    <li><strong>Giveaways:</strong> Sorteos para seguidores organizados en conjunto.</li>
+                    <li><strong>Takeover de cuentas:</strong> Influencer gestiona una red social de la marca por un día.</li>
+                    <li><strong>Contenido patrocinado:</strong> Posts, historias o videos con mención de la marca.</li>
+                    <li><strong>Eventos en vivo:</strong> Participación en webinars o transmisiones en directo.</li>
+                </ul>
             </div>
         </div>
-    </div>
-
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
-
-    <script>
-        let heatmapClicks = {
-            header: 0,
-            hero: 0,
-            content: 0,
-            cta: 0
-        };
-
-        function explainMetric(metricType) {
-            const explanations = {
-                visitors: '👀 VISITANTES: Son todas las personas que ven tu perfil o contenido. Como cuando pasas por una tienda y miras el escaparate. ¡Más visitantes = más oportunidades!',
-                interested: '❤️ INTERESADOS: Son los que dan like, comentan o guardan tu post. Es como si en la tienda te detuvieras a mirar mejor un producto. ¡Están interesados pero aún no convencidos!',
-                clicks: '👆 CLICS: Son los valientes que hacen clic en tu link o bio. Es como entrar a la tienda. ¡Ya están más cerca de comprar!',
-                buyers: '💳 COMPRADORES: ¡Los héroes! Son los que realmente sacan su tarjeta y compran. De 1000 visitantes, solo 3 suelen comprar. ¡Por eso optimizamos!'
-            };
-            
-            showNotification(explanations[metricType]);
-        }
-
-        function changeNumbers() {
-            const visitors = Math.floor(Math.random() * 2000 + 500);
-            const interested = Math.floor(visitors * 0.15);
-            const clicks = Math.floor(interested * 0.33);
-            const buyers = Math.floor(clicks * 0.06);
-            
-            document.getElementById('visitors').textContent = visitors.toLocaleString();
-            document.getElementById('interested').textContent = interested.toLocaleString();
-            document.getElementById('clicks').textContent = clicks.toLocaleString();
-            document.getElementById('buyers').textContent = buyers.toLocaleString();
-            
-            showNotification('🎲 ¡Números actualizados! Estos podrían ser TUS números reales.');
-        }
-
-        function selectTest(element, isWinner) {
-            const allOptions = document.querySelectorAll('.test-option');
-            allOptions.forEach(option => option.style.border = '3px solid transparent');
-            
-            if (isWinner) {
-                element.style.border = '3px solid #00b894';
-                showNotification('🏆 ¡Correcto! El lenguaje casual y precio accesible siempre gana');
-            } else {
-                element.style.border = '3px solid #e84393';
-                showNotification('❌ No... ¡La gente prefiere lo simple y familiar!');
-            }
-        }
-
-        function explainWinner() {
-            alert('🤓 ¿Por qué ganó la Opción B?\n\n✅ Lenguaje familiar ("como tu abuela")\n✅ Tiempo específico ("30 minutos")\n✅ Emoji que genera emoción\n✅ Precio más accesible\n✅ Foto de comida rica (no del chef)\n\n❌ La Opción A sonaba muy "profesional" y cara. ¡La gente compra con emociones, no con lógica!');
-        }
-
-        function explainStep(stepType) {
-            const explanations = {
-                discovery: '👀 DESCUBRIMIENTO: Aquí llegan TODOS. Tu contenido aparece en su feed.\n\n💡 Para mejorar: Usa hashtags relevantes, posta en horas pico, haz contenido llamativo.',
-                interest: '❤️ INTERÉS: Solo 15% se interesa. ¡Es normal!\n\n💡 Para mejorar: Usa títulos curiosos, haz preguntas, cuenta historias personales.',
-                consideration: '🤔 CONSIDERACIÓN: Solo 5% realmente lo considera.\n\n💡 Para mejorar: Muestra testimonios, ofrece garantía, explica beneficios claros.',
-                purchase: '💳 COMPRA: Solo 0.3% compra. ¡Por eso optimizamos!\n\n💡 Para mejorar: Botón claro, proceso simple, urgencia real, confianza.'
-            };
-            
-            alert(explanations[stepType]);
-        }
-
-        function clickArea(element, area) {
-            heatmapClicks[area]++;
-            
-            const clickCount = heatmapClicks[area];
-            let color = '#74b9ff';
-            let opacity = 0.3;
-            
-            if (clickCount >= 3) {
-                color = '#fdcb6e';
-                opacity = 0.6;
-            }
-            if (clickCount >= 6) {
-                color = '#e84393';
-                opacity = 0.9;
-            }
-            
-            element.style.backgroundColor = color;
-            element.style.opacity = opacity;
-            
-            const areaNames = {
-                header: 'Header',
-                hero: 'Foto Principal',
-                content: 'Descripción',
-                cta: 'Botón de Compra'
-            };
-            
-            showNotification('🔥 +1 clic en: ' + areaNames[area] + ' (Total: ' + clickCount + ')');
-        }
-
-        function resetHeatmap() {
-            heatmapClicks = { header: 0, hero: 0, content: 0, cta: 0 };
-            
-            const elements = document.querySelectorAll('.screen-element');
-            elements.forEach(element => {
-                element.style.backgroundColor = '';
-                element.style.opacity = '';
-            });
-            
-            showNotification('🔄 Heatmap reiniciado. ¡Prueba otra vez!');
-        }
-
-        function showHeatmapTips() {
-            const tips = [
-                '🔥 La gente mira PRIMERO la foto principal',
-                '👀 Luego el botón de compra (si es llamativo)',
-                '📝 La descripción la leen AL FINAL',
-                '📱 El header casi no lo miran',
-                '💡 Por eso: Foto impactante + Botón grande = Más ventas'
-            ];
-            
-            alert('💡 TIPS DE HEATMAP:\n\n' + tips.join('\n'));
-        }
-
-        function expandTip(element, tipType) {
-            const detailedTips = {
-                speed: '⚡ VELOCIDAD:\n\n• Usa imágenes optimizadas (no muy pesadas)\n• Elige un hosting rápido\n• Menos plugins = más velocidad\n• Prueba en 4G, no solo en WiFi\n\n💡 TIP: Usa Google PageSpeed para medir',
-                trust: '🛡️ CONFIANZA:\n\n• Fotos reales de clientes (no modelos)\n• Videos testimoniales cortos\n• Screenshots de reviews\n• Logos de medios que te mencionaron\n\n💡 TIP: Una review de video vale por 10 escritas',
-                urgency: '⏰ URGENCIA REAL:\n\n• "Solo quedan 3 unidades" (si es verdad)\n• "Oferta termina en 2 horas" (con contador)\n• "Últimos 5 cupos disponibles"\n\n❌ NO: "Oferta por tiempo limitado" (muy genérico)',
-                simple: '🎯 BOTÓN CLARO:\n\n✅ "¡Lo Quiero!" \n✅ "Comprar Ahora"\n✅ "Agregar al Carrito"\n\n❌ "Proceder al Checkout"\n❌ "Finalizar Transacción"\n❌ "Adquirir Producto"',
-                mobile: '📱 MÓVIL PRIMERO:\n\n• Botones grandes (fáciles de tocar)\n• Texto legible sin zoom\n• Formularios cortos\n• Carga rápida en 4G\n\n💡 TIP: Prueba TU sitio en tu celular cada semana'
-            };
-            
-            alert(detailedTips[tipType]);
-        }
-
-        function selectQuizOption(element, isCorrect) {
-            const siblings = element.parentNode.querySelectorAll('.quiz-option');
-            siblings.forEach(sibling => sibling.classList.remove('selected'));
-            element.classList.add('selected');
-            element.dataset.correct = isCorrect;
-        }
-
-        function checkQuizAnswers() {
-            const selectedOptions = document.querySelectorAll('.quiz-option.selected');
-            
-            if (selectedOptions.length < 3) {
-                alert('🤔 ¡Responde todas las preguntas primero!');
-                return;
-            }
-            
-            let correct = 0;
-            selectedOptions.forEach(option => {
-                if (option.dataset.correct === 'true') {
-                    correct++;
-                    option.style.backgroundColor = '#00b894';
-                    option.style.color = 'white';
-                } else {
-                    option.style.backgroundColor = '#e84393';
-                    option.style.color = 'white';
-                }
-            });
-            
-            const percentage = (correct / 3) * 100;
-            let message = '';
-            let emoji = '';
-            
-            if (percentage >= 80) {
-                message = '¡ERES UN GENIO! 🧠✨ Ya entiendes cómo funciona la mente de tus clientes. ¡Vas a vender muchísimo!';
-                emoji = '🏆';
-            } else if (percentage >= 60) {
-                message = '¡Muy bien! 👏 Entiendes lo básico. Con un poco más de práctica serás un experto en conversiones.';
-                emoji = '📈';
-            } else {
-                message = '¡No te preocupes! 🤗 Esto se aprende con práctica. Relee el capítulo y prueba el quiz otra vez.';
-                emoji = '📚';
-            }
-            
-            document.getElementById('quizResults').innerHTML = 
-                '<div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.9); border-radius: 15px; color: #333; margin-top: 15px;">' +
-                '<div style="font-size: 4rem; margin-bottom: 10px;">' + emoji + '</div>' +
-                '<h3>Resultado: ' + correct + '/3 (' + percentage.toFixed(0) + '%)</h3>' +
-                '<p style="margin-top: 10px; font-size: 1.1rem;">' + message + '</p>' +
-                '</div>';
-            document.getElementById('quizResults').style.display = 'block';
-            
-            showNotification('🎯 Quiz completado: ' + correct + '/3 correctas');
-        }
-
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.classList.add('show');
-            
-            setTimeout(function() {
-                notification.classList.remove('show');
-            }, 4000);
-        }
-
-        // Inicializar al cargar
-        window.addEventListener('load', function() {
-            showNotification('🎉 ¡Bienvenido al Capítulo 15! Aprende por qué la gente NO compra');
-            
-            // Animación de carga de las tarjetas
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = (index * 0.2) + 's';
-            });
-        });
-
-        // Cambiar números automáticamente cada 10 segundos
-        setInterval(function() {
-            const shouldChange = Math.random() > 0.7; // 30% probabilidad
-            if (shouldChange) {
-                changeNumbers();
-            }
-        }, 10000);
-    </script>
-    <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBybolokygfynkgivONc_z1K6IHqaCcLBY",
-    authDomain: "curso-marketing-digital-24608.firebaseapp.com",
-    projectId: "curso-marketing-digital-24608",
-    storageBucket: "curso-marketing-digital-24608.firebasestorage.app",
-    messagingSenderId: "1009602059040",
-    appId: "1:1009602059040:web:94f432ba2760327bd45545",
-    measurementId: "G-LD18S3CD97"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-</body>
-    </html>
+        <div class="card">
+            <h2>Flujo de Colaboración Exitosa</h2>
+            <div class="collab-flow">
+                <div class="flow-step"><strong>Identificación</strong><br>Elegir influencer alineado a la marca</div>
+                <div class="flow-step"><strong>Contacto</strong><br>Propuesta clara y personalizada</div>
+                <div class="flow-step"><strong>Negociación</strong><br>Definir objetivos, formatos y compensación</div>
+                <div class="flow-step"><strong>Ejecución</strong><br>Creación y publicación de contenido</div>
+                <div class="flow-step"><strong>Seguimiento</strong><br>Medir resultados y retroalimentación</div>
+            </div>
+            <button class="btn" onclick="alert('Fl
