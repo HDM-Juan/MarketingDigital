@@ -3,189 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital del Móvil - Índice Completo de Estudios y Curso</title>
-    <!-- Aquí va tu CSS interno, igual que en el original -->
-    <!-- ... (copia tu bloque de estilos aquí) ... -->
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🏥 Hospital del Móvil</h1>
-            <div class="subtitle">Centro de Estudios y Curso Completo de Marketing Digital</div>
-            <div class="description">
-                Análisis estratégicos especializados + Curso completo de Marketing Digital de 15 lecciones para el crecimiento del negocio de reparación de dispositivos móviles
-            </div>
-        </div>
+    <title>Hospital del Móvil - Centro de Estudios y Marketing</title>
+    
+    <!-- TailwindCSS para un diseño moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Roboto, como especifica la guía de marca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons para una iconografía limpia y profesional -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-        <div class="navigation-tabs">
-            <button class="tab-button active" onclick="showTab('estudios')">📊 Estudios Estratégicos</button>
-            <button class="tab-button" onclick="showTab('curso')">📚 Curso Marketing (15 Lecciones)</button>
-            <button class="tab-button" onclick="showTab('recursos')">🎯 Recursos y Material</button>
-            <button class="tab-button" onclick="showTab('proximamente')">🚀 Próximamente</button>
-        </div>
-
-        <div class="stats-section">
-            <h3 style="text-align: center; margin-bottom: 25px; color: #2d3748;">📈 Resumen Ejecutivo Total</h3>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Estudios Estratégicos</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15</div>
-                    <div class="stat-label">Lecciones del Curso</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Recursos Adicionales</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">+300%</div>
-                    <div class="stat-label">ROI Proyectado</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">10</div>
-                    <div class="stat-label">Años de Experiencia</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 1: ESTUDIOS ESTRATÉGICOS -->
-        <div id="estudios" class="tab-content active">
-            <div class="content-grid">
-                <!-- Dashboard Principal -->
-                <div class="content-card disponible" onclick="window.open('dashboard-estrategia.html', '_blank')">
-                    <div class="card-header">
-                        <div class="card-icon disponible">📊</div>
-                        <div class="card-title">Dashboard Estratégico Interactivo</div>
-                        <span class="card-status">Disponible</span>
-                    </div>
-                    <div class="card-description">
-                        Estrategia digital completa con análisis por nichos, calculadora ROI, calendario estacional y plan de implementación detallado.
-                    </div>
-                    <ul class="card-features">
-                        <li>6 nichos específicos con estrategias personalizadas</li>
-                        <li>Calculadora ROI interactiva en tiempo real</li>
-                        <li>Calendario estacional con picos de venta</li>
-                        <li>Plan de contenido por red social y nicho</li>
-                    </ul>
-                    <a href="dashboard-estrategia.html" class="card-button disponible" target="_blank">
-                        🚀 Acceder al Dashboard
-                    </a>
-                </div>
-
-                <!-- Infografía del Sector -->
-                <div class="content-card disponible" onclick="window.open('Infografia-Sector.html', '_blank')">
-                    <div class="card-header">
-                        <div class="card-icon disponible">📈</div>
-                        <div class="card-title">Infografía del Sector</div>
-                        <span class="card-status">Disponible</span>
-                    </div>
-                    <div class="card-description">
-                        Análisis visual completo del sector de reparación de dispositivos móviles con datos del mercado y tendencias.
-                    </div>
-                    <ul class="card-features">
-                        <li>Datos estadísticos del sector móvil en México</li>
-                        <li>Tendencias de crecimiento y proyecciones</li>
-                        <li>Comportamiento del consumidor mexicano</li>
-                        <li>Oportunidades de negocio identificadas</li>
-                    </ul>
-                    <a href="Infografia-Sector.html" class="card-button disponible" target="_blank">
-                        📈 Ver Infografía
-                    </a>
-                </div>
-
-                <!-- Añade aquí los demás estudios estratégicos como campañas, herramientas, etc. siguiendo la misma estructura -->
-                <!-- ... -->
-            </div>
-        </div>
-
-        <!-- TAB 2: CURSO MARKETING DIGITAL -->
-        <div id="curso" class="tab-content">
-            <div class="curso-progress">
-                <h3>📚 Curso Completo de Marketing Digital - 15 Lecciones</h3>
-                <p>Aprende marketing digital desde cero con lecciones didácticas y ejemplos prácticos específicos para reparación de móviles</p>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <p><strong>✅ 15/15 Lecciones Completadas</strong> | Resumen y Glosario Incluidos</p>
-            </div>
-            <div class="chapter-grid">
-                <!-- Lección 1 a 15 agrupadas correctamente, sin duplicados y con enlaces reales -->
-                <!-- Ejemplo: -->
-                <div class="chapter-card" onclick="window.open('Curso-1-5.html', '_blank')">
-                    <div class="chapter-number">1</div>
-                    <div class="chapter-title">Introducción al Marketing Digital</div>
-                    <div class="chapter-description">Fundamentos básicos, diferencias con marketing tradicional y aplicación en reparación móvil</div>
-                </div>
-                <!-- Repite para cada lección, agrupando por bloques reales (1-5, 6-10, etc.) -->
-                <!-- ... -->
-            </div>
-        </div>
-
-        <!-- TAB 3: RECURSOS Y MATERIAL -->
-        <div id="recursos" class="tab-content">
-            <div class="content-grid">
-                <!-- Ejemplo de recurso -->
-                <div class="content-card curso" onclick="window.open('Curso-Marketing-Digital.html', '_blank')">
-                    <div class="card-header">
-                        <div class="card-icon curso">📖</div>
-                        <div class="card-title">Curso Completo Unificado</div>
-                        <span class="card-status curso">Disponible</span>
-                    </div>
-                    <div class="card-description">
-                        Todas las 15 lecciones del curso en una sola página navegable con índice y búsqueda.
-                    </div>
-                    <ul class="card-features curso">
-                        <li>15 lecciones completas en una página</li>
-                        <li>Navegación rápida entre lecciones</li>
-                        <li>Búsqueda de contenido integrada</li>
-                        <li>Formato optimizado para estudio</li>
-                    </ul>
-                    <a href="Curso-Marketing-Digital.html" class="card-button curso" target="_blank">
-                        📖 Acceder al Curso Completo
-                    </a>
-                </div>
-                <!-- Repite para otros recursos -->
-            </div>
-        </div>
-
-        <!-- TAB 4: PRÓXIMAMENTE -->
-        <div id="proximamente" class="tab-content">
-            <div class="content-grid">
-                <div class="content-card coming-soon">
-                    <div class="card-header">
-                        <div class="card-icon coming-soon">⏳</div>
-                        <div class="card-title">Nuevos módulos y estudios</div>
-                        <span class="card-status coming-soon">Próximamente</span>
-                    </div>
-                    <div class="card-description">
-                        Estamos trabajando en nuevos análisis y módulos exclusivos para Hospital del Móvil.
-                    </div>
-                    <ul class="card-features coming-soon">
-                        <li>Estudios de caso reales</li>
-                        <li>Plantillas de campañas</li>
-                        <li>Integraciones IA</li>
-                    </ul>
-                    <a class="card-button coming-soon">⏳ Próximamente</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="footer-content">
-                &copy; 2025 Hospital del Móvil. Todos los derechos reservados. | Actualización: Julio 2025
-            </div>
-        </div>
-    </div>
-    <!-- Aquí va tu JS de tabs y navegabilidad -->
-    <script>
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+    <style>
+        /* Estilos personalizados y de marca */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f5f7; /* Un gris claro para el fondo, mejora el contraste */
         }
+
+        /* Colores primarios de la marca para gradientes */
+        .brand-gradient {
+            background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);
+        }
+
+        .brand-text {
+            color: #B22222;
+        }
+        
+        .brand-bg {
+            background-color: #B22222;
+        }
+        
+        .brand-bg-light {
+            background-color: #fee2e2; /* Un rojo muy claro para fondos */
+        }
+        
+        .brand-border {
+             border-color: #B22222;
+        }
+
+        /* Estilos para las pestañas de navegación */
+        .tab-button.active {
+            border-bottom-color: #B22222;
+            color: #B22222;
+            font-weight: 700;
+        }
+        
+        /* Ocultar contenido de pestañas no activas */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="app" class="min-h-screen">
+        
+        <!-- Header Corporativo -->
+        <header class="brand-gradient text-white shadow-lg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center space-x-4">
+                <img src="https://i.imgur.com/cqRWu7U.png" alt="Logo Hospital del Móvil" class="h-16 w-16 rounded-full border-2 border-white shadow-md">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-shadow">Hospital del Móvil</h1>
+                    <p class="text-sm md:text-base opacity-90">Centro de Estudios y Curso de Marketing Digital</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+            <!-- Sección de Resumen Ejecutivo -->
+            <section class="mb-8 p-6 bg-white rounded-xl shadow-md border-t-4 border-[#B22222]">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i data-lucide="bar-chart-3" class="w-7 h-7 mr-3 brand-text"></i>
+                    Resumen Ejecutivo
+                </h2>
+                <p class="text-gray-600 mb-6">Una vista general de todos los recursos, lecciones y proyecciones disponibles para potenciar tu negocio.</p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+                    <div class="brand-bg-light p-4 rounded-lg">
+                        <div class="text-3xl font-extrabold brand-text">8</div>
+                        <div class="text-sm font-semibold text-gray-700 mt-1">Estudios Estratégicos</div>
+                    </div>
+                    <div class="brand-bg-light p-4 rounded-lg">
+                        <div class="text-3xl font-extrabold brand-text">15</div>
+                        <div class="text-sm font-semibold text-gray-700 mt-1">Lecciones del Curso</div>
+                    </div>
+                    <div class="brand-bg-light p-4 rounded-lg">
+                        <div class="text-3xl font-extrabold brand-text">6</div>
+                        <div class="text-sm font-semibold text-gray-700 mt-1">Recursos Adicionales</div>
+                    </div>
+                    <div class="brand-bg-light p-4 rounded-lg">
+                        <div class="text-3xl font-extrabold brand-text">+300%</div>
+                        <div class="text-sm font-semibold text-gray-700 mt-1">ROI Proyectado</div>
+                    </div>
+                     <div class="brand-bg-light p-4 rounded-lg col-span-2 sm:col-span-1">
+                        <div class="text-3xl font-extrabold brand-text">10</div>
+                        <div class="text-sm font-semibold text-gray-700 mt-1">Años de Experiencia</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Navegación por Pestañas -->
+            <div class="bg-white rounded-t-lg shadow-sm border-b-2 border-gray-200">
+                <nav class="flex space-x-2 sm:space-x-4 px-4">
+                    <button class="tab-button active py-4 px-2 sm:px-4 text-gray-600 border-b-4 border-transparent hover:brand-text transition-colors duration-300" onclick="showTab('estudios', this)">
+                        <i data-lucide="bar-chart-horizontal" class="inline-block w-5 h-5 mr-2"></i>Estudios
+                    </button>
+                    <button class="tab-button py-4 px-2 sm:px-4 text-gray-600 border-b-4 border-transparent hover:brand-text transition-colors duration-300" onclick="showTab('curso', this)">
+                        <i data-lucide="book-open-check" class="inline-block w-5 h-5 mr-2"></i>Curso (15 Lecciones)
+                    </button>
+                    <button class="tab-button py-4 px-2 sm:px-4 text-gray-600 border-b-4 border-transparent hover:brand-text transition-colors duration-300" onclick="showTab('recursos', this)">
+                        <i data-lucide="folder-kanban" class="inline-block w-5 h-5 mr-2"></i>Recursos
+                    </button>
+                    <button class="tab-button py-4 px-2 sm:px-4 text-gray-600 border-b-4 border-transparent hover:brand-text transition-colors duration-300" onclick="showTab('proximamente', this)">
+                        <i data-lucide="rocket" class="inline-block w-5 h-5 mr-2"></i>Próximamente
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Contenedor de Contenido de Pestañas -->
+            <div class="bg-white p-4 sm:p-6 rounded-b-lg shadow-md">
+                
+                <!-- PESTAÑA 1: ESTUDIOS ESTRATÉGICOS -->
+                <div id="estudios" class="tab-content active">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card: Dashboard Estratégico -->
+                        <div class="flex flex-col bg-gray-50 rounded-lg border border-gray-200 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                           <div class="p-5">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 brand-bg-light rounded-full mr-3"><i data-lucide="layout-dashboard" class="brand-text"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-800">Dashboard Estratégico</h3>
+                                    <span class="ml-auto text-xs font-semibold bg-green-100 text-green-800 px-2 py-1 rounded-full">Disponible</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4">Estrategia digital completa con análisis de nichos, calculadora ROI y plan de implementación.</p>
+                           </div>
+                           <div class="p-5 bg-gray-100 border-t text-sm text-gray-700 flex-grow">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>6 nichos con estrategias personalizadas</li>
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Calculadora ROI interactiva</li>
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Calendario estacional con picos de venta</li>
+                                </ul>
+                           </div>
+                           <div class="p-4 bg-gray-50 border-t">
+                                <a href="dashboard-estrategia.html" target="_blank" class="w-full text-center brand-bg text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+                                   <i data-lucide="arrow-right-circle" class="w-5 h-5 mr-2"></i>Acceder al Dashboard
+                                </a>
+                           </div>
+                        </div>
+
+                        <!-- Card: Infografía del Sector -->
+                        <div class="flex flex-col bg-gray-50 rounded-lg border border-gray-200 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                           <div class="p-5">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 brand-bg-light rounded-full mr-3"><i data-lucide="pie-chart" class="brand-text"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-800">Infografía del Sector</h3>
+                                    <span class="ml-auto text-xs font-semibold bg-green-100 text-green-800 px-2 py-1 rounded-full">Disponible</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4">Análisis visual completo del sector de reparación con datos del mercado y tendencias clave.</p>
+                           </div>
+                           <div class="p-5 bg-gray-100 border-t text-sm text-gray-700 flex-grow">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Datos estadísticos del sector en México</li>
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Tendencias y proyecciones de crecimiento</li>
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Comportamiento del consumidor</li>
+                                </ul>
+                           </div>
+                           <div class="p-4 bg-gray-50 border-t">
+                                <a href="Infografia-Sector.html" target="_blank" class="w-full text-center brand-bg text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+                                   <i data-lucide="arrow-right-circle" class="w-5 h-5 mr-2"></i>Ver Infografía
+                                </a>
+                           </div>
+                        </div>
+                        <!-- Puedes añadir más estudios aquí -->
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 2: CURSO MARKETING DIGITAL -->
+                <div id="curso" class="tab-content">
+                    <div class="bg-gray-50 border-l-4 brand-border rounded-r-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">📚 Curso Completo de Marketing Digital</h3>
+                        <p class="text-gray-600 mt-2 mb-4">Aprende desde cero con 15 lecciones prácticas, diseñadas específicamente para el negocio de reparación de móviles.</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="brand-bg h-2.5 rounded-full" style="width: 100%"></div>
+                        </div>
+                        <p class="text-sm font-semibold text-green-700 mt-2">✅ 100% Completado (15/15 Lecciones)</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                        <!-- Generar tarjetas de lección (ejemplo) -->
+                        <script>
+                            const lecciones = [
+                                { num: 1, title: "Introducción al Marketing Digital", link: "Curso-1-5.html" },
+                                { num: 2, title: "Definiendo tu Cliente Ideal", link: "Curso-1-5.html" },
+                                { num: 3, title: "Análisis de Competencia", link: "Curso-1-5.html" },
+                                { num: 4, title: "Estrategia de Contenidos", link: "Curso-1-5.html" },
+                                { num: 5, title: "SEO para Negocios Locales", link: "Curso-1-5.html" },
+                                { num: 6, title: "Publicidad en Redes Sociales", link: "Curso-6-10.html" },
+                                { num: 7, title: "Google My Business", link: "Curso-6-10.html" },
+                                { num: 8, title: "Email Marketing Efectivo", link: "Curso-6-10.html" },
+                                { num: 9, title: "WhatsApp Business", link: "Curso-6-10.html" },
+                                { num: 10, title: "Métricas y KPIs", link: "Curso-6-10.html" },
+                                { num: 11, title: "Fidelización de Clientes", link: "Curso-11-15.html" },
+                                { num: 12, title: "Gestión de Reseñas", link: "Curso-11-15.html" },
+                                { num: 13, title: "Herramientas Esenciales", link: "Curso-11-15.html" },
+                                { num: 14, title: "Automatización de Marketing", link: "Curso-11-15.html" },
+                                { num: 15, title: "Plan de Marketing Integrado", link: "Curso-11-15.html" },
+                            ];
+                            lecciones.forEach(leccion => {
+                                document.write(`
+                                <a href="${leccion.link}" target="_blank" class="block p-4 bg-white border rounded-lg hover:shadow-lg hover:border-red-300 transition-all duration-300">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full brand-bg text-white font-bold text-lg">${leccion.num}</div>
+                                        <h4 class="font-semibold text-gray-800 text-sm">${leccion.title}</h4>
+                                    </div>
+                                </a>
+                                `);
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 3: RECURSOS Y MATERIAL -->
+                <div id="recursos" class="tab-content">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card: Curso Unificado -->
+                         <div class="flex flex-col bg-gray-50 rounded-lg border border-gray-200 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                           <div class="p-5">
+                                <div class="flex items-center mb-3">
+                                    <div class="p-2 brand-bg-light rounded-full mr-3"><i data-lucide="file-text" class="brand-text"></i></div>
+                                    <h3 class="text-lg font-bold text-gray-800">Curso Completo Unificado</h3>
+                                    <span class="ml-auto text-xs font-semibold bg-green-100 text-green-800 px-2 py-1 rounded-full">Disponible</span>
+                                </div>
+                                <p class="text-sm text-gray-600 mb-4">Todas las 15 lecciones en una sola página navegable con índice y búsqueda integrada.</p>
+                           </div>
+                           <div class="p-5 bg-gray-100 border-t text-sm text-gray-700 flex-grow">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Navegación rápida entre lecciones</li>
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Búsqueda de contenido integrada</li>
+                                    <li class="flex items-start"><i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-600 mt-0.5 shrink-0"></i>Formato optimizado para estudio</li>
+                                </ul>
+                           </div>
+                           <div class="p-4 bg-gray-50 border-t">
+                                <a href="Curso-Marketing-Digital.html" target="_blank" class="w-full text-center brand-bg text-white font-bold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center">
+                                   <i data-lucide="arrow-right-circle" class="w-5 h-5 mr-2"></i>Acceder al Curso
+                                </a>
+                           </div>
+                        </div>
+                        <!-- Puedes añadir más recursos -->
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 4: PRÓXIMAMENTE -->
+                <div id="proximamente" class="tab-content">
+                    <div class="max-w-2xl mx-auto text-center py-10">
+                         <div class="inline-block p-4 bg-yellow-100 rounded-full">
+                            <i data-lucide="hard-hat" class="w-10 h-10 text-yellow-600"></i>
+                         </div>
+                         <h3 class="mt-4 text-2xl font-bold text-gray-800">Nuevos Módulos en Desarrollo</h3>
+                         <p class="mt-2 text-gray-600">Siempre estamos trabajando para traerte más valor. Próximamente encontrarás nuevos análisis, plantillas y herramientas exclusivas.</p>
+                         <div class="mt-6 grid sm:grid-cols-3 gap-4 text-left">
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h4 class="font-semibold flex items-center"><i data-lucide="file-check" class="w-4 h-4 mr-2 text-gray-500"></i>Estudios de Caso</h4>
+                                <p class="text-xs text-gray-500 mt-1">Análisis de campañas reales y sus resultados.</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h4 class="font-semibold flex items-center"><i data-lucide="layout-template" class="w-4 h-4 mr-2 text-gray-500"></i>Plantillas de Campañas</h4>
+                                <p class="text-xs text-gray-500 mt-1">Recursos listos para usar en tus redes sociales.</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h4 class="font-semibold flex items-center"><i data-lucide="brain-circuit" class="w-4 h-4 mr-2 text-gray-500"></i>Integraciones con IA</h4>
+                                <p class="text-xs text-gray-500 mt-1">Herramientas inteligentes para optimizar tu marketing.</p>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Corporativo -->
+        <footer class="brand-gradient text-white mt-12">
+            <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm">
+                <p>&copy; 2025 Hospital del Móvil. Todos los derechos reservados.</p>
+                <p class="opacity-80">Última actualización: Julio 2025</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Función para cambiar de pestaña
+        function showTab(tabId, element) {
+            // Ocultar todo el contenido de las pestañas
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Quitar la clase activa de todos los botones
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar el contenido de la pestaña seleccionada
+            document.getElementById(tabId).classList.add('active');
+            // Añadir la clase activa al botón presionado
+            element.classList.add('active');
+        }
+
+        // Inicializar los íconos de Lucide
+        lucide.createIcons();
+
+        // Asegurarse de que la primera pestaña esté visible al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.tab-button').click();
+        });
     </script>
 </body>
 </html>
+
