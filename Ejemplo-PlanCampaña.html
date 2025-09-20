@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Campaña en Redes Sociales: Hospital del Móvil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main-header {
+            background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .main-header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+        }
+        .header-logo {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #B22222;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #B22222;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        .subsection-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #8B1A1A;
+            margin: 20px 0 10px 0;
+        }
+        .text-explanation {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .flow-step {
+            background-color: #f8f9fa;
+            border-left: 4px solid #B22222;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            color: #333;
+        }
+        .flow-arrow {
+            font-size: 1.5rem;
+            color: #B22222;
+            margin: 0.25rem 0;
+            text-align: center;
+        }
+        .niche-card {
+            background-color: #fff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+        }
+        .niche-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #B22222;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            font-size: 0.7rem;
+        }
+        .calendar-table th, .calendar-table td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: center;
+            vertical-align: top;
+        }
+        .calendar-table th {
+            background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);
+            color: white;
+            font-weight: 500;
+        }
+        .calendar-table td {
+            background-color: #f8f9fa;
+        }
+        .calendar-table td.niche-empresarial { background-color: #fff0f0; }
+        .calendar-table td.niche-padres { background-color: #f0fff0; }
+        .calendar-table td.niche-repartidores { background-color: #fffff0; }
+        .calendar-table td.niche-jovenes { background-color: #ffe8e8; }
+        .calendar-table td.niche-general { background-color: #e2e3e5; }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+        }
+        .image-placeholder {
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            border-radius: 0.25rem;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #666;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        .whatsapp-mockup {
+            background-color: #E5DDD5;
+            border-radius: 1rem;
+            padding: 1rem;
+            max-width: 350px;
+            margin: 1rem auto;
+            position: relative;
+        }
+        .message-bubble {
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.5rem;
+            max-width: 80%;
+        }
+        .whatsapp-assistant {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            align-self: flex-start;
+        }
+        .whatsapp-user {
+            background-color: #DCF8C6;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="main-header">
+        <img src="https://i.imgur.com/qsl6okO.png" alt="Hospital del Móvil Logo" class="header-logo">
+        <h1>Hospital del Móvil</h1>
+        <p>Plan de Campaña en Redes Sociales</p>
+    </div>
+
+    <section id="vision-general" class="section">
+        <div class="card">
+            <h2 class="section-title">Visión General de la Estrategia</h2>
+            <p class="text-explanation text-center">
+                Esta campaña está diseñada para transformar tu presencia en redes sociales en una herramienta poderosa para generar confianza y atraer clientes de tus nichos clave, utilizando una estrategia de bajo presupuesto.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mt-4">
+                <div class="flow-step flex-1">
+                    <p>Contenido de Valor</p>
+                </div>
+                <div class="flow-arrow">⬇️</div>
+                <div class="flow-step flex-1">
+                    <p>Segmentación Precisa</p>
+                </div>
+                <div class="flow-arrow">⬇️</div>
+                <div class="flow-step flex-1">
+                    <p>Conversión en Confianza</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendario" class="section">
+        <div class="card">
+            <h2 class="section-title">Calendario de Publicaciones (3 Meses)</h2>
+            <p class="text-explanation text-center">
+                Este calendario detalla la distribución de tus 8 videos y 8 imágenes por mes, enfocados en tus nichos y optimizados para fechas clave.
+            </p>
+            <div class="flex justify-center space-x-2 mb-4 text-xs flex-wrap">
+                <div class="legend-item"><div class="legend-color niche-empresarial"></div><span class="text-xs">Empresarial</span></div>
+                <div class="legend-item"><div class="legend-color niche-padres"></div><span class="text-xs">Padres</span></div>
+                <div class="legend-item"><div class="legend-color niche-repartidores"></div><span class="text-xs">Repartidores</span></div>
+                <div class="legend-item"><div class="legend-color niche-jovenes"></div><span class="text-xs">Jóvenes</span></div>
+                <div class="legend-item"><div class="legend-color niche-general"></div><span class="text-xs">General</span></div>
+            </div>
+
+            <h3 class="subsection-title">Mes 1: Lanzamiento y Posicionamiento</h3>
+            <div class="overflow-x-auto">
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Contenido Orgánico (Video/Reel)</th>
+                            <th>Contenido Orgánico (Imagen/Flyer)</th>
+                            <th>Anuncio Pagado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**S1**</td>
+                            <td class="niche-empresarial">"Un día en el taller B2B"</td>
+                            <td class="niche-empresarial">"Pólizas de Mantenimiento Empresarial"</td>
+                            <td class="niche-empresarial">"Productividad sin interrupciones"</td>
+                        </tr>
+                        <tr>
+                            <td>**S2**</td>
+                            <td class="niche-repartidores">"Batería baja en el peor momento?"</td>
+                            <td class="niche-repartidores">"Reparación Express para Repartidores"</td>
+                            <td class="niche-repartidores">"Tu celular es tu oficina"</td>
+                        </tr>
+                        <tr>
+                            <td>**S3**</td>
+                            <td class="niche-padres">"¿Celular mojado? ¡No hagas esto!"</td>
+                            <td class="niche-padres">"¡Ups! ¿Se le cayó el celular?"</td>
+                            <td class="niche-padres">"¡Paz mental! Tu celular a salvo"</td>
+                        </tr>
+                        <tr>
+                            <td>**S4**</td>
+                            <td class="niche-jovenes">"¡Que la fiesta no apague tu celular!"</td>
+                            <td class="niche-jovenes">"Listo para el festival!"</td>
+                            <td class="niche-jovenes">"Tu celular aguanta todo"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="subsection-title">Mes 2: Consolidación y Diversificación</h3>
+            <div class="overflow-x-auto">
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Contenido Orgánico (Video/Reel)</th>
+                            <th>Contenido Orgánico (Imagen/Flyer)</th>
+                            <th>Anuncio Pagado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**S5**</td>
+                            <td class="niche-empresarial">"Flota de celulares: ¿Reparar o reemplazar?"</td>
+                            <td class="niche-empresarial">"Optimiza tu flota móvil con nosotros."</td>
+                            <td class="niche-empresarial">"Evita pérdidas. Reparación rápida."</td>
+                        </tr>
+                        <tr>
+                            <td>**S6**</td>
+                            <td class="niche-padres">"¿Pantalla rota? Te tenemos cubierto"</td>
+                            <td class="niche-padres">"Pantallas rotas? Solución profesional."</td>
+                            <td class="niche-repartidores">"Batería fallando? ¡No te detengas!"</td>
+                        </tr>
+                        <tr>
+                            <td>**S7**</td>
+                            <td class="niche-repartidores">"Protege tu pantalla: El mejor aliado"</td>
+                            <td class="niche-repartidores">"Micas Ultra-Resistentes."</td>
+                            <td class="niche-general">"De regreso de vacaciones..."</td>
+                        </tr>
+                        <tr>
+                            <td>**S8**</td>
+                            <td class="niche-jovenes">"Accesorios que necesitas si amas la aventura"</td>
+                            <td class="niche-jovenes">"Accesorios para tus aventuras."</td>
+                            <td class="niche-jovenes">"Vive sin límites."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="subsection-title">Mes 3: Expansión y Preparación para Festivos</h3>
+            <div class="overflow-x-auto">
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th>Semana</th>
+                            <th>Contenido Orgánico (Video/Reel)</th>
+                            <th>Contenido Orgánico (Imagen/Flyer)</th>
+                            <th>Anuncio Pagado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**S9**</td>
+                            <td class="niche-empresarial">"Caso de éxito: Empresa X confió en nosotros."</td>
+                            <td class="niche-empresarial">"Tu empresa, nuestra prioridad."</td>
+                            <td class="niche-empresarial">"Tu equipo, siempre conectado."</td>
+                        </tr>
+                        <tr>
+                            <td>**S10**</td>
+                            <td class="niche-padres">"Servicio a domicilio: ¡Para que no salgas de casa!"</td>
+                            <td class="niche-padres">"Comodidad a domicilio."</td>
+                            <td class="niche-padres">"¡Ups! ¿Se le cayó...? Tenemos la solución!"</td>
+                        </tr>
+                        <tr>
+                            <td>**S11**</td>
+                            <td class="niche-general">"¿Te robaron el celular? Qué hacer..."</td>
+                            <td class="niche-general">"Guía: Qué hacer si te roban el celular."</td>
+                            <td class="niche-general">"Reparación que te acompaña..."</td>
+                        </tr>
+                        <tr>
+                            <td>**S12**</td>
+                            <td class="niche-general">"Nuestra garantía: Tu tranquilidad."</td>
+                            <td class="niche-general">"Garantía total en cada reparación."</td>
+                            <td class="niche-general">Oferta de fin de trimestre</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="visuales" class="section">
+        <div class="card">
+            <h2 class="section-title">Guía Visual de Contenido y Formatos</h2>
+            <p class="text-explanation text-center">
+                Aquí tienes ejemplos visuales y conceptos para que puedas crear tu contenido en Canva, manteniendo la consistencia de tu marca.
+            </p>
+
+            <h3 class="subsection-title">Paleta de Colores y Tipografía</h3>
+            <div class="text-explanation text-center mb-4">
+                Utiliza tu paleta de marca: **Tonos Rojos y Vinos (#B22222, #8B1A1A)** para encabezados y acentos, y **grises/blancos** para el fondo y texto. La tipografía principal será **Roboto**.
+            </div>
+
+            <h3 class="subsection-title">Formatos de Imagen y Video</h3>
+            <div class="flex justify-center flex-wrap gap-4 mt-4">
+                <div class="aspect-ratio-box square">1:1<div class="aspect-ratio-label">Cuadrado (Feed)</div></div>
+                <div class="aspect-ratio-box vertical">9:16<div class="aspect-ratio-label">Vertical (Reels / Stories)</div></div>
+                <div class="aspect-ratio-box horizontal">1.91:1<div class="aspect-ratio-label">Horizontal (Anuncios FB)</div></div>
+            </div>
+
+            <h3 class="subsection-title">WhatsApp (Mini-Flyers)</h3>
+            <p class="text-explanation mt-4">
+                Estos son visuales cuadrados que puedes enviar por chat o publicar en estados para dirigir tráfico a tu web. Deben ser concisos, con tu logo y un CTA claro.
+            </p>
+            <div class="whatsapp-mockup flex flex-col items-end">
+                <div class="message-bubble whatsapp-assistant w-full">
+                    **Hospital del Móvil**<br>
+                    ¿Sabes cómo cuidar la batería de tu celular?
+                </div>
+                <div class="message-bubble whatsapp-user w-full">
+                    
+                </div>
+                <div class="message-bubble whatsapp-assistant w-full">
+                    ¡Tenemos 5 tips que necesitas! <br>
+                    Da clic aquí para leer el artículo completo:
+                    <br>
+                    `[LINK a tu web]`
+                </div>
+            </div>
+            
+            <h3 class="subsection-title">Conceptos para Visuales (Imágenes y Videos)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div class="niche-card">
+                    <h4 class="font-semibold text-xl text-center text-8B1A1A">B2B</h4>
+                    <p class="text-sm text-gray-600 mt-2">**Video:** Manos expertas con guantes y herramientas de precisión, en un espacio limpio. Muestra un "antes y después" de un celular empresarial dañado. <br>
+                    **Imagen:** Un ejecutivo en su oficina con un celular que funciona perfectamente, con tu logo en la esquina, transmitiendo profesionalismo.</p>
+                </div>
+                <div class="niche-card">
+                    <h4 class="font-semibold text-xl text-center text-8B1A1A">Padres/Madres</h4>
+                    <p class="text-sm text-gray-600 mt-2">**Video:** Pequeña animación de un celular cayendo sobre un cojín, y luego una mano adulta sosteniendo el celular con una funda protectora. <br>
+                    **Imagen:** Un celular con una mica protectora agrietada (no la pantalla), con el texto "Tu mica se sacrificó por tu pantalla".</p>
+                </div>
+                <div class="niche-card">
+                    <h4 class="font-semibold text-xl text-center text-8B1A1A">Repartidores</h4>
+                    <p class="text-sm text-gray-600 mt-2">**Video:** Un reloj en la pantalla de un celular que marca el tiempo de reparación, con un "¡listo!" al final. <br>
+                    **Imagen:** Un repartidor con un casco, sosteniendo su celular con una batería completa, con un rayo de energía.</p>
+                </div>
+                <div class="niche-card">
+                    <h4 class="font-semibold text-xl text-center text-8B1A1A">Jóvenes</h4>
+                    <p class="text-sm text-gray-600 mt-2">**Video:** Montaje rápido de clips de actividades (ciclismo, un festival) y transiciones a tomas de celulares con accesorios resistentes. <br>
+                    **Imagen:** Un celular con audífonos, con un fondo con luces de colores o un paisaje de montaña.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>
