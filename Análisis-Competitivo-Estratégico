@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Competitivo Estratégico - Hospital del Móvil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .kpi-card {
+            background-color: #fff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            text-align: center;
+        }
+        .kpi-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #B22222;
+        }
+        .kpi-value {
+            font-size: 2.25rem;
+            font-weight: 900;
+            color: #8B1A1A;
+        }
+        .kpi-delta {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .tab-button {
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .tab-button.active {
+            background-color: #B22222;
+            color: white;
+            border-color: #8B1A1A;
+        }
+        .tab-button:not(.active) {
+            background-color: #f8d7da;
+            color: #B22222;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="text-white p-6 shadow-lg" style="background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold">Análisis Competitivo Estratégico</h1>
+            <p class="text-lg text-red-200">Preparado para: <span class="font-semibold">Hospital del Móvil</span></p>
+        </div>
+    </header>
+
+    <nav class="sticky top-0 bg-white shadow-md z-10">
+        <div class="container mx-auto flex justify-center space-x-2 md:space-x-8 py-3 overflow-x-auto">
+            <a href="#dashboard" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Dashboard</a>
+            <a href="#mapping" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Mapeo Competitivo</a>
+            <a href="#profiles" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Perfiles</a>
+            <a href="#swot" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Análisis FODA</a>
+            <a href="#digital" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Inteligencia Digital</a>
+            <a href="#benchmarking" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Benchmarking</a>
+            <a href="#strategy" class="text-sm md:text-base font-semibold text-[#B22222] hover:text-[#8B1A1A] transition">Estrategias</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="dashboard" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Dashboard Ejecutivo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="kpi-card">
+                    <div class="kpi-title">Score Competitivo Global</div>
+                    <div class="kpi-value">85<span class="text-2xl">/100</span></div>
+                    <div class="kpi-delta text-green-600">▲ Posición de Liderazgo</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">Nivel de Amenaza del Mercado</div>
+                    <div class="kpi-value">Alto</div>
+                    <div class="kpi-delta text-red-600">Competencia por precio agresiva</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">Oportunidad #1 Identificada</div>
+                    <div class="kpi-value">Servicio VIP</div>
+                    <div class="kpi-delta text-red-700">Capitalizar debilidades de competidores</div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Radar Competitivo: Hospital del Móvil vs. Promedio del Mercado</h3>
+                <p class="text-gray-600 mb-4">Este gráfico compara las capacidades de Hospital del Móvil contra el desempeño promedio de sus competidores clave en cinco áreas críticas. La fortaleza en Calidad y Servicio al Cliente es evidente, pero existe una brecha en la percepción de Precio y una oportunidad en Marketing Digital.</p>
+                <div class="chart-container h-96">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <section id="mapping" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Mapeo del Entorno Competitivo</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Posicionamiento por Precio vs. Calidad Percibida</h3>
+                     <p class="text-gray-600 mb-4">El mercado se polariza entre jugadores de bajo costo y alta velocidad, y propuestas de alto valor. Hospital del Móvil se posiciona firmemente en el cuadrante de alta calidad, lo cual justifica un precio premium, pero lo expone a competidores de volumen.</p>
+                    <div class="chart-container h-96">
+                        <canvas id="positioningChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Matriz BCG Adaptada: Presencia vs. Amenaza</h3>
+                    <p class="text-gray-600 mb-4">Clasificamos a los competidores según su presencia de mercado estimada y el nivel de amenaza que representan. "Fix It" y la "Plaza de la Tecnología" son las 'Vacas' del volumen, mientras que los servicios a domicilio son los 'Interrogantes' con potencial disruptivo.</p>
+                    <div class="chart-container h-96">
+                        <canvas id="bcgChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="profiles" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Perfiles Detallados de Competidores</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div id="competitorTabs" class="flex flex-wrap gap-2 mb-6"></div>
+                <div id="competitorContent"></div>
+            </div>
+        </section>
+
+        <section id="swot" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Análisis FODA Interactivo</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="mb-4">
+                    <label for="swotCompetitorSelect" class="block text-sm font-medium text-gray-700">Comparar Hospital del Móvil contra:</label>
+                    <select id="swotCompetitorSelect" class="mt-1 block w-full md:w-1/3 p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#B22222] focus:border-[#B22222]"></select>
+                </div>
+                <div id="swotAnalysis" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            </div>
+        </section>
+
+        <section id="digital" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Inteligencia Digital</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Presencia en Redes Sociales (Seguidores)</h3>
+                     <p class="text-gray-600 mb-4">Mientras que competidores como 'Tech House' y 'Fix It' invierten en volumen de seguidores (probablemente mediante pauta), Hospital del Móvil tiene una base más pequeña pero orgánica. La oportunidad reside en activar esta comunidad con contenido de valor.</p>
+                    <div class="chart-container">
+                        <canvas id="socialMediaChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Reputación Online y Calificaciones</h3>
+                     <p class="text-gray-600 mb-4">La calificación promedio es el activo digital más fuerte de Hospital del Móvil. Esta prueba social es un diferenciador clave contra los competidores de bajo precio y calidad variable, y debe ser un pilar en la comunicación de marketing.</p>
+                    <div class="chart-container">
+                        <canvas id="reputationChart"></canvas>
+                    </div>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6 lg:col-span-2">
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Dominio de Palabras Clave (Keywords)</h3>
+                    <p class="text-gray-600 mb-4">El campo de batalla digital se centra en búsquedas transaccionales. Los competidores con mayor presupuesto dominan los términos genéricos, pero hay una oportunidad en 'long-tail keywords' relacionados con calidad, garantía y modelos específicos.</p>
+                     <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-[#f8d7da]">
+                                <tr>
+                                    <th class="p-3 font-semibold">Keyword</th>
+                                    <th class="p-3 font-semibold">Dominado por</th>
+                                    <th class="p-3 font-semibold">Estrategia de Contraataque</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-3">"reparar pantalla iphone cdmx"</td>
+                                    <td class="p-3">Fix It (Anuncios), Plaza Tec (Orgánico)</td>
+                                    <td class="p-3">Crear contenido sobre "diferencia entre pantallas originales y genéricas".</td>
+                                </tr>
+                                <tr class="border-b bg-gray-50">
+                                    <td class="p-3">"cambiar batería samsung"</td>
+                                    <td class="p-3">Tech House, Centros Oficiales</td>
+                                    <td class="p-3">Campaña de anuncios enfocada en "garantía extendida" y "proceso certificado".</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3">"reparación de celulares cerca de mí"</td>
+                                    <td class="p-3">Agresores locales con Google My Business</td>
+                                    <td class="p-3">Optimizar GMB con reseñas, fotos de alta calidad y posts frecuentes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="benchmarking" class="mb-12">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Benchmarking Operativo y de Servicio</h2>
+             <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold text-[#8B1A1A] mb-4">Comparativa de Servicios Clave</h3>
+                 <p class="text-gray-600 mb-4">Aquí se desglosan las diferencias operativas. La fortaleza de Hospital del Móvil en garantía y calidad de refacciones es un diferenciador tangible. El tiempo de reparación, aunque no es el más rápido, se alinea con la promesa de calidad sobre velocidad.</p>
+                 <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-[#f8d7da]">
+                            <tr>
+                                <th class="p-3 font-semibold">Métrica</th>
+                                <th class="p-3 font-semibold">Hospital del Móvil</th>
+                                <th class="p-3 font-semibold">Fix It</th>
+                                <th class="p-3 font-semibold">Tech House</th>
+                                <th class="p-3 font-semibold">Plaza Tec.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b">
+                                <td class="p-3 font-semibold">Tiempo Reparación Pantalla</td>
+                                <td class="p-3">2-3 horas</td>
+                                <td class="p-3">45 minutos</td>
+                                <td class="p-3">Mismo día</td>
+                                <td class="p-3">1-2 horas</td>
+                            </tr>
+                             <tr class="border-b bg-gray-50">
+                                <td class="p-3 font-semibold">Garantía Estándar</td>
+                                <td class="p-3">6 meses</td>
+                                <td class="p-3">1 mes</td>
+                                <td class="p-3">3 meses</td>
+                                <td class="p-3">No / Limitada</td>
+                            </tr>
+                             <tr class="border-b">
+                                <td class="p-3 font-semibold">Calidad de Refacciones</td>
+                                <td class="p-3">OEM / Calidad Premium</td>
+                                <td class="p-3">Genérica / Económica</td>
+                                <td class="p-3">Variable / Original</td>
+                                <td class="p-3">Genérica</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="p-3 font-semibold">Precio Pantalla iPhone 13</td>
+                                <td class="p-3">$3,800 MXN</td>
+                                <td class="p-3">$2,500 MXN</td>
+                                <td class="p-3">$4,500 MXN</td>
+                                <td class="p-3">$1,800 MXN</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="strategy">
+            <h2 class="text-3xl font-bold text-[#8B1A1A] mb-6">Estrategias de Contraataque y Recomendaciones</h2>
+            <p class="text-gray-600 mb-6 text-lg">Basado en el análisis, se proponen las siguientes iniciativas estratégicas para consolidar el liderazgo de Hospital del Móvil, capitalizando sus fortalezas y explotando las debilidades de la competencia.</p>
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#8B1A1A]">
+                    <span class="inline-block bg-red-200 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Prioridad Alta</span>
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mt-2 mb-2">Lanzar el "Servicio de Diagnóstico y Reparación VIP"</h3>
+                    <p class="text-gray-600 mb-4"><strong>Objetivo:</strong> Diferenciarse completamente del segmento de bajo precio y capturar al cliente que valora la transparencia y la calidad por encima de todo.</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Acción:</strong> Ofrecer un servicio con cita previa, diagnóstico en presencia del cliente con microscopio, opciones claras de refacciones (Premium vs. OEM), y garantía extendida de 1 año.</li>
+                        <li><strong>Debilidad Explotada:</strong> Falta de transparencia de Plaza Tec. y calidad variable de Fix It.</li>
+                        <li><strong>KPI de Seguimiento:</strong> Tasa de adopción del servicio VIP, Margen de utilidad por reparación VIP, NPS de clientes VIP.</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#B22222]">
+                    <span class="inline-block bg-yellow-200 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Prioridad Media</span>
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mt-2 mb-2">Campaña de Marketing Digital "Lo Barato Sale Caro"</h3>
+                    <p class="text-gray-600 mb-4"><strong>Objetivo:</strong> Educar al mercado sobre los riesgos de las reparaciones de baja calidad y posicionar a Hospital del Móvil como la opción inteligente y segura a largo plazo.</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Acción:</strong> Crear contenido (videos cortos, blog posts) mostrando fallas comunes de reparaciones baratas. Lanzar anuncios en redes sociales segmentados a usuarios de dispositivos de gama alta.</li>
+                        <li><strong>Debilidad Explotada:</strong> Altas tasas de fallo y falta de garantía de competidores económicos.</li>
+                        <li><strong>KPI de Seguimiento:</strong> Costo por Adquisición (CPA), Tasa de Conversión de la landing page de la campaña, Share of Voice en temas de "calidad".</li>
+                    </ul>
+                </div>
+                 <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#DC3545]">
+                    <span class="inline-block bg-green-200 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Prioridad Media</span>
+                    <h3 class="text-xl font-bold text-[#8B1A1A] mt-2 mb-2">Programa de Lealtad y Referidos "Club de Expertos"</h3>
+                    <p class="text-gray-600 mb-4"><strong>Objetivo:</strong> Capitalizar la base de clientes satisfechos y convertirlos en promotores activos de la marca, reduciendo el costo de adquisición.</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li><strong>Acción:</strong> Implementar un sistema donde cada cliente recibe un código de referido. Ofrecer un descuento en futuras reparaciones o un accesorio de alta calidad por cada referido exitoso.</li>
+                        <li><strong>Debilidad Explotada:</strong> Experiencia transaccional y poco personal de grandes cadenas como Tech House.</li>
+                        <li><strong>KPI de Seguimiento:</strong> Tasa de Referidos, Lifetime Value (LTV) del cliente, Crecimiento orgánico de la base de clientes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#003F5C] text-white mt-12 py-6" style="background: linear-gradient(135deg, #B22222 0%, #8B1A1A 100%);">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 - Análisis Confidencial para Hospital del Móvil. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const competitorData = {
+                'fixit': {
+                    name: 'Fix It',
+                    model: 'Reparaciones rápidas a bajo costo. Foco en alta rotación y volumen. Múltiples sucursales pequeñas en zonas de alto tráfico.',
+                    pricing: 'Agresivo, 20-30% por debajo de Hospital del Móvil. Promociones constantes de "cambio de pantalla en 30 min".',
+                    strengths: 'Velocidad, precio, conveniencia por ubicación.',
+                    weaknesses: 'Calidad de refacciones inconsistente, garantía limitada (30-60 días), personal con menor experiencia, baja calificación en reseñas.',
+                    digital: 'Muy activos en Facebook/Instagram Ads. Dominan keywords de búsqueda transaccional con pauta. Presupuesto estimado: $30,000 MXN/mes.',
+                    marketShare: '15% (Volumen)',
+                    prices: { 'Pantalla iPhone 13': 2500, 'Batería Samsung S22': 1200 },
+                    score: 3.9
+                },
+                'moviltech': {
+                    name: 'Movil Tech',
+                    model: 'Intenta emular a Hospital del Móvil pero con un enfoque más moderno y digital. Busca posicionarse en el segmento de calidad.',
+                    pricing: 'Ligeramente por debajo de Hospital del Móvil (5-10%) para atraer clientes sensibles al precio pero que buscan calidad.',
+                    strengths: 'Imagen de marca fresca, buena presencia digital orgánica, servicio al cliente amable.',
+                    weaknesses: 'Menos experiencia (3 años en el mercado), menor confianza percibida, cadena de suministro de refacciones menos robusta.',
+                    digital: 'Buen manejo de Instagram, mostrando reparaciones y "antes y después". Contenido de valor. Poca inversión en pauta.',
+                    marketShare: '8%',
+                    prices: { 'Pantalla iPhone 13': 3500, 'Batería Samsung S22': 1700 },
+                    score: 4.3
+                },
+                'techhouse': {
+                    name: 'Tech House',
+                    model: 'Cadena nacional con presencia en plazas comerciales. Proceso estandarizado, venta cruzada de accesorios.',
+                    pricing: 'Precios de lista, los más altos del mercado. Pocas promociones. Se basan en la confianza de la marca.',
+                    strengths: 'Reconocimiento de marca, percepción de seguridad, múltiples puntos de venta, aceptan tarjetas de crédito y MSI.',
+                    weaknesses: 'Procesos burocráticos, tiempos de reparación más largos, servicio impersonal, costo elevado.',
+                    digital: 'Presencia a nivel nacional, no enfocada localmente. Invierten en branding más que en conversión directa.',
+                    marketShare: '12% (Valor)',
+                    prices: { 'Pantalla iPhone 13': 4500, 'Batería Samsung S22': 2200 },
+                    score: 4.1
+                },
+                'plazatec': {
+                    name: 'Plaza de la Tecnología (Kioscos)',
+                    model: 'Mercado informal y fragmentado. Cientos de pequeños técnicos independientes. Negociación directa, sin procesos formales.',
+                    pricing: 'El más bajo del mercado. Precios muy variables y negociables. Solo efectivo.',
+                    strengths: 'Precio imbatible, disponibilidad inmediata de técnicos, amplia variedad de refacciones de todas las calidades.',
+                    weaknesses: 'Sin garantía, alto riesgo de fallas, falta de seguridad y confianza, calidad muy baja, experiencia de cliente deficiente.',
+                    digital: 'Nula. Se basan 100% en el tráfico peatonal y la reputación de boca en boca dentro de la plaza.',
+                    marketShare: '25% (Volumen, informal)',
+                    prices: { 'Pantalla iPhone 13': 1800, 'Batería Samsung S22': 900 },
+                    score: 3.2
+                }
+            };
+
+            const hdmData = {
+                name: 'Hospital del Móvil',
+                prices: { 'Pantalla iPhone 13': 3800, 'Batería Samsung S22': 1800 },
+                score: 4.8
+            };
+
+            const swotData = {
+                'fixit': {
+                    strengths: ['Reputación de marca consolidada', 'Calidad superior de refacciones', 'Garantía extendida', 'Procesos estandarizados (Toyota Way)'],
+                    weaknesses: ['Precios más altos que la competencia de volumen', 'Tiempos de reparación mayores a los "express"', 'Menor agresividad en marketing de pauta'],
+                    opportunities: ['Capitalizar las malas experiencias de clientes de Fix It', 'Lanzar un servicio "premium" con diagnóstico transparente', 'Crear contenido educativo sobre la diferencia de calidades'],
+                    threats: ['Guerra de precios iniciada por Fix It', 'Pérdida de clientes sensibles al tiempo', 'Percepción de ser "caro" sin comunicar el valor']
+                },
+                'plazatec': {
+                    strengths: ['Transparencia y seguridad total vs. informalidad', 'Garantía real y soporte post-venta', 'Profesionalismo y confianza de marca'],
+                    weaknesses: ['Incapacidad de competir en precio', 'Ubicación única vs. cientos de opciones en la plaza'],
+                    opportunities: ['Campaña "Lo barato sale caro" mostrando casos reales', 'Atraer clientes defraudados por la plaza', 'Ofrecer diagnóstico profesional para "segundas opiniones"'],
+                    threats: ['Normalización del mercado informal', 'Erosión de la percepción de valor por la diferencia de precios', 'Clientes que priorizan el ahorro inmediato sobre la calidad']
+                }
+            };
+            
+            const wrapLabel = (label) => {
+                const maxLength = 16;
+                if (typeof label !== 'string' || label.length <= maxLength) return label;
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine += (currentLine ? ' ' : '') + word;
+                    }
+                });
+                lines.push(currentLine.trim());
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                return Array.isArray(label) ? label.join(' ') : label;
+            };
+            
+            const sharedChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#374151'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#374151'
+                        },
+                        grid: {
+                            color: '#E5E7EB'
+                        }
+                    }
+                }
+            };
+
+            new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Calidad', 'Precio Percibido', 'Servicio al Cliente', 'Marketing Digital', 'Reputación'],
+                    datasets: [{
+                        label: 'Hospital del Móvil',
+                        data: [9, 6, 9, 7, 9.5],
+                        fill: true,
+                        backgroundColor: 'rgba(178, 34, 34, 0.2)',
+                        borderColor: '#B22222',
+                        pointBackgroundColor: '#B22222',
+                    }, {
+                        label: 'Promedio del Mercado',
+                        data: [6, 8, 6, 8, 7],
+                        fill: true,
+                        backgroundColor: 'rgba(220, 53, 69, 0.2)',
+                        borderColor: '#DC3545',
+                        pointBackgroundColor: '#DC3545',
+                    }]
+                },
+                options: {
+                    ...sharedChartOptions,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#E5E7EB' },
+                            grid: { color: '#E5E7EB' },
+                            pointLabels: { font: { size: 14 }, color: '#374151' },
+                            ticks: { backdropColor: '#F9FAFB', color: '#6B7280' }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('positioningChart'), {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        { label: 'Hospital del Móvil', data: [{x: 8.5, y: 9}], backgroundColor: '#B22222', pointRadius: 10 },
+                        { label: 'Fix It', data: [{x: 7, y: 5}], backgroundColor: '#f8d7da', pointRadius: 8, borderColor: '#DC3545', borderWidth: 2 },
+                        { label: 'Movil Tech', data: [{x: 8, y: 7.5}], backgroundColor: '#DC3545', pointRadius: 8 },
+                        { label: 'Tech House', data: [{x: 9, y: 7}], backgroundColor: '#8B1A1A', pointRadius: 8 },
+                        { label: 'Plaza Tec.', data: [{x: 4, y: 3}], backgroundColor: '#cccccc', pointRadius: 10, borderColor: '#666', borderWidth: 2 }
+                    ]
+                },
+                options: {
+                    ...sharedChartOptions,
+                    scales: {
+                        x: { ...sharedChartOptions.scales.x, title: { display: true, text: 'Precio Percibido (Mayor →)' } },
+                        y: { ...sharedChartOptions.scales.y, title: { display: true, text: 'Calidad Percibida (Mayor ↑)' } }
+                    }
+                }
+            });
+            
+            new Chart(document.getElementById('bcgChart'), {
+                type: 'bubble',
+                data: {
+                     labels: Object.values(competitorData).map(c => c.name),
+                     datasets: [{
+                        label: 'Competidores',
+                        data: [
+                            {x: 8, y: 8, r: 15, label: 'Fix It'},
+                            {x: 5, y: 6, r: 8, label: 'Movil Tech'},
+                            {x: 6, y: 5, r: 12, label: 'Tech House'},
+                            {x: 9, y: 7, r: 25, label: 'Plaza Tec.'},
+                        ],
+                        backgroundColor: ['#f8d7da', '#DC3545', '#8B1A1A', '#cccccc']
+                    }]
+                },
+                options: {
+                    ...sharedChartOptions,
+                    scales: {
+                        x: { ...sharedChartOptions.scales.x, title: { display: true, text: 'Presencia de Mercado Estimada (Mayor →)' } },
+                        y: { ...sharedChartOptions.scales.y, title: { display: true, text: 'Nivel de Amenaza Competitiva (Mayor ↑)' } }
+                    },
+                     plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.label + ': (Presencia: ' + context.parsed.x + ', Amenaza: ' + context.parsed.y + ')';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const competitorTabsContainer = document.getElementById('competitorTabs');
+            const competitorContentContainer = document.getElementById('competitorContent');
+            Object.keys(competitorData).forEach((key, index) => {
+                const competitor = competitorData[key];
+                const button = document.createElement('button');
+                button.className = `tab-button ${index === 0 ? 'active' : ''}`;
+                button.textContent = competitor.name;
+                button.dataset.target = key;
+                competitorTabsContainer.appendChild(button);
+
+                const content = document.createElement('div');
+                content.id = key;
+                content.className = `tab-content p-4 border-t ${index === 0 ? 'active' : ''}`;
+                
+                let priceComparisonHtml = '<ul class="list-disc list-inside mt-2">';
+                for(const service in competitor.prices) {
+                    const priceDiff = hdmData.prices[service] - competitor.prices[service];
+                    const diffClass = priceDiff > 0 ? 'text-green-600' : 'text-red-600';
+                    const diffText = priceDiff > 0 ? `($${priceDiff} más barato)` : `($${Math.abs(priceDiff)} más caro)`;
+                    priceComparisonHtml += `<li>${service}: $${competitor.prices[service]} <span class="text-sm ${diffClass}">${diffText}</span></li>`;
+                }
+                priceComparisonHtml += '</ul>';
+
+                content.innerHTML = `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-[#8B1A1A]">Modelo de Negocio</h4>
+                            <p>${competitor.model}</p>
+                            <h4 class="font-bold text-[#8B1A1A] mt-4">Estructura de Precios</h4>
+                            <p>${competitor.pricing}</p>
+                             <h4 class="font-bold text-[#8B1A1A] mt-4">Precios vs. Hospital del Móvil</h4>
+                             ${priceComparisonHtml}
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-[#8B1A1A]">Fortalezas y Debilidades</h4>
+                            <p><strong class="text-green-700">F:</strong> ${competitor.strengths}</p>
+                            <p><strong class="text-red-700">D:</strong> ${competitor.weaknesses}</p>
+                            <h4 class="font-bold text-[#8B1A1A] mt-4">Presencia Digital</h4>
+                            <p>${competitor.digital}</p>
+                        </div>
+                    </div>
+                `;
+                competitorContentContainer.appendChild(content);
+            });
+
+            competitorTabsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('tab-button')) {
+                    competitorTabsContainer.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    competitorContentContainer.querySelector('.active').classList.remove('active');
+                    competitorContentContainer.querySelector(`#${e.target.dataset.target}`).classList.add('active');
+                }
+            });
+
+            const swotSelect = document.getElementById('swotCompetitorSelect');
+            Object.keys(swotData).forEach(key => {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = competitorData[key].name;
+                swotSelect.appendChild(option);
+            });
+            
+            const swotContainer = document.getElementById('swotAnalysis');
+            function renderSwot(competitorKey) {
+                const data = swotData[competitorKey];
+                swotContainer.innerHTML = `
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <h4 class="font-bold text-green-800">Fortalezas</h4>
+                        <ul class="list-disc list-inside mt-2 text-green-700">${data.strengths.map(s => `<li>${s}</li>`).join('')}</ul>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                        <h4 class="font-bold text-red-800">Debilidades</h4>
+                        <ul class="list-disc list-inside mt-2 text-red-700">${data.weaknesses.map(w => `<li>${w}</li>`).join('')}</ul>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h4 class="font-bold text-blue-800">Oportunidades</h4>
+                        <ul class="list-disc list-inside mt-2 text-blue-700">${data.opportunities.map(o => `<li>${o}</li>`).join('')}</ul>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                        <h4 class="font-bold text-yellow-800">Amenazas</h4>
+                        <ul class="list-disc list-inside mt-2 text-yellow-700">${data.threats.map(t => `<li>${t}</li>`).join('')}</ul>
+                    </div>
+                `;
+            }
+            swotSelect.addEventListener('change', (e) => renderSwot(e.target.value));
+            renderSwot(swotSelect.value);
+            
+            new Chart(document.getElementById('socialMediaChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Tech House', 'Fix It', 'H. del Móvil', 'Movil Tech'],
+                    datasets: [{
+                        label: 'Seguidores en Redes Sociales (Miles)',
+                        data: [50, 25, 8, 5],
+                        backgroundColor: ['#8B1A1A', '#f8d7da', '#B22222', '#DC3545'],
+                    }]
+                },
+                options: { ...sharedChartOptions, indexAxis: 'y' }
+            });
+
+            new Chart(document.getElementById('reputationChart'), {
+                type: 'bar',
+                data: {
+                    labels: [hdmData.name, 'Movil Tech', 'Tech House', 'Fix It', 'Plaza Tec.'],
+                    datasets: [{
+                        label: 'Calificación Promedio (de 5 estrellas)',
+                        data: [hdmData.score, competitorData.moviltech.score, competitorData.techhouse.score, competitorData.fixit.score, competitorData.plazatec.score],
+                        backgroundColor: ['#B22222', '#DC3545', '#8B1A1A', '#f8d7da', '#cccccc']
+                    }]
+                },
+                options: { ...sharedChartOptions, scales: { ...sharedChartOptions.scales, y: { suggestedMin: 3, suggestedMax: 5 }}}
+            });
+        });
+    </script>
+</body>
+</html>
+
