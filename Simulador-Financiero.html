@@ -426,6 +426,19 @@
             </h1>
             <div class="subtitle">Hospital del Móvil - Análisis de Escenarios y Proyecciones</div>
             
+            <!-- Botones de Control -->
+            <div style="margin: 20px 0; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="printToPDF()" style="background: #fff; border: 2px solid #B91C3C; color: #B91C3C; padding: 10px 15px; border-radius: 15px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                    📄 Imprimir/PDF
+                </button>
+                <button onclick="clearQuery()" style="background: #fff; border: 2px solid #F59E0B; color: #F59E0B; padding: 10px 15px; border-radius: 15px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                    🔄 Limpiar Simulación
+                </button>
+                <button onclick="returnToIndex()" style="background: #fff; border: 2px solid #6B7280; color: #6B7280; padding: 10px 15px; border-radius: 15px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                    🏠 Volver al Índice
+                </button>
+            </div>
+            
             <div class="simulation-tabs">
                 <button class="sim-tab active" onclick="showSimulation('basic')">📊 Proyección Básica</button>
                 <button class="sim-tab" onclick="showSimulation('scenarios')">🎯 Análisis de Escenarios</button>
@@ -728,4 +741,141 @@
                         <div class="result-change" id="irrStatus">Evaluando...</div>
                     </div>
                     <div class="result-card">
-                        <div class="result-
+                        <div class="result-value" id="payback">0 años</div>
+                        <div class="result-label">Período de Retorno</div>
+                        <div class="result-change" id="paybackStatus">Evaluando...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Simulador básico de funciones para el financiero
+    function showSimulation(type) {
+        // Lógica básica de cambio de tabs
+        document.querySelectorAll('.sim-tab').forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+        console.log('Mostrando simulación:', type);
+    }
+
+    function calculateProjection() {
+        console.log('Calculando proyección básica...');
+    }
+
+    function runScenarios() {
+        console.log('Ejecutando análisis de escenarios...');
+    }
+
+    function analyzeSensitivity() {
+        console.log('Analizando sensibilidad...');
+    }
+
+    function analyzeInvestment() {
+        console.log('Analizando inversión...');
+        const results = document.getElementById('investmentResults');
+        if (results) results.style.display = 'block';
+    }
+
+    // --- FUNCIONES DE CONTROL DE PÁGINA ---
+
+    // Función para imprimir o generar PDF
+    function printToPDF() {
+        // Ocultar los botones de control antes de imprimir
+        const controlButtons = document.querySelector('div[style*="margin: 20px 0"]');
+        if (controlButtons) {
+            const originalDisplay = controlButtons.style.display;
+            controlButtons.style.display = 'none';
+            
+            // Disparar la función de impresión del navegador
+            window.print();
+            
+            // Restaurar los botones después de un pequeño delay
+            setTimeout(() => {
+                controlButtons.style.display = originalDisplay;
+            }, 1000);
+        }
+    }
+
+    // Función para limpiar la consulta (reiniciar simulación)
+    function clearQuery() {
+        // Resetear todas las simulaciones y formularios
+        document.querySelectorAll('input[type="number"], input[type="text"], select').forEach(input => {
+            if (input.type === 'number') {
+                input.value = '';
+            } else {
+                input.selectedIndex = 0;
+            }
+        });
+        
+        // Ocultar resultados
+        document.querySelectorAll('[id*="Results"]').forEach(result => {
+            result.style.display = 'none';
+        });
+        
+        // Resetear tabs a la primera
+        document.querySelectorAll('.sim-tab').forEach(tab => tab.classList.remove('active'));
+        const firstTab = document.querySelector('.sim-tab');
+        if (firstTab) firstTab.classList.add('active');
+        
+        // Mostrar confirmación temporal
+        const tempAlert = document.createElement('div');
+        tempAlert.style.cssText = `
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            background: #15803D; 
+            color: white; 
+            padding: 15px 20px; 
+            border-radius: 5px; 
+            z-index: 1000; 
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        `;
+        tempAlert.textContent = '✅ Simulación reiniciada';
+        document.body.appendChild(tempAlert);
+        
+        // Remover el mensaje después de 3 segundos
+        setTimeout(() => {
+            if (document.body.contains(tempAlert)) {
+                document.body.removeChild(tempAlert);
+            }
+        }, 3000);
+    }
+
+    // Función para volver al índice principal
+    function returnToIndex() {
+        // Confirmar antes de cerrar
+        if (confirm('¿Estás seguro de que quieres volver al índice principal? Se cerrará esta página.')) {
+            // Cerrar la ventana/pestaña actual
+            window.close();
+            
+            // Si window.close() no funciona (algunos navegadores lo bloquean),
+            // navegar al índice
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 100);
+        }
+    }
+</script>
+
+<!-- Estilos para impresión -->
+<style>
+    @media print {
+        div[style*="margin: 20px 0"] {
+            display: none !important;
+        }
+        .simulation-section {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        body {
+            font-size: 12px;
+        }
+    }
+</style>
+
+</body>
+</html>

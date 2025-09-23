@@ -170,6 +170,19 @@
         <div class="header">
             <h1>📧 Capítulo 13</h1>
             <p>Email Marketing y Automatización</p>
+            
+            <!-- Botones de Control -->
+            <div style="margin: 20px 0; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="printToPDF()" style="background: #fff; border: 2px solid #667eea; color: #667eea; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                    📄 Imprimir/PDF
+                </button>
+                <button onclick="clearQuery()" style="background: #fff; border: 2px solid #764ba2; color: #764ba2; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                    🔄 Limpiar Actividades
+                </button>
+                <button onclick="returnToIndex()" style="background: #fff; border: 2px solid #6B7280; color: #6B7280; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                    🏠 Volver al Índice
+                </button>
+            </div>
         </div>
         <div class="card">
             <h2>🎯 Fundamentos del Email Marketing</h2>
@@ -383,6 +396,85 @@
                 </div>
             `;
             document.getElementById('quizResults').style.display = 'block';
+        }
+        
+        // --- FUNCIONES DE CONTROL DE PÁGINA ---
+        
+        // Función para imprimir o generar PDF
+        function printToPDF() {
+            // Ocultar los botones de control antes de imprimir
+            const controlButtons = document.querySelector('div[style*="margin: 20px 0"]');
+            if (controlButtons) {
+                const originalDisplay = controlButtons.style.display;
+                controlButtons.style.display = 'none';
+                
+                // Disparar la función de impresión del navegador
+                window.print();
+                
+                // Restaurar los botones después de un pequeño delay
+                setTimeout(() => {
+                    controlButtons.style.display = originalDisplay;
+                }, 1000);
+            }
+        }
+        
+        // Función para limpiar actividades (reiniciar interactivos)
+        function clearQuery() {
+            // Limpiar formularios de email builder
+            document.getElementById('emailSubject').value = '';
+            document.getElementById('emailContent').value = '';
+            document.getElementById('emailType').selectedIndex = 0;
+            
+            // Limpiar previews
+            document.getElementById('previewSubject').textContent = '';
+            document.getElementById('previewContent').textContent = '';
+            
+            // Ocultar resultados del quiz
+            document.getElementById('quizResults').style.display = 'none';
+            
+            // Limpiar respuestas del quiz
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // Mostrar confirmación temporal
+            const tempAlert = document.createElement('div');
+            tempAlert.style.cssText = `
+                position: fixed; 
+                top: 20px; 
+                right: 20px; 
+                background: #667eea; 
+                color: white; 
+                padding: 15px 20px; 
+                border-radius: 8px; 
+                z-index: 1000; 
+                font-weight: bold;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            `;
+            tempAlert.textContent = '✅ Actividades reiniciadas';
+            document.body.appendChild(tempAlert);
+            
+            // Remover el mensaje después de 3 segundos
+            setTimeout(() => {
+                if (document.body.contains(tempAlert)) {
+                    document.body.removeChild(tempAlert);
+                }
+            }, 3000);
+        }
+        
+        // Función para volver al índice principal
+        function returnToIndex() {
+            // Confirmar antes de cerrar
+            if (confirm('¿Estás seguro de que quieres volver al índice principal? Se cerrará esta página.')) {
+                // Cerrar la ventana/pestaña actual
+                window.close();
+                
+                // Si window.close() no funciona (algunos navegadores lo bloquean),
+                // navegar al índice
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 100);
+            }
         }
     </script>
 </body>
